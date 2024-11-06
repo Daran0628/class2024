@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19_이미지스프라이트</title>
+  <style>
+    body {margin-bottom: 500px;}
+    .google {}
+    .google a {
+      background: url(img/google.png);
+      /* text-indent: -9999px; */
+      /* width: 376px;height: 134px; */
+
+      width: 200px;height: 72px;
+      background-size: contain;
+
+      display: block;border: 1px solid blue;
+    }
+    .google span {
+      width: 1px;height: 1px;
+      display: block;overflow: hidden;
+    }
+
+    .starbucks a {
+      background: url(img/starbucks.png);
+      width: 225px;height: 225px;
+      display: block;
+    }
+    .starbucks span {
+      width: 1px;height: 1px;
+      display: block;overflow: hidden;
+    }
+
+    .test {
+      border: 3px solid red;
+      width: 300px;height: 200px;
+      background-image: url(img/food_2.png);
+      background-repeat: no-repeat;
+      background-position: -196px -76px;
+    }
+    .nick {
+      background-image: url(img/sprite.png);
+      background-position: -315px -327px;
+      width: 56px;height: 70px;
+    }
+    .papago {
+      width: 44px;height: 57px;
+      background: url(img/sprite.png) -411px -164px;
+    }
+    ul, li {list-style: none;margin: 0;padding: 0;}
+    a {color: inherit; text-decoration: none;}
+
+    .sns {background: pink;padding: 120px 80px;display: flex;gap: 30px;}
+    .sns li a {
+      display: block;width: 120px;height: 120px; background-image: url(img/ico_sns.png);
+    }
+    .sns li:nth-child(1) a {background-position: 0 0;}
+    .sns li:nth-child(2) a {background-position: -128px 0;}
+    .sns li:nth-child(3) a {background-position: -256px 0;}
+    .sns li:nth-child(4) a {background-position: -384px 0;}
+    .sns li:nth-child(5) a {background-position: -512px 0;}
+    .sns li:nth-child(1):hover a {background-position: 0 -128px;}
+    .sns li:nth-child(2):hover a {background-position: -128px -128px;}
+    .sns li:nth-child(3) a:hover {background-position: -256px -128px;}
+    .sns li:nth-child(4) a:hover {background-position: -384px -128px;}
+    .sns li:nth-child(5) a:hover {background-position: -512px -128px;}
+
+    .sns li span {display: block;width: 0;height: 0;overflow: hidden;}
+
+
+    /* .sns li {color: red}
+    .sns li:nth-child(3) a {background-color: blue} */
+
+    /*
+      - 텍스트 감춤
+      - 각 li에게 각각의 아이콘
+      - li는 좌우 배치(정렬)
+      - 마우스오버 하면 어두운 이미지로 변경
+    */
+    .sns li {border: 2px solid #000;}
+    .sns li:nth-child(2n) {border: 2px solid green;}
+    .sns li:nth-child(2n+1) {border: 2px solid red;}
+    .sns li:nth-child(3n) {border: none;}
+  </style>
+</head>
+<body>
+  <h1 class="google"><a href="#"><span>google</span></a></h1>
+  <h1 class="starbucks"><a href="#"><span>스타벅스</span></a></h1>
+  <div class="test">
+    영역보다 배경이미지 클 경우 이미지가 다 보이지 않고 일부 영역만 보임
+  </div>
+  <div class="nick"></div>
+  <div class="papago"></div>
+
+  <h2>sns 목록</h2>
+  <ul class="sns">
+    <li>
+      <a href="#" target="_blank"><span>카카오톡채널</span></a>
+    </li>
+    <li><a href="#" target="_blank"><span>유튜브</span></a></li>
+    <li><a href="#" target="_blank"><span>인스타</span></a></li>
+    <li><a href="#" target="_blank"><span>페북</span></a></li>
+    <li><a href="#" target="_blank"><span>in</span></a></li>
+    <li><a href="#" target="_blank"><span>in</span></a></li>
+    <li><a href="#" target="_blank"><span>in</span></a></li>
+  </ul>
+</body>
+</html>
+
+
+
+

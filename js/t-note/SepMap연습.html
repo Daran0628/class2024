@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SetMap연습</title>
+</head>
+<body>
+  <label for="student_name">학생명</label>
+  <input type="text" id="student_name" placeholder="이름을 입력"> <br>
+  <label for="student_score">점수</label>
+  <input type="number" id="student_score" placeholder="점수을 입력"> <br>
+  <button id="input_info">입력</button>
+  <hr>
+  <ul id="student_list"></ul>
+
+  <script>
+    //목표: 이름과 성적을 입력 받아서 Map으로 저장, 리스트 출력
+    // - 같은 이름으로 등록되는 데이터의 처리방법
+
+    const inputInfo = document.getElementById('input_info')
+    const studentList = document.getElementById('student_list')
+    const studentName = document.getElementById('student_name')
+    const studentScore = document.getElementById('student_score')
+    const studentMap = new Map();
+
+    //1. 버튼을 클릭하면
+    inputInfo.addEventListener('click',function() {
+      //2. 입력받은 이름, 성적 받아오기
+      let name = studentName.value;
+      let score = studentScore.value;
+
+      if(name == '' || score == '') {
+        alert('이름과 점수를 입력하세요');
+
+        let focusElm;
+        focusElm = (name == '') ? studentName : studentScore
+        focusElm.focus();
+
+        return
+      }
+
+      //3. Map에 저장
+      // - 같은 이름으로 등록되는 데이터의 처리방법
+      // - name이 studentMap에 존재하는지
+      if(studentMap.has(name)) {
+        //confirm을 이용해서 처리 여부 결정
+        const update = confirm('등록된 학생, 점수 수정 ok?')
+        console.log(update); //확인(true), 취소(false)
+
+        if(!update) { //취소를 선택하면
+          clearInputs()
+          return
+        }
+      }
+      studentMap.set(name, score)
+      clearInputs()
+
+      //Map에서 데이터 불러와서 li에 텍스트로 추가(함수로)
+      // studentList.innerHTML += `<li>${name}, ${score}</li>`
+      updateStudentList()
+
+      console.log(studentMap)
+    }) //btn.event
+
+    const updateStudentList = () => {
+      //클릭할 때마다, 함수가 호출될 때마다
+      //Map의 데이터로 li를 누적해서 추가해 줌
+      //기존(이미)의 li는 삭제하고 추가
+      studentList.innerHTML = ''
+      studentMap.forEach(function(value, key) {
+        //console.log(`${key} : ${value}원`);
+        studentList.innerHTML += `<li>${key}, ${value}</li>`;
+      })
+    }
+
+    const clearInputs = () => {
+      studentName.value = '';
+      studentScore.value = '';
+      studentName.focus();
+    }
+  </script>
+</body>
+</html>

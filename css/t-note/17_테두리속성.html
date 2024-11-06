@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>17_테두리속성</title>
+  <style>
+    .container {
+      display: flex; gap: 50px;
+      flex-wrap: wrap;width: 1200px;
+      margin: 50px auto;
+    }
+    .box {
+      width: 200px;height: 200px;
+      margin-bottom: 50px;background: silver;
+      border: 1px solid #000;
+      border-width: 20px;
+      border-color: red;
+    }
+    .b1 {border-style: solid;}
+    .b2 {border-style: double;}
+    .b3 {border-style: dotted;}
+    .b4 {border-style: dashed;}
+    .b5 {border-style: inset;}
+    .b6 {border-style: outset;}
+    .b7 {border-style: ridge;}
+    .b8 {border-style: groove;}
+    .b9 {
+      border-top-width: 10px;border-top-color: blue;
+      border-bottom: 30px double slateblue;
+    }
+    .b10 {
+      border-radius: 60px 0 0 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box b1"></div>
+    <div class="box b2"></div>
+    <div class="box b3"></div>
+    <div class="box b4"></div>
+    <div class="box b5"></div>
+    <div class="box b6"></div>
+    <div class="box b7"></div>
+    <div class="box b8"></div>
+    <div class="box b9"></div>
+    <div class="box b10"></div>
+  </div>
+</body>
+</html>

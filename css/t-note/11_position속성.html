@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11_position속성</title>
+  <style>
+    body {background: url(img/grid.gif);height: 3000px;}
+    .box1 {
+      background: coral;
+      width: 400px;height: 300px;
+      position: absolute;left: 100px;top: 100px;
+    }
+    .box2 {
+      background: slateblue;
+      width: 400px;height: 300px;margin-bottom: 100px;
+      position: relative;left: 100px;top: 200px;
+    }
+    .box3 {
+      background: yellowgreen;
+      width: 400px;height: 300px;
+      position: relative;left: 150px;top: 0px;
+    }
+    .gotop {
+      padding: 20px;background: #000;color: #FFF;
+      font-weight: bold;
+      position: fixed;right: 50px;bottom: 50px;
+    }
+    .parent {
+      width: 80%;height: 500px;
+      margin: 100px auto;
+      position: relative;
+      background: rgba(0,0,0,0.4);
+    }
+    .abs {
+      width: 200px;height: 200px;
+      background: red;
+      position: absolute;left: 50%;top: 100px;
+    }
+    .rel {
+      width: 200px;height: 200px;
+      background: blue;
+      position: relative;left: 150px;top: 150px;
+    }
+    .last {
+      width: 200px;height: 200px;
+      background: gold;
+      position: absolute;right: 0;bottom: 0;
+    }
+    .sticky {
+      padding: 20px;
+      background: dodgerblue;
+      position: sticky;top: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">box1</div>
+  <div class="box2">box2</div>
+  <div class="box3">box3</div>
+  <div class="gotop">TOP</div>
+  <div class="parent">
+    <div class="abs">abs</div>
+    <div class="rel">rel</div>
+    <div class="last">last</div>
+  </div>
+  <div class="sticky">sticky</div>
+</body>
+</html>
+<!--
+  * position(위치) : 특정 위치 설정에 사용
+  - 꼭 필요한 경우에만 사용할 것
+  - 좌표값 설정이 필요(left, right, top, bottom 속성)
+
+  * position 속성 값
+  : static(default, 생략)
+  : fixed
+    - 뷰포트(화면, 브라우저)가 기준
+    - 스크롤 되지 않고 화면에 고정
+
+  : absolute
+    - position 속성이 선언된 가장 가까운 조상 요소 기준
+    - position 속성이 선언된 조상 요소가 없다면 body 기준
+    - 마치 float처럼 인라인 형식이 되어 가로 크기가 자손기준
+    - 페이지(기준)가 스크롤되면 따라서 스크롤 됨
+    - 다른 요소와 겹쳐짐
+
+  : relative
+    - 직접 부모 요소 기준
+    - 주변요소(부모, 형제 요소)의 면적(박스속성)을 피해서 배치
+ -->

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>화살표 함수</title>
+<script>
+   // 함수는 호출을 받아야만 동작함
+   // 실행결과를 호출한 객체에게 반환(return)
+
+   function expon (n1, n2) {
+      return n1 ** n2
+   }
+
+   console.log(`3 ** 4 : ${expon(3, 4)}`);
+   console.log(`5 ** 3 : ${expon(5, 3)}`);
+
+   // 화살표 함수
+   // 매개변수 => 매개변수 + 10
+   // (매개변수1, 매개변수2) => {매개변수 1 + 10; 매개변수1 * 매개변수2} 
+   // {}와 리턴문이 생략 됨 THERFORE 중괄호를 쓸 때는 반드시 리턴문을 써줄 것!
+
+   // let arrowExpon = (n1, n2) => n1 ** n2
+   let arrowExpon = (n1, n2) => {return n1 ** n2}
+
+   console.log(`3 ** 4 : ${arrowExpon(3, 4)}`);
+   console.log(`5 ** 3 : ${arrowExpon(5, 3)}`);
+   
+   //인치를 센티미터로 바꾸는 함수를 화살표 함수로 구현
+
+   let cm = (inch) => inch * 2.54 ;
+
+   console.log(`3인치는 몇 Cm? : ${cm(3)}Cm`);
+
+   //화씨를 섭씨로 바꾸는 함수를 화살표 함수로 구현
+
+   let cels = (farh) => (farh - 32) / 1.8 ;
+
+   console.log(`화씨 10도는 섭씨 ${cels(10)}도`);
+   
+   const zodiacName = ['원숭이', '닭', '개', '돼지', '쥐', '소', '호랑이', '토끼', '용', '뱀', '말', '양']
+   
+   let twelve = (birth) => zodiacName[birth % 12]
+      console.log(`2025년은 ${twelve(2025)} 띠해입니다.`); // 뱀
+   
+
+   // prompt로 사용자 이름 입력받기
+   // 함수 내부에 콘솔.log 작성 -> 홍길동님. 최종접속시간 hr:mn:sc
+   // let now = new Date();
+  
+   const user = prompt('사용자 이름')
+   now = new Date();
+
+   let time = now => { 
+      hr = now.getHours()
+      m = now.getMinutes()
+         mn = (m < 10) ? '0' + m : m;
+      s = now.getSeconds()
+         sc = (s < 10) ? '0' + s : s;
+   
+      return `${hr} : ${mn} : ${sc}`};
+
+   let userInfo0 = (name) => `${name}님. 최종 접속시간 ${time(now)}`
+   
+   console.log(userInfo0(user));
+   
+   const userId = prompt ('사용자 ID');
+   
+
+   timeInfo = new Date();
+
+   let userInfo = (id, lastEnter) => {
+      hrs = timeInfo.getHours();
+         mm = timeInfo.getMinutes();
+      min = mm < 10 ? '0' + mm : mm; 
+         ss = timeInfo.getSeconds();
+      sec = ss < 10 ? '0' + ss : ss;
+      lastEntered = `${hrs} : ${min} : ${sec}`
+
+      return `${id}님. 최종 접속시간 ${lastEntered}`}
+
+   console.log(userInfo(userId, timeInfo));
+   
+
+</script>
+</head>
+<body>
+   
+</body>
+</html>

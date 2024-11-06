@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>jQuery 시계</title>
+   <style>
+      @font-face {
+         font-family:'digifot';
+         src: url(/jQuery/DS-DIGIB.TTF);
+      }
+      .digital {
+      width: 500px;height: 500px;background: url(../img/digital.png);
+      border: 1px solid #000;
+      font-size: 90px;color: #fff;
+   }
+      .dtime {
+      position: relative;left: 53px;top: 115px;
+      display: flex;justify-content: center;align-items: center;gap: 15px;
+      width: 350px;height: 165px;
+      /* background: rgba(255,200,200,0.7); */
+      font-family: 'digifot';
+      transform: skew(3deg, 6deg);
+      }
+      .ds {font-size: 40px;}
+      .dh, .dm {font-size: 90px;}
+
+      .analog {
+         position: relative;
+         width: 600px;height: 600px;
+         background-image: url(../img/clock_panel.png);
+      }
+      .analog img {
+         position: absolute;left: 0;top: 0;
+      }
+      .analog .center {
+         position: absolute;left: 50%;top: 50%;
+         transform: translate(-50%, -50%);
+         width: 20px;height: 20px;
+         background: black;border-radius: 50%;
+      }
+
+   </style>
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+   <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"></script>
+   <script>
+      $(function() {
+         time()
+         function time() {
+            const now = new Date();
+               const hh = now.getHours();
+               const hr = hh >= 13 ? hh - 12 : hh;
+            const h = hr < 10 ? '0' + hr : hr
+               const mm = now.getMinutes();
+            const m = mm < 10 ? '0' + mm : mm;
+               const ss = now.getSeconds();
+            const s = ss < 10 ? '0' + ss : ss;
+
+            $('.dh').text(h)
+            $('.dm').text(m)
+            $('.ds').text(s)
+
+            const mmdeg = mm <= 14 ? 0 : mm <= 29 ? 7.5 : mm <= 44 ? 15 : mm <= 59 ? 22.5 : ""; 
+
+            $('.ah').css({'transform' : `rotate(${h * 30 + mmdeg}deg)`})
+            $('.am').css({'transform' : `rotate(${m * 6}deg)`})
+            $('.as').css({'transform' : `rotate(${s * 6}deg)`})
+            
+            }
+         // const now = new Date()
+         // const s = now.getSeconds()
+            // console.log(s);
+         setInterval(time, 1000)
+
+            // 1. 24시간 표시를 12시간 표시
+             // 2. 분과 초를 1단위 앞에 0 추가
+      })
+   </script>
+</head>
+<body>
+   <h1>시계</h1>
+   <h2>디지털</h2>
+   <div class="digital">
+      <div class="dtime">
+         <span class="dh">00</span>
+         :
+         <span class="dm">00</span>
+         :
+         <span class="ds">00</span>
+      </div>
+   </div>
+   <h2>아날로그</h2>
+      <div class="analog">
+         <img src="../img/second_hand.png" alt="" class="as">
+         <img src="../img/minute_hand.png" alt="" class="am">
+         <img src="../img/hour_hand.png" alt="" class="ah">
+         <div class="center"></div>
+      </div>
+</body>
+</html>

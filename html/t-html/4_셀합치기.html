@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>4_셀합치기</title>
+	<style>
+		body {margin-bottom: 500px;}
+		table {
+			border-collapse: collapse;
+			width: 400px;height:200px;
+		}
+		td {
+			border: 1px solid #444;
+			width:100px;height: 50px;
+		}
+		#ex3 {
+			width: 600px;
+			height: 600px;
+		}
+		#ex3 td {
+			background: #FDD;
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<h1>셀합치기 연습</h1>
+	<h2>가로셀 합치기</h2>
+	<h3>연습1</h3>
+	<table>
+		<tr>
+			<td>1</td>
+			<td colspan="2">2</td>
+			<!-- <td>3</td> -->
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>6</td>
+			<td colspan="2">7</td>
+			<!-- <td>8</td> -->
+		</tr>
+		<tr>
+			<td>9</td>
+			<td colspan="3">10</td>
+			<!-- <td>11</td>
+			<td>12</td> -->
+		</tr>
+	</table>
+	<h2>세로셀 합치기</h2>
+	<h3>연습2</h3>
+	<table>
+		<tr>
+			<td>1</td>
+			<td rowspan="2">2</td>
+			<td rowspan="2">3</td>
+			<td rowspan="4">4</td>
+		</tr>
+		<tr>
+			<td rowspan="2">5</td>
+			<!-- <td>6</td> -->
+			<!-- <td>7</td> -->
+			<!-- <td>8</td> -->
+		</tr>
+		<tr>
+			<!-- <td>9</td> -->
+			<td>10</td>
+			<td rowspan="2">11</td>
+			<!-- <td>12</td> -->
+		</tr>
+		<tr>
+			<td>13</td>
+			<td>14</td>
+			<!-- <td>15</td> -->
+			<!-- <td>16</td> -->
+		</tr>
+	</table>
+	<h2>셀합치기 연습</h2>
+	<h3>연습3</h3>
+	<table id="ex3">
+		<tr>
+			<td colspan="2">1</td>
+			<td rowspan="2">3</td>
+		</tr>
+		<tr>
+			<td rowspan="2">4</td>
+			<td>5</td>
+		</tr>
+		<tr>
+			<td colspan="2">8</td>
+		</tr>
+	</table>
+	<h3>연습4</h3>
+	<table>
+		<tr>
+			<td rowspan="3"></td>
+			<td rowspan="3">과실비율</td>
+			<td colspan="3">자동차 보험료 변동</td>
+			<td rowspan="3">변경효과</td>
+		</tr>
+		<tr>
+			<td rowspan="2">사고 전</td>
+			<td colspan="2">사고 후</td>
+		</tr>
+		<tr>
+			<td>개선 전</td>
+			<td>개선 후</td>
+		</tr>
+		<tr>
+			<td>A(가해자)</td>
+			<td>80%</td>
+			<td>63만원</td>
+			<td>85만원 <br>(35% 할증)</td>
+			<td>85만원 <br>(35% 할증)</td>
+			<td>변화 없음</td>
+		</tr>
+		<tr>
+			<td>B(피해자)</td>
+			<td>20%</td>
+			<td>41만원</td>
+			<td>55만원<br>(34% 할증)</td>
+			<td>45만원<br>(10% 할증)</td>
+			<td>24%p 감소</td>
+		</tr>
+	</table>
+	<h3>연습5</h3>
+	<table>
+		<tr>
+			<td colspan="6">한국의 차</td>
+		</tr>
+		<tr>
+			<td rowspan="6">뿌리차</td>
+			<td>인삼차</td>
+			<td rowspan="9">과일차</td>
+			<td>수정과</td>
+			<td rowspan="5">잎차</td>
+			<td>뽕잎차</td>
+		</tr>
+		<tr>
+			<td>당귀차</td>
+			<td>유자차</td>
+			<td>감잎차</td>
+		</tr>
+		<tr>
+			<td>생강차</td>
+			<td>구기자차</td>
+			<td>솔잎차</td>
+		</tr>
+		<tr>
+			<td>칡차</td>
+			<td>대추차</td>
+			<td>국화차</td>
+		</tr>
+		<tr>
+			<td>둥글레차</td>
+			<td>오미자차</td>
+			<td>이슬차</td>
+		</tr>
+		<tr>
+			<td>마차</td>
+			<td>매실차</td>
+			<td rowspan="5">기타</td>
+			<td>두충차</td>
+		</tr>
+		<tr>
+			<td rowspan="3">곡물차</td>
+			<td>보리차</td>
+			<td>모과차</td>
+			<td>영지버섯차</td>
+		</tr>
+		<tr>
+			<td>옥수수차</td>
+			<td>산수유차</td>
+			<td>귤강차</td>
+		</tr>
+		<tr>
+			<td>현미차</td>
+			<td>탱자차</td>
+			<td>쌍화차</td>
+		</tr>
+	</table>
+</body>
+</html>

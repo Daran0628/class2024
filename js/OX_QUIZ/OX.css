@@ -1,0 +1,105 @@
+@font-face {
+   font-family: 'BagelFatOne-Regular';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_JAMO@1.0/BagelFatOne-Regular.woff2') format('woff2');
+   font-weight: normal;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'EF_jejudoldam';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+   font-weight: normal;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'ONE-Mobile-Title';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+ }
+ 
+
+ #ox_wrap {
+   font-family: 'EF_jejudoldam';
+ }
+ .inner{padding: 0 25%;}
+ button {margin: 0;padding: 0;border: none;background: none;cursor: pointer;}
+ 
+ /* Home */
+ /* .home {display: none !important} */
+ .home_wrap {display: flex;flex-direction: column;justify-content: center;align-items: center; width: 100%;height: 700px;background: lightgoldenrodyellow;margin-top: 100px;text-align: center;}
+ .home_wrap h1 {font-size: 80px;}
+ .home_wrap h1 span {font-size: 100px;font-family: 'BagelFatOne-Regular';}
+ .home_wrap h1 span:nth-child(1):hover {color: rgb(243, 96, 96);}
+ .home_wrap h1 span:nth-child(2):hover {color: rgb(99, 200, 247);}
+ .home_wrap button {
+   padding: 10px 20px;margin-bottom: 20px;border: 3px solid #000;border-radius: 30px;
+   font-size: 30px;font-family: inherit;text-align: center;
+ }
+ .home_wrap button:hover {border: 3px solid #fff;color: #fff;background: gold;}
+ 
+ /* play */
+ .play .play_wrap {
+   position: relative;
+   width: 100%;height: 730px;
+   background: lightgoldenrodyellow;
+   /* background: salmon */
+}
+ .play_wrap .progress_bar {width: 100%;height: 1rem;background: #333;}
+ .play_wrap .play_swiper {
+   display: flex;flex-direction: column;align-items: center;
+   overflow: hidden; height: 350px;border: 1px dashed white}
+ .play_swiper .swiper-wrapper {display: flex;width: 100%;height: 100%;font-family: 'ONE-Mobile-Title'}
+ .play_swiper .swiper-slide {display: flex;justify-content: center;align-items: center; width: 100%;height: 250px; flex-shrink: 0;flex-wrap: nowrap;font-size: 30px;background: #fff;}
+ .play_wrap .swiper-container .pagination {
+   display: block;
+   width: 6rem;height: 2rem;
+   /* padding: 5px; */
+   font-size: 20px;
+   /* background: red; */
+}
+ .play .ox_box {
+   display: flex;justify-content: center;gap: 70px;
+   position: absolute;left: 0;right: 0;top: 370px;
+   /* border: 1px dotted blue; */
+}
+.play .ox_box button {
+   width: 200px;height: 200px;
+   border: 5px solid #333;border-radius: 50% 50%;
+   font-family: 'ONE-Mobile-Title';
+   font-size: 150px;color: #333;
+   }
+
+.ox_box .btn_O:hover {
+   border:5px solid #fff;color: #fff;
+   background: rgb(243, 96, 96)}
+.ox_box .btn_X:hover {
+   border:5px solid #fff;color: #fff;
+   background: rgb(99, 200, 247);}
+
+.play .ox_box .btn_P {
+   position: absolute;right: 50px;bottom: -80px;
+   width: 150px;height: 50px;
+   padding: 15px 10px 15px 20px;
+   border:3px solid #fff;border-radius:7px;
+   background: #f8f8f8;
+   font-family: 'ONE-Mobile-Title';
+   font-size: 17px;
+}
+.play .ox_box  .btn_P:hover {background: gold;}
+.opt_box .btn_P i {font-size: 17px;}
+ 
+/* pop */
+ 
+ /* result */
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

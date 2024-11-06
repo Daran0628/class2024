@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" href="img/favicon.png">
+   <title>10_이미지 맵 & favicon</title>
+</head>
+<body>
+   <h1>이미지 맵</h1>
+   <p>하나의 이미지에 여러 개의 링크</p>
+
+   <a href="http://www.twitter.co.kr">
+      <img src="img/btn_main_sns02.png" alt="트위터 하이퍼링크 로고" >
+   </a>
+   <img src="img/img1.jpg" alt="프로모션 배너" usemap="#banner">
+   <map name="banner">
+      <area shape="rect" coords="243,1221,1135,1581" href="http://www.police.go.kr/" alt="">
+      <area shape="poly" coords="1057,1877,1102,1877,1123,1915,1102,1952,1057,1952,1035,1915" href="http://www.police.go.kr/" alt="">
+      <!--다각형의 좌표는 꼭지점의 x,y값 반/시계 방향-->
+   </map>
+
+   <img src="img/img2.jpg" alt="프로모션 배너" usemap="#banner2">
+   <map name="#banner2">
+      <area shape="circle" coords="569,2476,107" href="#" alt="">
+      <area shape="circle" coords="1390,1926,107" href="#" alt="">
+      <!--원형의 좌표는 중심점의 x,y값 지름-->
+   </map>
+
+   
+</body>
+</html>

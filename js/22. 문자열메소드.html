@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>문자열 메소드</title>
+   <script>
+      // 문자열(string)을 다루는 메소드
+      // 
+      let str = 'Hello~ World~~ Welcome to JS Class!'
+      console.log(str.length); // 35
+      console.log(str[5]); // ~
+
+      // indexOf('string') -> 'string'의 첫 글자의 index번호 반환
+      // indexOf('문자열', 검색 시작 위치) -> 검색 위치에서부터 탐색
+      console.log(str.indexOf('World')) // 7
+      console.log('0부터 탐색 :' + str.indexOf('W')) // 7
+      console.log('8부터 탐색 :' + str.indexOf('W', 8)) // 15
+      console.log(str.indexOf('world')) // -1
+
+      // lastIndexOf('string') -> 오른쪽에서 부터 탐색해서 처음 찾은 
+      
+      // 'string'의 인덱스 번호를 반환
+      console.log(str.lastIndexOf('W')); // 15
+
+      // search('string') ->  'string'의 첫 글자의 index번호 반환
+      console.log(str.search('Hello')); // 0
+      console.log("'world' :" + str.search('world')) // 'world' :-1
+      console.log('/world/i :' + str.search(/world/i), '정규표현식') // /world/i :7 정규표현식 
+
+      // indexOf()와 search()는 같지 않다.
+      // 탐색 시작 위치 설정 -> indexOf() : 가능, search() : 불가
+      // 정규표현식(RegExp) 활용 -> indexOf() : 불가, search() : 가능
+      
+      // match()
+      let txt1;
+      console.log(str.match('~'));
+
+      // includes() -> 문자열 포함 여부에 따라 boolean 값 반환
+      console.log(str.includes('World')); // true
+      console.log(str.includes('W', 20)); // false
+   
+      // slice(start, end) -> start 인덱스 문자부터 end 인덱스 문자 전까지 추출
+      let js = str.indexOf('JS')
+      let je = str.lastIndexOf('Class!')
+      console.log(js, je); // JS
+      console.log(str.slice(js, js+2)) // JS
+
+      // substring(start, end)
+      console.log(str.substring(15, 20)); // Welco
+      
+      // substr(start, length) -> start 인덱스 문자부터 length 갯수의 문자를 추출
+      console.log(str.substr(15, 7)); // Welcome
+      console.log(str.substr(js, 2)); // JS
+      
+      console.log(str.substr(0, 5), str.slice(je, 34)); // Hello Class
+      
+      let hello = str.slice(0, str.indexOf('~'));
+      let clas = str.slice(0, str.indexOf('C'))
+
+      // ** slice() 와 substring()의 차이
+         // 음수 사용(오른쪽부터 탐색) -> slice() : 가능, substring() : 불가
+         console.log('slice(음수사용) :'+ str.slice(7, -10)); // World~~ Welcome to
+         console.log('substring(음수사용) :'+ str.substring(7, -10)); // Hello
+         // 시작수가 끝수보다 크면 두 값을 뒤바꿔 추출 -> slice() : 불가, substring() : 가능
+         console.log('slice() :'+ str.slice(10, 7)); // 
+         console.log('substring() :'+ str.substring(10, 7)); // Wor
+      
+      // concat() -> 문자열 마지막에 'string'을 추가
+         console.log(str.concat("!!!!"));
+      
+      // trim() -> 공백 삭제
+      // trimStart()
+      // trimEnd()
+      let txt2 = '                             Hello~                          World!                 '
+      console.log(txt2.trim());
+
+      let t1 = txt2.trimStart().substr(0, 6)
+      let t2 = txt2.trimEnd().slice(-7)
+      let t3 = t1 + t2;
+            console.log(t3);
+      
+      // repeat()
+      console.log(t1.repeat(3));
+
+      // replace('찾을 문자', '바꿀 문자')
+      console.log(str.replace('JS', 'JavaScript'));
+      console.log(str.replaceAll('~', '!'));
+      
+      // padStart(전체 글자 갯수, '문자열')
+      const nowTime = new Date().getHours();
+      console.log(nowTime);
+      
+      let txt3 = 'hello';
+      console.log(txt3.padStart(7, '*'));
+      
+      
+
+      // padEnd(전체 글자 갯수, '문자열')
+      console.log(txt3.padEnd(10, '-'));
+      
+      // split('문자') : 문자를 기준으로 문자열을 나눠서 새로운 배열로 생성
+      let strArr = str.split(' ')
+      console.log(strArr[0]); // leng. 6
+
+      console.log(str.split('~')); // leng. 4
+      console.log(str.split('~')[3]); // Welcome to Class!
+
+      console.log("str.indexOf('JS')", str.indexOf('JS'));
+      // string(문자열), character(문자)
+      console.log("str.charAt(15)", str.charAt(15)); //15째 문자를 반환
+      console.log("charCodeAt(15)", str.charCodeAt(15)); // 15번째 문자의 아스키코드 값
+      
+      console.log(str);
+
+      str = str.replace('World', 'Class')
+
+      console.log(str);
+      
+      
+      
+   </script>
+</head>
+<body>
+   
+</body>
+</html>

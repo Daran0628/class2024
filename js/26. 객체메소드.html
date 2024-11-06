@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>객체 메소드</title>
+   <script>
+      // 객체.메소드() => window.close()
+      // 메소드()란 이미 만들어 지정된 함수
+
+      // 객체 메소드 (object Method)
+      //   - 객체 네부에서 함수 선언
+      //   - 객체에 특정 동작을 수행하거나 상태를 변경
+      //   - 객체를 캡슐화하고, 코드를 조직화, 유지보수 용이
+      const obj1 = {
+         name: 'James',
+         greet: function() {
+            console.log(`Welcome~ ${this.name}`); // Welcome~ James 
+            
+         }
+      }
+      obj1.greet();
+
+      const obj2 = {
+         buy: 'Milk',
+         memo: function() {
+            console.log(`구입하신 물건은 ${this.buy}`);
+         }
+      }
+      obj2.memo(); // 구입하신 물건은 Milk
+      
+      const obj3 = {
+         score: function(s) {
+            console.log(`점수는 ${s}점 입니다.`);
+         }
+      }
+      obj3.score(100)
+      obj3.score(40)
+
+      const obj4 = {
+         sum: function(n1, n2) {
+            console.log(n1 + n2);
+         }
+      }
+      obj4.sum(5, 10) // 15
+      obj4.sum(7, 9) // 16
+
+      const obj5 = {
+         multiply: (n1, n2) => n1 * n2
+      }
+      const obj5Method = obj5.multiply(5, 6) // 30
+      console.log(obj5.multiply(5, 6));
+      document.write(obj5Method)
+      
+      const calc = {
+         add: (n1, n2) => n1 + n2,
+         subtract: (n1, n2) => n1 - n2,
+         multiply: (n1, n2) => n1 * n2,
+         divide: (n1, n2) => n1 / n2
+      }
+      const {add, subtract, multiply, divide} = calc;
+      
+      let nn1 = 10, nn2 = 3;
+      console.group('--* 계산기 객체');
+         console.log(`덧셈 : ${calc.add(nn1, nn2)}`); // 13
+         console.log(`뺄셈 : ${calc.subtract(nn1, nn2)}`); // 7          
+         console.log(`곱셈 : ${calc.multiply(nn1, nn2)}`); // 30      
+         console.log(`나눗셈 : ${calc.divide(nn1, nn2)}`); // 3.333...5   
+      console.groupEnd();
+
+      const member = {
+         id: 'Admin',
+         // isAdmin: function() {(this.id == 'Admin') ? true : false},
+         permission: function() {
+            // 관리자가 맞으면 콘솔에 '환영합니다. 관리자 님'
+            // 그렇지 않으면 콘솔에 '관리자 전용'
+            if(this.id === 'Admin') {
+               console.log(`환영합니다. 관리자 님.`);
+            } else {console.log(`관리자 전용`);
+               }
+         }
+      }
+      member.permission()
+
+      const users = {
+         id: 0,
+         names: [],
+         ages: [],
+         addName: function(uname, uage) {
+            this.id += 1;
+            this.names.push(uname)
+            this.ages.push(uage)
+            return `${this.names[this.id-1]}, age: ${this.ages[this.id-1]}`
+         }
+      }
+      
+      console.log(users.addName('Alice', 25));
+      console.log(users.addName('Tom', 30));
+      console.log(users.addName('John', 17));
+      // console.log(users.names);
+      // console.log(users.names);
+      // console.log(users.names);
+      
+      // window.onload = function() {}
+      window.addEventListener('load', ()=>{
+         const customers = [];
+         const customer = {
+            id: 0,
+            name: '',
+            age: 0,
+            gender: '',
+            addCustomer: function(cName, cGender, cAge) {
+               // this.id = this.id + 1;
+               // this.name = cName;
+               // this.gender = cGender
+               // this.age = cAge;
+               customers.push({id: this.id, name: cName, age: cAge, gender: cGender})
+               this.id++
+            }
+         }
+
+         console.log(customers); // []
+         console.log(customer.addCustomer('Alice','female',
+      25));
+         console.log(customers);
+      //    console.log(customer.addCustomer('Tom','male',
+      // 30));
+      //    console.log(customers);
+      //    console.log(customer.addCustomer('Bob','male',
+      // 50));
+         
+      })
+
+
+   </script>
+</head>
+<body>
+   
+</body>
+</html>

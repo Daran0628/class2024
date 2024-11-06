@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15_그라디언트</title>
+  <style>
+    body {background: url(img/grid.gif);}
+    .ex1 {
+      width: 800px;height: 300px;margin: 0 0 50px 0;
+      border: 1px solid #AAA;
+      background-image: linear-gradient(90deg,red, green);
+    }
+    .ex2 {
+      width: 800px;height: 300px;margin: 0 0 50px 0;
+      border: 1px solid #AAA;
+      background-image:
+        linear-gradient(to left,red 40%, green 60%);
+    }
+    .ex3 {
+      width: 800px;height: 300px;margin: 0 0 50px 0;
+      border: 1px solid #AAA;
+      background-image:
+        linear-gradient(to right,red, yellow 80%, green);
+    }
+    .ex4 {
+      width: 800px;height: 300px;margin: 0 0 50px 0;
+      border: 1px solid #AAA;
+      background-image:
+        repeating-linear-gradient(to right,red, yellow, #008000 25%);
+    }
+    .ex5 {
+      width: 800px;height: 300px;margin: 0 0 50px 0;
+      background-image:
+        linear-gradient(to right, rgba(255,0,0,0), rgba(0,128,0,1));
+    }
+    .ex6 {
+      width: 500px;height: 500px;margin: 0 0 50px 0;
+      background-image:
+        radial-gradient(red, yellow, green);
+    }
+    .ex7 {
+      width: 500px;height: 300px;margin: 0 0 50px 0;
+      background-image:
+        radial-gradient(red, yellow, green);
+    }
+    .ex8 {
+      width: 500px;height: 200px;margin: 0 0 50px 0;
+      background-image:
+        radial-gradient(circle, red, yellow, green);
+    }
+    .ex9 {
+      width: 500px;height: 500px;margin: 0 0 50px 0;
+      background-image:
+        radial-gradient(red 40%, yellow, green 80%);
+    }
+    .ex10 {
+      width: 500px;height: 500px;margin: 0 0 50px 0;
+      border-radius: 50%;
+      background-image:
+        radial-gradient(red 40%, yellow, green 80%);
+    }
+    .ex11 {
+      width: 500px;height: 500px;margin: 0 0 50px 0;
+      border-radius: 50%;
+      background-image:
+        repeating-radial-gradient(red, yellow, green 25%);
+    }
+    .ex12 {
+      width: 500px;height: 500px;margin: 0 0 50px 0;
+      background-image:
+        radial-gradient(closest-corner at 80% 50%,red, yellow, green);
+    }
+    .ex13 {
+      width: 500px;height: 500px;margin: 0 0 50px 0;
+      background-image:
+        conic-gradient(from 90deg, red, yellow, green);
+    }
+    .ex14 {
+      width: 500px;height: 500px;margin: 0 0 50px 0;
+      border-radius: 50%;
+      background-image:
+        conic-gradient(rgb(185, 185, 185), rgb(241, 241, 184), rgb(255, 174, 174), rgb(172, 154, 255),rgb(180, 180, 180), rgb(255, 255, 255),rgb(185, 185, 185));
+    }
+    .ex15 {
+      width: 500px;height: 500px;margin: 0 0 50px 0;
+      background-image:
+        repeating-conic-gradient(red, yellow, green 60deg);
+    }
+    .ex16 {
+      width: 500px;height: 500px;margin: 0 0 50px 0;
+      border-radius: 50%;
+      background-image:
+        conic-gradient(red, red 90deg, yellow 90deg, yellow 180deg, green 180deg, green 270deg, blue 270deg, blue 360deg);
+    }
+    .ex17 {
+      position: relative;
+      width: 500px;height: 500px;
+      border-radius: 50%;
+      background-image: conic-gradient(from -40deg, #febf00,#febf00 115.2deg, #8ed8b5 115.2deg, #8ed8b5 172.8deg, #d294cf 172.8deg, #d294cf 237.6deg,#fe9898 237.6deg, #fe9898);
+    }
+    .ex17 span {position: absolute;color: #FFF;font-weight: bold;font-size: 34px;}
+    .ex17 .txt1 {left: 230px;top: 70px;}
+    .ex17 .txt2 {left: 350px;top: 240px;}
+    .ex17 .txt3 {left: 230px;top: 360px;}
+    .ex17 .txt4 {left: 60px;top: 210px;}
+
+  </style>
+</head>
+<body>
+  <h1>Gradient</h1>
+  <h2>Linear : 선형</h2>
+  <p>linear-gradient(direction, color, color, ...)</p>
+  <div class="ex1"></div>
+  <div class="ex2"></div>
+  <div class="ex3"></div>
+  <div class="ex4">repeating-linear-gradient(100%를 기준으로 반복횟수를 나눔)</div>
+  <div class="ex5"></div>
+
+  <h2>Radial : 방사형</h2>
+  <div class="ex6"></div>
+  <div class="ex7"></div>
+  <div class="ex8"></div>
+  <div class="ex9"></div>
+  <div class="ex10"></div>
+  <div class="ex11"></div>
+  <div class="ex12"></div>
+
+  <h2>Conic(Angle) : 회전형</h2>
+  <div class="ex13"></div>
+  <div class="ex14"></div>
+  <div class="ex15"></div>
+  <div class="ex16"></div>
+  <div class="ex17">
+    <span class="txt1">Banana <br>32.0%</span>
+    <span class="txt2">Melon<br>16.0%</span>
+    <span class="txt3">Grapes <br>18.0%</span>
+    <span class="txt4">Apple <br>34.0%</span>
+  </div>
+  <div class="ex18"></div>
+  <div class="ex19"></div>
+</body>
+</html>

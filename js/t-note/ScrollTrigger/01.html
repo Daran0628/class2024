@@ -1,0 +1,356 @@
+<!-- 01.html -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01.스크롤트리거</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css"
+    />
+    <style>
+      body {
+        background: url(../img/grid.gif);
+        padding-bottom: 100vh;
+      }
+      h1 {
+        width: 150px;
+        height: 70px;
+        background: #000;
+        position: fixed;
+        left: 50px;
+        top: 30px;
+        z-index: 10;
+        transition: all 0.5s;
+      }
+      h1.on {
+        width: 100px;
+        height: 50px;
+        background: red;
+        left: 10px;
+        top: 10px;
+      }
+      section {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+      }
+      section:nth-child(odd) {
+        background: rgba(0, 0, 0, 0.1);
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        background: slateblue;
+      }
+      .active {
+        width: 400px;
+        background: green !important;
+      }
+      .num {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 300px;
+        opacity: 0.1;
+      }
+      #box1 {
+        margin-left: 100px;
+      }
+      #box6,
+      #box10,
+      #box11,
+      #box12,
+      #box13 {
+        margin: auto;
+      }
+      #box7 {
+        background: hotpink;
+      }
+    </style>
+  </head>
+  <body>
+    <h1></h1>
+    <div id="wrap">
+      <section>
+        <div id="box1" class="box"></div>
+        <div class="num">01</div>
+      </section>
+      <section>
+        <div id="box2" class="box"></div>
+        <div class="num">02</div>
+      </section>
+      <section>
+        <div id="box3" class="box"></div>
+        <div class="num">03</div>
+      </section>
+      <section>
+        <div id="box4" class="box"></div>
+        <div class="num">04</div>
+      </section>
+      <section>
+        <div id="box5" class="box"></div>
+        <div class="num">05</div>
+      </section>
+      <section>
+        <div id="box6" class="box"></div>
+        <div class="num">06</div>
+      </section>
+      <section>
+        <div id="box7" class="box"></div>
+        <div class="num">07</div>
+      </section>
+      <section>
+        <div id="box8" class="box"></div>
+        <div class="num">08</div>
+      </section>
+      <section>
+        <div id="box9" class="box"></div>
+        <div class="num">09</div>
+      </section>
+      <section>
+        <div id="box10" class="box"></div>
+        <div class="num">10</div>
+      </section>
+      <section>
+        <div id="box11" class="box"></div>
+        <div class="num">11</div>
+      </section>
+      <section>
+        <div id="box12" class="box"></div>
+        <div class="num">12</div>
+      </section>
+      <section class="section13">
+        <div id="box13" class="box"></div>
+        <div class="num">13</div>
+      </section>
+    </div>
+
+    <!-- * 자바스크립트 라이브러리 => gsap-->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      //01. to(element, {})
+      gsap.to("#box1", {
+        x: 500, //기본설정 위치에서 500만큼 이동
+        // marginLeft: 500, //마진값이 500
+        y: 100,
+        rotate: 180,
+        backgroundColor: "hotpink",
+        borderRadius: 100,
+        duration: 5, //애니메이션 지속시간
+      });
+
+      //02.trigger
+      gsap.to("#box2", {
+        //애니메이션 요소
+        x: 600,
+        duration: 2,
+        delay: 1, //시작 지연, 1초뒤에 시작
+        scrollTrigger: "#box2", //시작점 설정, 애니메이션요소와 반드시 같을 필요는 없음
+      });
+
+      //03. toggleActions
+      // onEnter, onLeave, onEnterBack, onLeaveBack
+      // enter(범위 안에 들어왔을때), leave(범위 밖으로 빠져나갔을 때)
+      // back(스크롤을 위로 올리는 방향)
+      // play, resume, reset, restart, complete, reverse, none
+      gsap.to("#box3", {
+        x: 600,
+        duration: 2,
+        scrollTrigger: {
+          trigger: "#box3",
+          toggleActions: "play none reverse none",
+          markers: false, //디버깅용 마커
+        },
+      });
+
+      //04. start, end
+      // 문자열 형태로 2개의 값
+      // 첫번째 값은 요소(#box4)의 시작점 위치, 두번째 값은 뷰포트의 트리거 시작위치
+      // top, bottom, center를 사용할 수 있고, px이나 % 사용도 가능
+      gsap.to("#box4", {
+        x: 600,
+        duration: 2,
+        scrollTrigger: {
+          trigger: "#box4",
+          // start: 'top 60%',
+          // end: 'bottom 30%',
+          start: "top center",
+          end: "top center",
+          toggleActions: "play none reverse none",
+        },
+      });
+
+      //05. scrub
+      //스크롤과 애니메이션 동기화
+      //true를 사용하거나, 숫자 사용
+      //- 숫자가 클수록 애니메이션이 느려지고 부드러워짐
+      //- true는 0에 가까움
+      //- 숫자는 애니메이션 딜레이, 스크롤이 끝난 후 숫자만큼의 시간 안에 애니메이션을 완료
+      gsap.to("#box5", {
+        x: 600,
+        duration: 2,
+        scrollTrigger: {
+          trigger: "#box5",
+          start: "top 60%",
+          end: "bottom 30%",
+          // toggleActions: 'play none reverse none', //scrub을 사용할 때는 불필요
+          scrub: 5, //보통 1~5 설정
+        },
+      });
+
+      //06. pin
+      //스크롤이 범위 안에 있는 동안 화면에 고정하는 역할
+      gsap.to("#box6", {
+        scale: 2,
+        scrollTrigger: {
+          trigger: "#box6",
+          start: "top 60%",
+          end: "bottom 30%",
+          scrub: true,
+          // markers: true,
+          pin: true,
+        },
+      });
+
+      //07. toggleClass
+      gsap.to("#box7", {
+        x: 700,
+        scrollTrigger: {
+          trigger: "#box7",
+          start: "top 60%",
+          end: "bottom 30%",
+          scrub: true,
+          toggleClass: "active",
+        },
+      });
+
+      const h1 = document.querySelector("h1");
+      //08. callback
+      gsap.to("#box8", {
+        scrollTrigger: {
+          trigger: "#box8",
+          start: "top 60%",
+          end: "bottom 30%",
+          scrub: true,
+          // markers: true,
+          // onEnter : () => console.log('onEnter'),
+          // onLeave : () => console.log('onLeave'),
+          // onEnterBack : () => console.log('onEnterBack'),
+          // onLeaveBack : () => console.log('onLeaveBack'),
+          onEnter: () => h1.classList.add("on"),
+          onLeave: () => h1.classList.remove("on"),
+          onEnterBack: () => h1.classList.add("on"),
+          onLeaveBack: () => h1.classList.remove("on"),
+        },
+      });
+
+      //09. from(element, {})
+      // to() => 현재 상태에서 시작해서 정의된 값으로 애니메이션
+      // css: red, gsap.to({background : 'blue'}) red => blue
+
+      // from() => 정의된 값에서 애니메이션을 시작해서 현재 상태에서 끝
+      // css: red, gsap.from({background: 'blue'}) blue => red
+
+      gsap.from("#box9", {
+        x: 700,
+        background: "orange",
+        duration: 2,
+        scrollTrigger: {
+          trigger: "#box9",
+          start: "top 60%",
+          end: "bottom 30%",
+          // scrub: true,
+        },
+      });
+
+      //10. fromTo(element, {fromParam}, {toParam})
+      gsap.fromTo(
+        "#box10",
+        {
+          scale: 0,
+        },
+        {
+          scale: 2,
+          scrollTrigger: {
+            trigger: "#box10",
+            start: "top 60%",
+            end: "bottom 30%",
+            scrub: true,
+            // markers: true
+          },
+        }
+      );
+
+      //11. timeline()
+      // gsap.to('#box11', {scale: 1, scrollTrigger: '#box11'})
+      // gsap.to('#box11', {scale: 0, scrollTrigger: '#box11'})
+
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#box11",
+          start: "top 60%",
+          end: "bottom 30%",
+          scrub: true,
+          // markers: true
+        },
+      });
+
+      //타임라인에 애니메이션을 추가
+      timeline
+        .to("#box11", { scale: 0, rotate: 720, borderRadius: 100 })
+        .to("#box11", { scale: 1, rotate: 0, borderRadius: 10 });
+
+      //12. timeline
+      const timeline2 = gsap.timeline();
+
+      ScrollTrigger.create({
+        animation: timeline2,
+        trigger: "#box12",
+        start: "top 60%",
+        end: "bottom 30%",
+        scrub: true,
+        // markers: true
+      });
+
+      //타임라인에 애니메이션을 추가
+      timeline2
+        .to("#box12", { scale: 0, rotate: 720, borderRadius: 100 })
+        .to("#box12", { scale: 1, rotate: 0, borderRadius: 10 });
+
+      //13. 연습
+      // 순차적 애니메이션
+      // 왼쪽으로 200만큼, 오른쪽으로 200, 제자리, 2배만큼 커짐, 원래크기로
+      const timeline3 = gsap.timeline();
+
+      ScrollTrigger.create({
+        animation: timeline3,
+        trigger: ".section13",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+        pin: true,
+        markers: true,
+      });
+
+      //타임라인에 애니메이션을 추가
+      timeline3
+        .to("#box13", { x: -200 })
+        .to("#box13", { x: 200 })
+        .to("#box13", { x: 0 })
+        .to("#box13", { scale: 2 })
+        .to("#box13", { scale: 1 });
+    </script>
+  </body>
+</html>

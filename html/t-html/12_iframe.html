@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12_iframe</title>
+</head>
+<body>
+  <a href="호암재단.html" target="page_viewer">호암재단</a>
+  <a href="1_중요태그.html" target="page_viewer">중요태그</a>
+  <hr>
+  <iframe src="애국가.html" name="page_viewer" frameborder="0" width="600" height="400">
+    * iframe을 렌더링하지 못하는 브라우저에 대신 보여질 내용
+    * frameborder(테두리 속성)는 비표준, css를 사용
+      IE(Internet Explorer)가 css를 이해하지 못해서
+    * iframe은 현재 문서에 다른 문서를 바로 보여줌
+  </iframe><br>
+  <iframe src="https://pps.go.kr" name="" width="1000" height="600"></iframe>
+
+  <hr>
+  <iframe width="900" height="500"
+  src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1&loop=0&controls=1">
+  </iframe>
+
+  <iframe width="900" height="500" src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Bohemian Rhapsody | Muppet Music Video | The Muppets" frameborder="0" allow="accelerometer; autoplay; mute; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <iframe width="1250" height="703" src="https://www.youtube.com/embed/bBISGYP-j38?autoplay=1" title="Ghibli Collection 🌈 Relaxing Ghibli 🎶🎶 Spirited Away, Kiki&#39;s Delivery Service, Princess Mononoke,.." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</body>
+</html>

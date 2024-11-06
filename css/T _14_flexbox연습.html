@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14_flexbox연습</title>
+  <style>
+    /* reset */
+    * {margin: 0;padding: 0;font: inherit;color:inherit;text-decoration: none;list-style: none;border: none;background: none;}
+    .ex1 {background: #ededed;padding: 0 70px;}
+    .ex1 .container {border: 1px solid #000;position: relative;}
+    .ex1 h1 {
+      background: slateblue;width: 100px;height: 44px;
+      position: absolute;left: 0;top: 50%;
+      transform: translateY(-50%);
+    }
+    .ex1 nav {font-size: 20px;}
+    .ex1 nav ul {display: flex;gap: 76px;justify-content: center;}
+    .ex1 nav a {
+      display: flex;height: 100px;align-items: center;
+    }
+    .ex1 .util {
+      display: flex;gap: 32px;align-items: center;
+      position: absolute;right: 0;top: 50%;
+      transform: translateY(-50%);
+    }
+    .ex1 .util a {
+      font-size: 14px;border: 1px solid #CCC;
+      padding: 10px 24px;display: block;
+      border-radius: 20px;
+    }
+    .ex1 .util button {
+      width: 18px;height: 14px;background: #000;
+    }
+
+    .ex2 {background: salmon;padding: 70px;}
+    .ex2 header {
+      background: #FFF;width: 1150px;padding: 20px;box-sizing: border-box;margin: auto;
+      display: flex;justify-content: space-between;
+    }
+    .ex2 .header_left {
+      display: flex;gap: 50px;align-items: center;
+    }
+    .ex2 h1 a {
+      display: block;width: 80px;height: 14px;
+      background: url(img/hancom.png);text-indent: -9999px;
+    }
+    .ex2 nav ul {display: flex;font-size: 20px;gap: 40px;}
+    .ex2 .util {display: flex;}
+    .ex2 .util a {margin-left: 20px;;}
+  </style>
+</head>
+<body>
+  <header class="ex1">
+    <div class="container">
+      <h1><a href="#"><span>청리움</span></a></h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="#">청리움 소개</a>
+          </li>
+          <li><a href="#">공간안내</a></li>
+          <li><a href="#">프로그램</a></li>
+          <li><a href="#">이용안내</a></li>
+          <li><a href="#">알림마당</a></li>
+        </ul>
+      </nav>
+      <div class="util">
+        <a href="#">예약 &middot; 문의</a>
+        <button></button>
+      </div>
+    </div>
+  </header>
+  <div class="ex2">
+    <header class="hancome">
+      <div class="header_left">
+        <h1><a href="#"><span>한컴</span></a></h1>
+        <nav>
+          <ul>
+            <li><a href="#">제품</a></li>
+            <li><a href="#">구매</a></li>
+            <li><a href="#">고객지원</a></li>
+            <li><a href="#">한컴AI</a></li>
+            <li><a href="#">한컴 데이터로더</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="util">
+        <a href="#">로그인</a>
+        <a href="#">회원가입</a>
+        <a href="#">주문/배송</a>
+        <a href="#">장바구니</a>
+      </div>
+    </header>
+  </div>
+</body>
+</html>x

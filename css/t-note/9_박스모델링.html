@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9_박스모델링</title>
+  <style>
+    body {
+      background: url(img/grid.gif);
+      margin: 0;
+    }
+    .box1 {
+      background: rgba(255,0,0,0.5);
+      width: 500px;height: 200px;
+      margin: 50px;
+      padding: 50px;
+    }
+    .box2 {
+      background: yellowgreen;font-size: 40px;
+      margin: 100px;padding: 100px;
+    }
+    .box3 {
+      background: rgba(0,0,255,0.3);
+      width: 400px;
+      margin: 100px;
+      /* padding: 100px; 상하좌우 동일값 축약형 */
+      /* padding-left: 100px;
+      padding-right: 50px;
+      padding-top: 150px;
+      padding-bottom: 50px; */
+      /* padding: 150px 50px 50px 100px; */
+      /* padding: 100px 50px; */
+      padding: 100px 50px 25px;
+      border: 50px dashed green;
+      border-top: 10px solid #000;
+    }
+    .box4 {
+      background: rgba(255,0,255,0.3);
+      width: 400px;margin: 100px auto;
+      padding: 100px 50px 25px;
+      border: 50px dashed green;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">box1</div>
+  <div class="box2">box2</div>
+  <div class="box3">사회적 특수계급의 제도는 인정되지 아니하며, 어떠한 형태로도 이를 창설할 수 없다. 국가는 농수산물의 수급균형과 유통구조의 개선에 노력하여 가격안정을 도모함으로써 농·어민의 이익을 보호한다.
+  법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 계엄을 선포한 때에는 대통령은 지체없이 국회에 통고하여야 한다. 국회는 선전포고, 국군의 외국에의 파견 또는 외국군대의 대한민국 영역안에서의 주류에 대한 동의권을 가진다.</div>
+  <div class="box4">사회적 특수계급의 제도는 인정되지 아니하며, 어떠한 형태로도 이를 창설할 수 없다. 국가는 농수산물의 수급균형과 유통구조의 개선에 노력하여 가격안정을 도모함으로써 농·어민의 이익을 보호한다.
+  법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 계엄을 선포한 때에는 대통령은 지체없이 국회에 통고하여야 한다. 국회는 선전포고, 국군의 외국에의 파견 또는 외국군대의 대한민국 영역안에서의 주류에 대한 동의권을 가진다.</div>
+  <!--
+    ** 박스 속성
+    - 면적과 깊은 관련
+    1. width / height
+      : 콘텐츠(자손요소)를 포함하는 영역의 가로,세로 면적
+      - width: auto
+        (부모의 가로 크기를 꽉 채움, 100%가 아님.)
+      - height: auto
+        (자손의 세로 크기에 따라 변경)
+    2. margin
+      : 박스와 박스 사이 여백
+      : border 바깥쪽에 위치
+      : 배경색을 포함하지 않음
+      : 상하 마진 겹침 현상 발생, 값이 큰 쪽으로 적용
+    3. padding
+      : 박스 내부 여백
+      : 콘텐츠와 border 사이에 위치
+      : 배경색을 포함
+    4. border
+      : padding과 margin 사이에 위치
+      : 배경색을 포함
+  -->
+</body>
+</html>

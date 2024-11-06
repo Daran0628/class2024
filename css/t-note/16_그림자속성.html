@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16_그림자속성</title>
+  <style>
+    body {background: url(img/grid.gif);}
+    .b {
+      margin: 50px;width: 300px;height: 300px;
+      background: pink;
+    }
+    .box1 {box-shadow: 30px 10px 0 green;}
+    .box2 {box-shadow: 10px 10px 50px green;}
+    .box3 {box-shadow: -10px -10px 30px red;}
+    .box4 {
+      box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
+    }
+    .box5 {
+      box-shadow: 10px 10px 0 dodgerblue, 20px 20px 0 slateblue;
+    }
+    .t {
+      font-size: 50px;font-family: "Arial Black";
+      text-transform: uppercase;padding: 50px 20px;
+      background: #FFF;margin: 30px;
+    }
+    .txt1 {
+      color: gold;text-shadow: 5px 5px 5px red;
+    }
+    .txt2 {
+      color: #FFF;
+      text-shadow: 5px 5px gray;
+    }
+    .txt3 {
+      color: gold;
+      text-shadow: 2px 0 red, 0 2px blue,-2px 0 purple, 0 -2px green;
+    }
+    .txt4 {
+      color: gold;
+      -webkit-text-stroke: 2px red;
+      /*
+      * 표준이 아님
+      * Prefix(접두사)
+        -webkit- : 웹킷기반 브라우저(크롬, 사파리)
+        -moz- : 모질라 파이어폭스 브라우저
+        -o- : 오페라 브라우저
+        -ms- : IE, edge 브라우저
+      */
+    }
+  </style>
+</head>
+<body>
+  <h1>그림자 속성</h1>
+  <h2>box-shadow: x-offset y-offset blur color</h2>
+  <div class="b box1"></div>
+  <div class="b box2"></div>
+  <div class="b box3"></div>
+  <div class="b box4"></div>
+  <div class="b box5"></div>
+
+  <h2>text-shadow</h2>
+  <div class="t txt1">text shadow</div>
+  <div class="t txt2">text shadow</div>
+  <div class="t txt3">text shadow</div>
+  <div class="t txt4">text shadow</div>
+  <div class="t txt5">text shadow</div>
+</body>
+</html>

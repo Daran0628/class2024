@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>메모 게시판</title>
+
+         <!-- CSS -->
+         <!-- CSS -->
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+   
+   <style>
+      @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css");
+
+      body {
+         font-family: 'pretendard';font-size: 1rem;
+      }
+
+      button {
+         margin: 0;padding: 0;line-height: 1em;
+         background: none;border: none;
+         cursor: pointer;font: inherit;
+      }
+
+      #wrap {
+         width: 30rem;margin: 10rem auto;padding: 3rem;
+         background: rgb(226, 233, 233);
+      }
+      #memo_form {
+         display: flex;flex-direction: column;gap: 1rem;
+         margin-bottom: 10rem;
+      }
+      #btn_box {
+         display: flex;justify-content: center;gap: 3rem;
+         margin: 1.5rem;
+      }
+
+      #memo_board div p:first-child {height: auto;border: 1px dotted salmon;}
+      #memo_board div p {height: 5rem;border: 1px dotted darkblue;}
+
+      
+
+   </style>
+</head>
+
+<body>
+   <div id="wrap">
+      <form id="memo_form">
+         <label for="writer_name">작성자</label>
+         <input type="text" id="writer_name" placeholder="닉네임 입력">
+         <label for="content">내용</label>
+         <textarea name="" id="content" cols="30" rows="10" placeholder="내용을 입력"></textarea>
+        <div id="btn_box">
+           <!-- <button type="reset">지우기</i></button> -->
+          <button type="submit">저장</i></button>
+        </div>
+      </form>
+      <div id="memo_board">
+         <h2>메모 게시판</h2>
+         <!-- div-> p.writer + p.content // date, btn_edit, btn_delete  -->
+      </div>
+   </div>
+
+   
+   <script src="./js/memoboard.js"></script>
+
+   <!-- <script>
+
+      // 날짜를 가상의 날짜를 출력
+      // 게시판의 다른 부분이 완료되면 날짜 계산 로직을 추가할 것
+      const date = new Date(2024, 8, 3, 13, 20, 0);
+
+      console.log(date.getFullYear()); // 2024
+      console.log(date.getMonth()); // 8 -> index
+      console.log(date.getHours()); // 13
+      console.log(date);
+
+      // 오늘 날짜를 기준으로 오늘 작성된 건 'n시간 전'
+      // 어제 작성된 건 '어제'
+      // 48시간 이상 지난 건 '2024-06-21'
+
+      const now = new Date()
+
+      // console.log(now - date); // ???
+
+      const diff = now - date;
+      
+      console.log('두 날짜 사이에');
+      const s = diff / 1000; // seconds 
+         console.log(s, '초 지남');
+      const m = diff / (1000 * 60) // mins
+         console.log(m, '분 지남');
+      const h = diff / (1000 * 60 * 60)  // hours
+         console.log(h, '시간 지남');
+      const d = diff / (1000 * 60 * 60 * 24) //days
+         console.log(d, '일 지남');
+         
+   </script> -->
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>투 두 리스트</title>
+
+   
+      <!-- CSS -->
+      <!-- CSS -->
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+   <style>
+      @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css");
+      
+      body {
+         background: #999;
+         font-family: 'pretendard', sans-serif;
+         font-size: 20px;
+      }
+      button {
+         margin: 0;padding: 0;line-height: 1em;
+         background: none;border: none;
+         cursor: pointer;font: inherit;}
+
+
+      #wrap {
+         width: 500px;height: 700px;margin: 100px auto 0;
+         padding: 40px 40px;box-sizing: border-box;
+         background: #FFF;
+         border-radius: 16px;
+         box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+      }
+      h1 {text-align: center;font-size: 30px;font-weight: 700;}
+      form#todo_form {
+         display: flex;
+         margin: 30px 0;
+      }
+      #todo_form #add_todo {
+         width: calc(100% - 40px);
+      }
+      #todo_form button {width: 40px;background: lightskyblue;}
+
+      /* #todo_list li {border: 1px solid red} */
+      /* #todo_list li input[type='checkbox'] {background: #000;}
+      #todo_list li input[type='text'] {background: pink;}
+      #todo_list li button.edit_btn {background: blue;}
+      #todo_list li button.delete_btn {background: salmon;} */
+
+      #todo_list .checked {
+         text-decoration: line-through;
+         color: #aaa;font-style: italic;
+      }
+
+   </style>
+
+      <!-- JS -->
+      <!-- JS -->
+
+   <script src="./js/todo.js" defer></script>
+
+</head>
+
+<body>
+   <div id="wrap">
+      <h1>TO Do List</h1>
+      <form id="todo_form">
+         <input type="text" id="add_todo" placeholder="할 일을 입력하세요." required>
+         <button type="submit"><i class="ri-add-fill"></i></button>
+      </form>
+      <ul id="todo_list">
+         <!-- li>input:checkbox+input:text+button.edit_btn+button.delete_btn -->
+      </ul>
+      <h2>Completed</h2>
+      <ul id="completed_list">
+      </ul>
+   </div>
+</body>
+</html>

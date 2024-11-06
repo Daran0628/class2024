@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>반복문 while</title>
+   <script>
+      // for(초기값; 조건범위; 증감값) {}
+      // while(조건) {//조건이 참인 동안 실행문}
+
+      let n = 0;
+      while(n <= 10) {
+         console.log(n);
+         n++;
+      }
+      const animals = ['cat', 'dog', 'duck', 'horse', 'cow']
+      let i = 0;
+      while(i < animals.length) {
+         console.log(animals[i]);
+         i++
+      }
+      //
+      let a = false;
+      // while(a == true) {
+      //    console.log('true인가요?');
+      //    a = false         
+      // }
+      do { // false여도 한 번은 실행
+         console.log('ture인가요?');
+      } while(a == true) 
+
+      let b = 0;
+      do {
+         console.log(b);
+         b++
+      } while(b <= 5)
+      
+      console.log(`1~10까지 홀수만 출력`);
+      // 1~10까지 홀수만 출력
+      // let odd = -1;
+      // do {
+      //    console.log(odd += 2);
+      // } while(odd <9)
+      let c = 1;
+      while(c <= 10) {
+         console.log(c);
+         c +=2
+      }
+      
+      // 1~10까지 총합 // 55
+      let d = 0
+      let sum = 0
+         while(d <= 10) {
+            sum += d
+            d++; //false
+         }
+      
+      console.log(`1~10까지 합 : ${sum}`);
+
+      let que = 103;
+      let ansr;
+      while(que != ansr) {
+         ansr = prompt('숫자 맞추기','1 ~ 500 사이')
+         if(que > ansr) {
+            console.log('up!');
+         }
+         else if(que < ansr) {
+            console.log('down!');
+         }
+         else {console.log('correct!!!');
+         }
+      }
+
+      // 배열에 강아지, 딸기, 책상
+      // prompt로 셋 중 하나 입력
+      // 변수에 하나를 정함
+      // 다른 값을 입력하면 힌트 주고 다시 prompt 열리게
+
+      const game = ['강아지', '딸기', '책상']
+
+      let crrt = '딸기';
+      let asr = prompt('맞추기 게~임','강아지, 딸기, 책상');
+      while(crrt != asr) {
+         if(crrt == asr) {
+            console.log(`${awr}, 정답!`);
+         } else {
+            console.log(`힌트! 스트로베리`);
+            asr = prompt(`다시 한 번 더 맞춰보세요`) 
+         }
+      // 함수를 만들어야 하나?
+      }
+
+
+
+
+      let number = 123;
+      let str = '123'
+      console.log(str); // 123
+      console.log(number); // 123
+      console.log(str[0]); // 1
+      
+      
+      
+
+
+
+
+
+
+   </script>
+</head>
+<body>
+   <h1>반복문 while</h1>
+</body>
+</html>

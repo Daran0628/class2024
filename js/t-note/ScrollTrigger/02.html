@@ -1,0 +1,207 @@
+<!-- 02.html -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01.스크롤트리거</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <style>
+      body {
+        background: url(../img/grid.gif);
+        padding-bottom: 100vh;
+      }
+      #wrap {overflow: hidden}
+      section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+      }
+      #wrap>*:nth-child(even) {
+        background: rgba(0, 0, 0, 0.1);
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        background: slateblue;
+      }
+      .active {
+        width: 400px;
+        background: green !important;
+      }
+      .num {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 300px;
+        opacity: 0.1;
+      }
+      #box1 {border-radius: 50%;background: url(https://images.unsplash.com/photo-1481988535861-271139e06469?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) center;}
+      .section1 {}
+      .section2 {gap: 40px;}
+
+      .section3, .section4 {flex-direction: column;gap: 20px;}
+      .section3 .txt, .section4 .txt {
+        font-size: 100px;font-weight: bold;text-transform: uppercase;
+      }
+      .section3 .txt:nth-child(2n) {color: green}
+      .section4 .txt:nth-child(2n) {color: green}
+
+      .section5 {background: #FFF;}
+      .section5 .txt {
+        position: absolute;left: 50%;top: 50%;
+        transform: translate(-50%, -50%);width: 100%;
+        font-size: 80px;padding: 50px;text-align: center;
+        background: #FFF;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <section class="section1">
+        <div id="box1" class="box"></div>
+        <div class="num">01</div>
+      </section>
+      <section class="section2">
+        <div class="box b1"></div>
+        <div class="box b2"></div>
+        <div class="box b3"></div>
+        <div class="num">02</div>
+      </section>
+      <section class="section3">
+        <div class="txt t1">javascript</div>
+        <div class="txt t2">라이브러리</div>
+        <div class="txt t3">scroll</div>
+        <div class="txt t4">trigger</div>
+        <div class="num">03</div>
+      </section>
+      <section class="section4">
+        <div class="txt t1">scroll</div>
+        <div class="txt t2">trigger</div>
+        <div class="txt t3">scroll</div>
+        <div class="txt t4">trigger</div>
+        <div class="num">04</div>
+      </section>
+      <section class="section5">
+        <div class="txt t1">계절이 지나가는 하늘에는</div>
+        <div class="txt t2">가을로 가득 차 있습니다.</div>
+        <div class="txt t3">나는 아무 걱정도 없이</div>
+        <div class="txt t4">가을 속의 별들을 다 헤일 듯합니다.</div>
+        <div class="txt t5">가슴속에 하나둘 새겨지는 별을</div>
+        <div class="num">05</div>
+      </section>
+      <section></section>
+    </div>
+
+    <!-- * 자바스크립트 라이브러리 => gsap-->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      //01
+      const ani1 = gsap.timeline()
+
+      ani1.to('#box1', {scale: 13})
+        .to('#box1', {autoAlpha: 0})
+
+      ScrollTrigger.create({
+        animation: ani1,
+        trigger: '.section1',
+        start: 'top top',
+        end: '+=3000',
+        pin: true,
+        scrub: true,
+        // markers: true,
+      })
+
+      //02
+      const ani2 = gsap.timeline()
+
+      ani2.from('.b1', {y: -100, autoAlpha: 0, })
+        .from('.b2', {y: 100, autoAlpha: 0, })
+        .from('.b3', {y: -100, autoAlpha: 0, })
+
+        ScrollTrigger.create({
+        animation: ani2,
+        trigger: '.section2',
+        start: 'top top',
+        end: '+=2000',
+        pin: true,
+        scrub: true,
+        // markers: true,
+      })
+
+      //03
+      const ani3 = gsap.timeline()
+
+      ani3.from('.section3 .t1', {xPercent: -300})
+        .from('.section3 .t2', {xPercent: 300})
+        .from('.section3 .t3', {xPercent: -300})
+        .from('.section3 .t4', {xPercent: 300})
+
+      ScrollTrigger.create({
+        animation: ani3,
+        trigger: '.section3',
+        start: 'top top',
+        end: 'bottom top',
+        pin: true,
+        scrub: true,
+        // markers: true,
+      })
+
+      //04
+      const ani4 = gsap.timeline()
+
+      ani4.to('.section4 .t1', {xPercent: -320}, 'text')
+        .to('.section4 .t2', {xPercent: 320}, 'text')
+        .to('.section4 .t3', {xPercent: -320}, 'text')
+        .to('.section4 .t4', {xPercent: 320}, 'text')
+        //{param} 뒤의 'text' 라벨은 같은 시간에 애니메이션을 실행시킴
+
+      ScrollTrigger.create({
+        animation: ani4,
+        trigger: '.section4',
+        start: 'top top',
+        end: 'bottom top',
+        pin: true,
+        scrub: true,
+        // markers: true,
+      })
+
+      //05
+      const ani5 = gsap.timeline();
+
+      ani5.from('.section5 .t1', {y: 50, autoAlpha: 0, duration: 2}, '+=1')
+      .from('.section5 .t2', {y: 50, autoAlpha: 0, duration: 2}, '+=1')
+      .from('.section5 .t3', {y: 50, autoAlpha: 0, duration: 2}, '+=1')
+      .from('.section5 .t4', {y: 50, autoAlpha: 0, duration: 2}, '+=1')
+      .from('.section5 .t5', {y: 50, autoAlpha: 0, duration: 2}, '+=1')
+      //{param} 뒤의 '+=1'은 타임라인의 각 애니메이션이 끝난 후 각각 1초의 delay 시간을 적용
+
+      // ani5.from('.section5 .t1', {y: 50, autoAlpha: 0, duration:2})
+      // .from('.section5 .t2', {y: 50, autoAlpha: 0, duration:2})
+      // .from('.section5 .t3', {y: 50, autoAlpha: 0, duration:2})
+      // .from('.section5 .t4', {y: 50, autoAlpha: 0, duration:2})
+      // .from('.section5 .t5', {y: 50, autoAlpha: 0, duration:2})
+
+      ScrollTrigger.create({
+        animation: ani5,
+        trigger: '.section5',
+        start: 'top top',
+        end: 'bottom top',
+        pin: true,
+        anticipatePin: 1,
+        scrub: true,
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>24_여러가지속성</title>
+   <style>
+      :root {
+         --green: #0d4633;
+         --orange: #f26b24;
+         --mainTxt: 26px;
+      }
+      body {margin-bottom: 500px;}
+      .ex1 {display: flex;gap:40px;}
+      .ex1 .box {
+         border: 1px solid #AAA;padding: 20px;box-sizing: border-box;
+         width: 350px;height: 400px;
+      }
+      .ex1 .b1 {/* ellipsis  한 줄 말줄임, 표준 */
+         font-size: 20px;font-weight: bold;
+         white-space: nowrap;overflow: hidden;
+         text-overflow: ellipsis;
+         }
+      .ex1 .b2 {/*   여러 줄 말줄임, 비표준 */
+         /* height: auto;align-self: flex-start; */
+      }
+      .ex1 .b2 p {
+         background: pink;margin: 0;height: auto;
+         display: -webkit-box;
+         -webkit-line-clamp: 2;
+         -webkit-box-orient: vertical;
+         overflow: hidden;
+      }
+      .ex2 {
+         border: 1px solid red;margin: 50px;padding: 30px;
+         width: 80%;line-height: 1.5em;text-align: justify;
+         column-count: 4;column-gap: 40px;
+         column-rule: 1px dashed dimgray;
+      }
+      .ex2 h3 {column-span: all;}
+
+      .ex3 {display: flex;gap:40px;justify-content: center;
+         width: 1200px;height: 500px;
+         padding: 50px;background: #ededed;
+      }
+      .ex3 .box {
+         background: #fff;width: 350px;height: 400px;
+         border: 1px solid #AAA;padding: 20px;box-sizing: border-box;
+      }
+
+   .ex3 .b2 {
+      background: lightpink;z-index: 2;
+      transform: translate(200px,50px);
+   }
+   .ex3 .b3 {
+      background: darkslategrey;z-index: 1;
+      transform: translate(-80px, 0);
+   }
+   .ex3 .b4 {
+      background: mediumaquamarine;z-index: -1;
+      transform: translate(150px, -80px);
+   }
+
+   .ex4 {display: flex;gap: 30px;
+      width:80%;
+      padding: 50px;background: violet;
+      }
+   .ex4 .box {
+      background: #fff;
+      width: calc(25% - 22px); 
+      height: 400px;flex-shrink: 0;
+      border: 1px solid #AAA;padding: 20px;box-sizing: border-box;
+      }
+   .ex5 h2 {color: #0d4633}
+   .ex5 .txt {color: var(--orange);font-size: var(--mainTxt);}
+   
+   .ex6 {
+      background: #AAA;padding: 80px 0;
+      display: flex;gap: 50px;align-items: flex-start;
+   }
+   .ex6>div {background: #FFF;flex-shrink: 0;
+      width: 300px; /*고정값*/height: auto;}
+
+   .ex6 .dim1 {background: pink;min-width: 500px;}
+   .ex6 .dim2 {background: gold;max-width: 200px;}
+   .ex6 .dim3 {max-height: 200px;}
+   .ex6 .dim4 {/*height: 300px;*/
+      max-height: 400px;min-height: 200px;}
+   
+   .ex7 {background: cadetblue;height: 300px;}
+   @media screen and (max-width: 1440px) {
+      .ex7 {background: salmon;height: 200px;}
+   }
+   </style>
+</head>
+<body>
+   <h1>여러 가지 속성</h1>
+   <h2>말줄임표</h2>
+   <p>- 실무에서는 스크립트나 프로그래밍 언어를 이용해서 글자수 제한으로 사용되는 경우가 많음</p>
+   <div class="ex1">
+      <div class="box b1">
+         뉴스나 유저가 사용하는 게시판의 제목이 길어지는 경우가 발생할 때, 레이아웃보다 길어질 경우 말줄임표를 이용
+      </div>
+      <div class="box b2">
+         <p>뉴스나 유저가 사용하는 게시판의 제목이 길어지는 경우가 발생할 때, 레이아웃보다 길어질 경우 말줄임표를 이용</p>
+      </div>
+   </div>
+   <h2>다단(Multiple Column)</h2>
+   <div class="ex2">
+      <h3>다단 박스 안에 제목</h3>
+      대통령은 국민의 보통·평등·직접·비밀선거에 의하여 선출한다. 국가는 농수산물의 수급균형과 유통구조의 개선에 노력하여 가격안정을 도모함으로써 농·어민의 이익을 보호한다. 국회는 의장 1인과 부의장 2인을 선출한다. 국무총리는 국회의 동의를 얻어 대통령이 임명한다. 대한민국은 국제평화의 유지에 노력하고 침략적 전쟁을 부인한다. 대한민국의 국민이 되는 요건은 법률로 정한다. 모든 국민은 자기의 행위가 아닌 친족의 행위로 인하여 불이익한 처우를 받지 아니한다. 군인은 현역을 면한 후가 아니면 국무총리로 임명될 수 없다. 언론·출판은 타인의 명예나 권리 또는 공중도덕이나 사회윤리를 침해하여서는 아니된다. 언론·출판이 타인의 명예나 권리를 침해한 때에는 피해자는 이에 대한 피해의 배상을 청구할 수 있다.국방상 또는 국민경제상 긴절한 필요로 인하여 법률이 정하는 경우를 제외하고는, 사영기업을 국유 또는 공유로 이전하거나 그 경영을 통제 또는 관리할 수 없다. 민주평화통일자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 비상계엄이 선포된 때에는 법률이 정하는 바에 의하여 영장제도, 언론·출판·집회·결사의 자유, 정부나 법원의 권한에 관하여 특별한 조치를 할 수 있다. 정부는 예산에 변경을 가할 필요가 있을 때에는 추가경정예산안을 편성하여 국회에 제출할 수 있다. 국가원로자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 사회적 특수계급의 제도는 인정되지 아니하며, 어떠한 형태로도 이를 창설할 수 없다.공공필요에 의한 재산권의 수용·사용 또는 제한 및 그에 대한 보상은 법률로써 하되, 정당한 보상을 지급하여야 한다. 모든 국민은 주거의 자유를 침해받지 아니한다. 주거에 대한 압수나 수색을 할 때에는 검사의 신청에 의하여 법관이 발부한 영장을 제시하여야 한다. 형사피의자 또는 형사피고인으로서 구금되었던 자가 법률이 정하는 불기소처분을 받거나 무죄판결을 받은 때에는 법률이 정하는 바에 의하여 국가에 정당한 보상을 청구할 수 있다. 대법원장의 임기는 6년으로 하며, 중임할 수 없다. 헌법재판소 재판관은 정당에 가입하거나 정치에 관여할 수 없다. 모든 국민은 그 보호하는 자녀에게 적어도 초등교육과 법률이 정하는 교육을 받게 할 의무를 진다.혼인과 가족생활은 개인의 존엄과 양성의 평등을 기초로 성립되고 유지되어야 하며, 국가는 이를 보장한다. 제안된 헌법개정안은 대통령이 20일 이상의 기간 이를 공고하여야 한다. 선거에 관한 경비는 법률이 정하는 경우를 제외하고는 정당 또는 후보자에게 부담시킬 수 없다. 제2항의 재판관중 3인은 국회에서 선출하는 자를, 3인은 대법원장이 지명하는 자를 임명한다. 법원은 최고법원인 대법원과 각급법원으로 조직된다. 헌법개정안이 제2항의 찬성을 얻은 때에는 헌법개정은 확정되며, 대통령은 즉시 이를 공포하여야 한다. 모든 국민은 사생활의 비밀과 자유를 침해받지 아니한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.누구든지 병역의무의 이행으로 인하여 불이익한 처우를 받지 아니한다. 헌법재판소는 법률에 저촉되지 아니하는 범위안에서 심판에 관한 절차, 내부규율과 사무처리에 관한 규칙을 제정할 수 있다. 대통령은 국회에 출석하여 발언하거나 서한으로 의견을 표시할 수 있다. 대통령의 선거에 관한 사항은 법률로 정한다. 대통령은 조국의 평화적 통일을 위한 성실한 의무를 진다. 모든 국민은 보건에 관하여 국가의 보호를 받는다. 모든 국민은 종교의 자유를 가진다. 군인 또는 군무원이 아닌 국민은 대한민국의 영역안에서는 중대한 군사상 기밀·초병·초소·유독음식물공급·포로·군용물에 관한 죄중 법률이 정한 경우와 비상계엄이 선포된 경우를 제외하고는 군사법원의 재판을 받지 아니한다.대통령은 국민의 보통·평등·직접·비밀선거에 의하여 선출한다. 국가는 농수산물의 수급균형과 유통구조의 개선에 노력하여 가격안정을 도모함으로써 농·어민의 이익을 보호한다. 국회는 의장 1인과 부의장 2인을 선출한다. 국무총리는 국회의 동의를 얻어 대통령이 임명한다. 대한민국은 국제평화의 유지에 노력하고 침략적 전쟁을 부인한다. 대한민국의 국민이 되는 요건은 법률로 정한다. 모든 국민은 자기의 행위가 아닌 친족의 행위로 인하여 불이익한 처우를 받지 아니한다. 군인은 현역을 면한 후가 아니면 국무총리로 임명될 수 없다. 언론·출판은 타인의 명예나 권리 또는 공중도덕이나 사회윤리를 침해하여서는 아니된다. 언론·출판이 타인의 명예나 권리를 침해한 때에는 피해자는 이에 대한 피해의 배상을 청구할 수 있다.국방상 또는 국민경제상 긴절한 필요로 인하여 법률이 정하는 경우를 제외하고는, 사영기업을 국유 또는 공유로 이전하거나 그 경영을 통제 또는 관리할 수 없다. 민주평화통일자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 비상계엄이 선포된 때에는 법률이 정하는 바에 의하여 영장제도, 언론·출판·집회·결사의 자유, 정부나 법원의 권한에 관하여 특별한 조치를 할 수 있다. 정부는 예산에 변경을 가할 필요가 있을 때에는 추가경정예산안을 편성하여 국회에 제출할 수 있다. 국가원로자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 사회적 특수계급의 제도는 인정되지 아니하며, 어떠한 형태로도 이를 창설할 수 없다.공공필요에 의한 재산권의 수용·사용 또는 제한 및 그에 대한 보상은 법률로써 하되, 정당한 보상을 지급하여야 한다. 모든 국민은 주거의 자유를 침해받지 아니한다. 주거에 대한 압수나 수색을 할 때에는 검사의 신청에 의하여 법관이 발부한 영장을 제시하여야 한다. 형사피의자 또는 형사피고인으로서 구금되었던 자가 법률이 정하는 불기소처분을 받거나 무죄판결을 받은 때에는 법률이 정하는 바에 의하여 국가에 정당한 보상을 청구할 수 있다. 대법원장의 임기는 6년으로 하며, 중임할 수 없다. 헌법재판소 재판관은 정당에 가입하거나 정치에 관여할 수 없다. 모든 국민은 그 보호하는 자녀에게 적어도 초등교육과 법률이 정하는 교육을 받게 할 의무를 진다.혼인과 가족생활은 개인의 존엄과 양성의 평등을 기초로 성립되고 유지되어야 하며, 국가는 이를 보장한다. 제안된 헌법개정안은 대통령이 20일 이상의 기간 이를 공고하여야 한다. 선거에 관한 경비는 법률이 정하는 경우를 제외하고는 정당 또는 후보자에게 부담시킬 수 없다. 제2항의 재판관중 3인은 국회에서 선출하는 자를, 3인은 대법원장이 지명하는 자를 임명한다. 법원은 최고법원인 대법원과 각급법원으로 조직된다. 헌법개정안이 제2항의 찬성을 얻은 때에는 헌법개정은 확정되며, 대통령은 즉시 이를 공포하여야 한다. 모든 국민은 사생활의 비밀과 자유를 침해받지 아니한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.누구든지 병역의무의 이행으로 인하여 불이익한 처우를 받지 아니한다. 헌법재판소는 법률에 저촉되지 아니하는 범위안에서 심판에 관한 절차, 내부규율과 사무처리에 관한 규칙을 제정할 수 있다. 대통령은 국회에 출석하여 발언하거나 서한으로 의견을 표시할 수 있다. 대통령의 선거에 관한 사항은 법률로 정한다. 대통령은 조국의 평화적 통일을 위한 성실한 의무를 진다. 모든 국민은 보건에 관하여 국가의 보호를 받는다. 모든 국민은 종교의 자유를 가진다. 군인 또는 군무원이 아닌 국민은 대한민국의 영역안에서는 중대한 군사상 기밀·초병·초소·유독음식물공급·포로·군용물에 관한 죄중 법률이 정한 경우와 비상계엄이 선포된 경우를 제외하고는 군사법원의 재판을 받지 아니한다.
+   </div>
+   <h2>z-index</h2>
+   <p>- position 속성으로 요소들이 겹쳐진 경우 앞에 보이는 순서를 결정, 숫자가 클수록 앞에 위치</p>
+   <div class="ex3">
+      <div class="box b1"></div>
+      <div class="box b2"></div>
+      <div class="box b3"></div>
+      <div class="box b4"></div>
+   </div>
+<h2>calc() 함수</h2>
+   <div class="ex4">
+      <div class="box b1"></div>
+      <div class="box b2"></div>
+      <div class="box b3"></div>
+      <div class="box b4"></div>
+   </div>
+<div class="ex5">
+   <h2>var() 함수</h2>
+   <p class="txt">var는 variables의 줄임말로 변수를 의미</p>
+</div>
+<h2>dimention(면적)</h2>
+<div class="ex6">
+   <div class="dim1">Occaecat esse Lorem tempor aliqua enim ex reprehenderit esse quis aliqua id eu. Est exercitation et esse sint id esse veniam commodo officia officia officia eu ea. Esse consectetur esse adipisicing proident sint. Pariatur pariatur ea qui nulla Lorem dolore eu tempor consectetur excepteur in eu cillum. Eiusmod occaecat consequat deserunt mollit. Elit minim aliqua laborum nulla ipsum voluptate ex ea ad nisi est velit ea sit. Enim excepteur eu dolore culpa duis in duis ad excepteur sit aute eiusmod.
+   Aute aliqua sunt ex culpa est occaecat fugiat deserunt et in sunt cupidatat adipisicing labore. Qui reprehenderit qui in exercitation est magna sunt minim dolore sint. Reprehenderit non fugiat do laborum. Adipisicing enim labore Lorem occaecat reprehenderit cupidatat.
+   Ad anim nisi dolore sint ipsum in exercitation id aliqua dolor velit do eiusmod velit. Do quis Lorem incididunt dolor sint duis aliqua cillum. Elit sunt deserunt eiusmod exercitation aute laborum. Sint pariatur ea nisi qui qui do dolore aliqua eu do fugiat eiusmod. Aliqua ut consectetur qui in eiusmod anim consectetur ea sunt amet ut.
+   Amet aliqua tempor laborum nulla eu dolore tempor laboris aliqua excepteur et culpa occaecat. Proident eu culpa sit duis dolor dolor ut tempor. Consectetur aute enim cupidatat qui pariatur est.
+   Excepteur velit in fugiat veniam nulla. Nisi exercitation eiusmod eu ex Lorem consequat. Est nulla velit laborum cupidatat anim. Do esse et velit ut laborum labore nulla occaecat sit sint. Incididunt do nulla mollit ad ad labore. Tempor id aliqua veniam minim deserunt aliqua ad laborum.</div>
+   <div class="dim2">Consectetur veniam consequat nostrud irure eu. Cupidatat exercitation occaecat quis consectetur sunt ad nisi. Ut aliqua exercitation velit eiusmod consectetur elit exercitation. Officia sunt sunt ad enim mollit. Aute in tempor non eiusmod consectetur nostrud nostrud in sint ex eu officia exercitation. Labore nulla duis amet reprehenderit cupidatat labore voluptate laboris duis quis duis consequat fugiat velit.
+   Laborum nisi fugiat do ea eiusmod. Velit adipisicing elit dolore id mollit cupidatat non. Et est adipisicing ad non minim consequat laborum ad laboris veniam. Aliquip esse magna elit do elit eu ipsum tempor.</div>
+   <div class="dim3">In nulla ad minim pariatur in sit ullamco mollit. Adipisicing laboris dolor laborum aute ullamco exercitation. Sint fugiat occaecat deserunt sint. Deserunt exercitation cupidatat irure laboris. Eiusmod dolor proident incididunt esse. Lorem velit do officia ea.In nulla ad minim pariatur in sit ullamco mollit. Adipisicing laboris dolor laborum aute ullamco exercitation. Sint fugiat occaecat deserunt sint. Deserunt exercitation cupidatat irure laboris. Eiusmod dolor proident incididunt esse. Lorem velit do officia ea.</div>
+   <div class="dim4">Elit commodo ullamco ad non consectetur mollit ipsum culpa qui est eu aute laborum.</div>
+</div>
+<h2>Media Query</h2>
+<div class="ex7">반응형은 미디어 쿼리와 가변값</div>
+</body>
+</html>

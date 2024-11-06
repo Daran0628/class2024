@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>조건문 if</title>
+   <script>
+      /* 
+      1. 조건이 참이면 문장을 실행하고, 거짓이면 아무것도 수행하지 않음
+            if(condition) { // 조건이 참일 때 실행할 문장 }
+      2. 조건이 참일 때 할 일과 거짓일 때 할 일이 있는 경우
+            if(condition) {// 참일 때 실행할 일}
+               else {// 거짓일 때 실행할 일}
+      3. 여럿의 조건마다 실행할 일이 다를 때
+            if(condition_1) {// 조건_1 참일 때 실행할 일}
+               else if(condition_2) {// 조건_1의 거짓 중 조건_2가 참일 때 실행할 일}
+                  else {// 모든 조건에 거짓일 때 실행할 일}
+      */
+
+      let a = 10;
+      if(a >= 10) {console.log(a);}
+      
+      if(a > 10) {console.log(`a는 10보다 크다`)}
+         else {console.log(`a는 10보다 크지 않다`);
+         }
+
+      if(a > 10) {console.log(`a는 10보다 크다`)}
+         else if (a < 10) {console.log(`a는 10보다 크지 않다`)}
+         else {console.log(`a는 10과 같다`);
+         }
+      
+         // 입력받은 숫자가 양수/음수/0
+         const num = prompt('숫자를 입력')
+         let n1, n2;
+
+         if(num > 0) {n1 = '양수'}
+            else if(num < 0) {n1 = '음수'}
+               else if(num == 0){n1 = '0'}
+                  else {n1 = '숫자가 아닌 문자'}
+
+         console.log(`${num}은 ${n1}입니다.`);
+         
+
+         // 입력받은 숫자가 짝수/홀수/0
+
+         if(num != 0) {
+            if(num % 2 == 0) {n2 = '짝수'} 
+            else {n2 = '홀수'}
+         } else {n2 = '0'}
+
+         console.log(`${num}은 ${n2}입니다.`);
+         
+         const score = prompt('점수를 입력')
+         //90점 이상 A, 80점 이상 B, 70점 이상 C, 60점 이상 D, 그 외 F
+
+         let grade;
+
+         if(score >= 90) {grade = 'A'}
+            else if(score >= 80) {grade = 'B'}
+            else if(score >= 70) {grade = 'C'}
+            else if(score >= 60) {grade = 'D'}
+            else if(score < 60 && score >= 0) {grade = 'F'}
+            else if(typeof score !== "number") {grade = '불가능한 점수입니다.'}
+            else {}
+
+         console.log(`점수: ${score}점,학점: ${grade}`);
+
+         // if(score >= 0 && score <= 100) {
+         //     if(score >= 90) {grade = 'A'}
+               // else if(score >= 80) {grade = 'B'}
+               // else if(score >= 70) {grade = 'C'}
+               // else if(score >= 60) {grade = 'D'}
+               // else (score < 60 ) {grade = 'F'}
+         // }
+         // else {grade = '불가능한 점수'}
+         
+   </script>
+</head>
+<body>
+   
+</body>
+</html>

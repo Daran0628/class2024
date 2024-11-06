@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>스프레드 연산자</title>
+<script>
+   // spread operator (스프레드 연산자)
+   // ...(iterable : 순회가 가능, 나열, 반복 가능한 -> 배열, 객체)
+   // 배열 또는 객체의 데이터를 펼쳐서 사용
+   // 복사 -> 기존 배열의 데이터 변형 없이 새로운 배열로 복제
+   // 여러 배열의 데이터를 하나의 배열로 통합 등에 유리 
+   const spring =['Mar', 'Apr', 'May'];
+   const summer = ['Jun', 'Jul', 'Aug'];
+   // const fall = ['Sep', 'Oct', 'Nov']
+   // const winter = ['Dec', 'Jan', 'Feb']
+   const season1 = [spring, summer];
+   const season2 = [...spring, ...summer];
+
+   console.log(spring);
+   console.log(...spring);
+   console.log(...spring, ...summer);
+   console.log('season1 :', season1);
+   console.log('...seaon1 :', ...season1);
+   console.log('season1[1] :', season1[1]);
+   console.log('season2 :', season2);
+   console.log('season2 :', ...season2);
+   console.log('season2[1] :', season2[1]);
+   
+   console.log('-----------------------------------');
+
+   const animals = ['dog', 'cat', 'rabbit', 'ram']
+   const animals2 = [...animals]
+   const animals3 = [animals]
+   console.log('animals2', animals2);
+   console.log('animals3', animals3);
+
+   console.log('-----------------------------------');
+
+   const num1 = [661, 234, 14, 65, 342, 27, 85, 263, 766, 4];
+   const num2 = [28, 33, 46, 705]
+
+   console.log('Math.max(...num1)', Math.max(...num1));   
+   console.log('Math.min(...num1)', Math.min(...num1));   
+   
+   // num1과 num2의 모든 숫자 중 최대값과 최소값 구하라
+   
+   console.log('Math.max(...num2)', Math.max(...num2));   
+   console.log('Math.min(...num2)', Math.min(...num2));
+
+   //
+   const p1 = ['John', 'Doe', 30, 'Designer'];
+   const p2 = ['길동', '홍', 20, '의적'];
+
+   function personInfo(firstName, lastName, age, job ) {
+      return `
+         name : ${firstName} ${lastName}
+         age: ${age}
+         job: ${job}
+      ` 
+   }
+   // console.log(personInfo('길동', '홍', 20, '의적'));
+   console.log(personInfo(...p1));
+   console.log(personInfo(...p2));
+   
+   const obj1 = {
+      name: 'banana',
+      color: 'yellow'
+   }
+   const obj2 = {kind: 'fruit'}
+   const obj = {obj1, obj2}
+   const objSum = {...obj1, ...obj2}
+
+   console.log(obj1); // {name: 'banana', color: 'yellow'}
+   console.log(obj); // {obj1: {…}, obj2: {…}} - key : obj1, obj2
+   console.log(objSum); // {name: 'banana', color: 'yellow', kind: 'fruit'} - key : name, color, kind
+   
+   const car1 = {
+      brand: 'ford',
+      model: 'Mustang'
+         }
+   const car2 = {
+      year: '2021',
+      color: 'red'
+   }
+   const myCar = {...car1, ...car2}
+   console.group('carInfo');
+   console.log(myCar.model); // Mustang
+   console.log(myCar.year); // 2021
+   console.log(myCar.color); // red
+   console.groupEnd('');
+   
+   
+</script>
+</head>
+<body>
+   
+</body>
+</html>

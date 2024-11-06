@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>사용자정의함수</title>
+   <style>
+      ul, li {list-style: none;margin: 0;padding: 0;}
+      .ex1 {width: 800px;margin: auto;}
+      .ex1 .color_box {
+         height: 800px;margin: 30px 0;
+         border-radius: 400px;
+         background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,.5) 45%, rgba(0,0,0,0) 100%);
+      }
+      .ex1 .color_list {display: flex;gap: 20px;}
+      .ex1 .color_list li {
+         flex-grow: 1;
+         text-align: center;line-height: 3rem;
+         /* background: silver;color: #fff */
+         cursor: pointer;
+         user-select: none;
+         font-weight: 700;
+      }
+      .ex1 li:nth-child(1) {color: pink;}
+      .ex1 li:nth-child(2) {color: gold;}
+      .ex1 li:nth-child(3) {color: tomato;}
+      .ex1 .li:nth-child(4) {color: dodgerblue;}
+      .ex1 li:nth-child(5) {color: green;}
+
+      .ex2 {width: 800px;margin: auto;}
+      .ex2 .big_img {margin-bottom: 20px;}
+      .ex2 .food_thumb {display: flex;}
+      .ex2 .food_thumb img {width: 90px;margin: 0 5px;cursor: pointer;}
+
+   </style>
+   <script>
+      // object.method()
+      // $(selector).next().action()
+      // object.property
+      // $(object).event(function() {}) -> $().click(function() {})
+      // object.onevent = function 
+
+      // 메소드() -> 함수
+      // 사용자가 정의한 함수를 필요할 때 호출하여 사용
+
+      function fn1() { //함수 선언
+         console.log('fn1 함수 호출 됨');
+         
+      }
+      fn1(); // 함수 호출
+
+      function fn2() {
+         let a = 10, b = 15;
+         return a + b; // 호출한 곳에 return 값을 반환
+      }
+   console.log(fn2()); // 25
+
+   // 1 inch = 2.54 Cm
+
+      let inch = 3;
+      
+      function cm() {
+         return inch * 2.54;
+      }
+   console.log(`${inch}인치 : ${cm()} 센티미터`);
+
+   // 1 mild == 1.609344 Km
+
+      let mile = 2;
+
+      function km() {
+         return mile * 1.609344;
+      }
+   console.log(`${mile} 마일 : ${km()} 킬로미터`);
+   
+
+   // 화씨 섭씨 변환
+      
+      let cels = 25;
+
+      function fahr() {
+         return cels * 1.8 + 32
+      }
+
+   console.log(`섭씨 ${cels}도 : 화씨 ${fahr()}도`);
+   
+
+   let num1 = Number(prompt('첫번째 숫자를 입력', '0'))
+   let op = prompt('사칙연산을 고르세요. +, - , *, / ')
+   let num2 = Number(prompt('두번째 숫자를 입력', '0'))
+
+   let a = '10'
+   
+      function cal() {
+         switch(op) {
+            case '+' : result = num1 + num2; break;
+            case '-' : result = num1 - num2; break;
+            case '*' : result = num1 * num2; break;
+            case '/' : result = num1 / num2; break;
+            default : result = '연산 할 수 없음'
+         }
+         return result;
+      }
+   console.log(`${num1} ${op} ${num2} = ${cal()}`);
+   
+   // 태어난 년도를 입력 받아 12간지 출력
+
+   let birth = Number(prompt('태어난 년도를 입력'))
+   let zodiac;
+
+   let zodiacName = ['원숭이', '닭', '개', '돼지', '쥐', '소', '호랑이', '토끼', '용', '뱀', '말', '양']
+
+      function ganji() {
+         zodiac = birth % 12;
+         // switch(birth % 12) {
+         //    case 0 : res = '원숭이'; break;          
+         //    case 1 : res = '닭'; break;
+         //    case 2 : res = '개'; break;
+         //    case 3 : res = '돼지'; break;         
+         //    case 4 : res = '쥐'; break;         
+         //    case 5 : res = '소'; break;         
+         //    case 6 : res = '호랑이'; break;         
+         //    case 7 : res = '토끼'; break;         
+         //    case 8 : res = '용'; break;         
+         //    case 9 : res = '뱀'; break;        
+         //    case 10 : res = '말'; break;         
+         //    case 11 : res = '양';        
+         // }
+         // return res;
+         return zodiacName[zodiac]
+      }
+
+   console.log(`${birth}년생인 당신은 ${ganji()}띠 입니다`)
+   // 2023, 토끼
+
+
+   
+   </script> 
+</head>
+<body>
+   <button class="btn1">click</button>
+   <p class="txt1" style = "display : none">버튼을 누르면 안 보여요.</p>
+   <button class="btn2">click</button>
+
+   <hr>
+
+   <button class="btn_kr" onclick="greeting('kr')">한국어</button>
+   <button class="btn_en" onclick="greeting('en')">English</button>
+   <button class="btn_jp" onclick="greeting('jp')">日本語</button>
+   
+   <h1>Click the button. </h1>
+
+   <hr>
+
+   <button class="btn_add" onclick="elmLi('add')">추가</button>
+   <button class="btn_remove" onclick="elmLi('del')">삭제</button>
+
+   <ul class="list_wrap"></ul>
+
+   <hr>
+   <div class="ex1">
+      <div class="color_box"></div>
+      <ul class="color_list">
+         <li class="radial-gradient(circle, rgba(255,176,223,1) 0%, rgba(255,176,223,.5) 45%, rgba(255,176,223,.005) 95%)">PINK</li>
+         <li class="radial-gradient(circle, rgba(255,229,102,1) 0%, rgba(255,229,102,.5) 45%, rgba(255,229,102,.005) 95%)">GOLD</li>
+         <li class="radial-gradient(circle, rgba(255,70,16,1) 0%, rgba(255,70,16,.5) 45%, rgba(255,70,16,.005) 95%)">TOMATO</li>
+         <li class="radial-gradient(circle, rgba(59,155,228,1) 0%, rgba(59,155,228,.5) 45%, rgba(59,155,228,.005) 95%)">DODGERBLUE</li>
+         <li class="radial-gradient(circle, rgba(29,180,60,1) 0%, rgba(29,180,60,.5) 45%, rgba(29,180,60,.005) 95%)">GREEN</li>
+      </ul>
+   </div>
+
+   <hr>
+   <div class="ex2">
+      <img src="img/food_1.png" alt="" class="big_img">
+      <div class="food_thumb">
+         <img src="img/food_1.png" alt="">
+         <img src="img/food_2.png" alt="">
+         <img src="img/food_3.png" alt="">
+         <img src="img/food_4.png" alt="">
+         <img src="img/food_5.png" alt="">
+         <img src="img/food_6.png" alt="">
+         <img src="img/food_7.png" alt="">
+         <img src="img/food_8.png" alt="">
+      </div>
+   </div>
+<!-- JS -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>  
+   <script>
+      // js
+      function greeting(a) {
+         // 매개변수 a가 받아온 값이 kr이면 한국어는 "안녕하세요."
+         // English는 "Hello."
+         let word = (a == 'kr') ? '안녕하세요.' : (a == 'en') ? 'Hello.' : 'こんにちは.'
+         $('h1').text(word)
+      }
+
+      // $('.list_wrap').append('<li>list</li>')
+      // $('.btn_add').remove()
+      
+      let cnt = 0;
+
+      function elmLi(a) {
+         (a == 'add') ? cnt++ : cnt--;
+         (a == 'add') ? $('.list_wrap').append(`<li> list - ${cnt}</li>`) : $('.list_wrap li:last').remove();
+         (cnt < 0) ? cnt = 0 : "";
+      }
+      
+      function chgColor(name) {
+         $('.color_box').css({'background' : name})
+
+      }
+      $('.color_list li').click(function() {
+         let cname = $(this).attr('class');
+         chgColor(cname)
+      })
+
+      function chgImg (food) {
+         $('.big_img').attr('src', food)
+      }
+      $('.food_thumb img').click(function() {
+         let fimg = $(this).attr('src')
+         chgImg (fimg)
+      })
+
+      // object.method() -> 이미 만들어진 함수
+      // $jQuery.hide() -> 함수(여러 css 속성값을 조절하는 실행문)
+      
+      $(document).ready(function() { // -> js문법 head 안에서 사용할 때
+
+         $('.btn1').click(function() { // 익명함수
+            $('.txt1').toggle()
+         })
+
+         // user defined function 사용자 정의 함수
+         // 함수를 선언하고 직접 정의함 
+         // 사용자가 필요할 때 호출을 이용해 사용함
+
+         function aa () {
+            $('.txt1').text('함수 aa가 바꾼 텍스트') 
+         }
+
+      $('.txt1').text('자바스크립트에서 바꾼 텍스트')
+      $('.btn2').click(function() {
+         aa();
+      })
+
+      }) // .ready()
+   </script>
+
+</body>
+
+
+</html>

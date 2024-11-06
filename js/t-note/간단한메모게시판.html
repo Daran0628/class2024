@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>간단한메모게시판</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.min.css">
+  <style>
+    body {
+      font-size: 20px;font-family: 'Pretendard',sans-serif;
+      background: #999;
+    }
+    button {
+      margin: 0;padding: 10px 20px;line-height: 1em;font: inherit;
+      background: none;border: none;cursor: pointer;font-weight: bold;
+      border-radius: 5px;
+    }
+    input, textarea {font: inherit;border-radius: 5px;box-sizing: border-box;margin: 10px 0 15px;padding: 6px;}
+    #wrap {
+      width: 700px;min-height: 700px;margin: 30px auto 0;
+      padding: 40px;box-sizing: border-box;
+      background: #FFF;border-radius: 16px;
+      box-shadow: 4px 4px 10px rgba(0,0,0,.5);
+    }
+    #memo_form {display: flex;flex-direction: column;}
+    #memo_form button {background: dodgerblue;color: #FFF;align-self: flex-start;}
+    #memo {margin-top: 20px;}
+    .memo_item {
+      padding: 20px; border-bottom: 1px solid #AAA;
+    }
+    .writer {font-weight: bold;color: dodgerblue}
+    .content {width: 100%;border: none;}
+    .memo_btns {display: flex;gap: 10px;}
+    .memo_btns button {font-size: 14px;padding: 7px 14px;}
+    .delete_btn {background: pink;}
+    .edit_btn {background: silver;}
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <form id="memo_form">
+      <label for="writer_name">작성자</label>
+      <input type="text" id="writer_name" placeholder="닉네임 입력">
+      <label for="content">내용</label>
+      <textarea id="content" rows="5" placeholder="내용을 입력"></textarea>
+      <button type="submit">확인</button>
+    </form>
+    <div id="memo">
+      <!-- div.memo_item > p.writer + p.content // 날짜, 수정, 삭제 버튼-->
+    </div>
+  </div>
+
+<script>
+  let memos = [];
+  let memoId = 0;
+
+  const memoForm = document.getElementById('memo_form')
+  const newWriter = document.getElementById('writer_name')
+  const newContent = document.getElementById('content')
+  const memoList = document.getElementById('memo')
+
+  newWriter.focus();
+
+  memoForm.addEventListener('submit', function(e) {
+    e.preventDefault()
+
+    let addName = newWriter.value;
+    let addContent = newContent.value;
+    let submitDate = new Date(2024,8,2,18,25,0);
+
+    addMemo(addName, addContent, submitDate)
+
+    newWriter.value = ''
+    newContent.value = ''
+    newWriter.focus();
+  })
+
+  function Memo(id, name, content, date) {
+    this.id = id;
+    this.name = name;
+    this.content = content;
+    this.date = date
+  }
+  Memo.prototype.formatDate = function() {
+    const now = new Date();
+    const diff = (now - this.date) / 1000
+
+    const m = Math.floor(diff / 60)
+    if(m < 30) return '방금 전'
+    if(m >= 30 && m < 60) return `${m}분 전`
+    const h = Math.floor(diff / 3600)
+    if(h < 24 && this.date.getDate() === now.getDate()) return `${h}시간 전`
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24))
+    if(h > 24 || this.date.getDate() < now.getDate()) return '어제'
+    return `${this.date.getFullYear()}-${this.date.getMonth() + 1}-${this.date.getDate()}`
+  }
+
+  function addMemo(name, content, date) {
+    memoId++
+    const memo = new Memo(memoId, name, content, date)
+
+    memos.push(memo)
+    renderMemos()
+
+    console.log(memos);
+  }
+
+  const renderMemos = () => {
+    memoList.innerHTML = ''
+
+    memos.forEach(memo => {
+      const memoItem = document.createElement('div')
+      memoItem.classList.add('memo_item')
+
+      const memoWriter = document.createElement('div')
+      memoWriter.classList.add('writer')
+      memoWriter.textContent = `작성자 : ${memo.name}, 날짜 : ${memo.formatDate()}`
+
+      const memoContent = document.createElement('textarea')
+      memoContent.classList.add('content')
+      memoContent.textContent = memo.content
+
+      const memoBtns = document.createElement('div')
+      memoBtns.classList.add('memo_btns')
+
+      const deleteBtn = document.createElement('button')
+      deleteBtn.classList.add('delete_btn')
+      deleteBtn.textContent = '삭제'
+      const editBtn = document.createElement('button')
+      editBtn.classList.add('edit_btn')
+      editBtn.textContent = '수정'
+
+      memoItem.appendChild(memoWriter)
+      memoItem.appendChild(memoContent)
+      memoItem.appendChild(memoBtns)
+      memoBtns.appendChild(deleteBtn)
+      memoBtns.appendChild(editBtn)
+
+      memoList.appendChild(memoItem)
+
+      deleteBtn.addEventListener('click',function() {
+        deleteMemo(memo.id)
+      })
+      editBtn.addEventListener('click',function() {
+        editMemo(memo.id, memoContent)
+      })
+    })
+  }
+
+  function deleteMemo(id) {
+    memos = memos.filter(memo => memo.id !== id)
+    renderMemos()
+  }
+
+  //날짜를 가상의 날짜를 출력
+  //게시판의 다른 부분이 완료되면 날짜 계산 로직을 추가할 것
+  // const date = new Date(2024, 8, 2, 23, 59, 0)
+
+  // console.log(date.getFullYear()); //2024
+  // console.log(date.getMonth()); //11
+  // console.log(date.getHours()); //13
+  // console.log(date);
+
+  // //오늘날짜를 기준으로 오늘 작성된 건 '3시간 전'
+  // //어제 작성된 건 '어제'
+  // // 48시간 이상 지난 건 '2024-06-21'
+
+  // const now = new Date();
+  // console.log(now - date); // ms
+  // const diff = now - date;
+
+  // console.log('두 날짜 사이에 ');
+  // const s = diff / 1000;
+  // console.log(s, '초 지남');
+  // const m = diff / (1000 * 60)
+  // console.log(m, '분 지남');
+  // const h = diff / (1000 * 60 * 60)
+  // console.log(parseInt(h), '시간 지남');
+  // const d = diff / (1000 * 60 * 60 * 24)
+  // console.log(parseInt(d), '일 지남');
+
+</script>
+</body>
+</html>

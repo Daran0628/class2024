@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+        .todo-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .todo-item input[type="text"] {
+            border: none;
+            background: none;
+            color: inherit;
+            font-size: inherit;
+            width: 70%;
+        }
+        .todo-item button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <form id="todo-form">
+        <input type="text" id="new-todo" placeholder="Add a new task" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <ul id="todo-list">
+    </ul>
+
+    <h2>Completed Tasks</h2>
+    <ul id="completed-list">
+    </ul>
+
+    <script src="app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const todoForm = document.getElementById('todo-form');
+    const todoList = document.getElementById('todo-list');
+    const completedList = document.getElementById('completed-list');
+
+    todoForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const newTodoInput = document.getElementById('new-todo');
+        const taskText = newTodoInput.value.trim();
+
+        if (taskText !== "") {
+            addTask(taskText);
+            newTodoInput.value = ""; // 폼 초기화
+        }
+    });
+
+    function addTask(taskText) {
+        const listItem = document.createElement('li');
+        listItem.className = 'todo-item';
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'todo-checkbox';
+
+        const taskInput = document.createElement('input');
+        taskInput.type = 'text';
+        taskInput.value = taskText;
+        taskInput.readOnly = true;
+
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.className = 'edit-button';
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.className = 'delete-button';
+
+        listItem.appendChild(checkbox);
+        listItem.appendChild(taskInput);
+        listItem.appendChild(editButton);
+        listItem.appendChild(deleteButton);
+
+        todoList.appendChild(listItem);
+
+        // 이벤트 리스너 추가
+        checkbox.addEventListener('change', function () {
+            if (checkbox.checked) {
+                listItem.classList.add('completed');
+                completedList.appendChild(listItem);
+            } else {
+                listItem.classList.remove('completed');
+                todoList.appendChild(listItem);
+            }
+        });
+
+        editButton.addEventListener('click', function () {
+            if (taskInput.readOnly) {
+                taskInput.readOnly = false;
+                editButton.textContent = 'Save';
+            } else {
+                taskInput.readOnly = true;
+                editButton.textContent = 'Edit';
+            }
+        });
+
+        deleteButton.addEventListener('click', function () {
+            listItem.remove();
+        });
+    }
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>5_이미지와 경로</title>
+</head>
+<body>
+   <a href="http://www.naver.com">네이버 바로가기</a>
+   <a href="호암재단.html">호암재단</a>
+   <hr>
+   <img src="apple.jpg" alt="">
+   <img src="img/orange.png" alt="">
+
+   <hr>
+   <h1>이미지 태그와 경로의 이해</h1>
+   <h2>이미지 태그</h2>
+   <h3>이미지 태그의 필수 속성</h3>
+   <dl>
+      <dt>* src</dt>
+      <dd>source (자료[(자료의) 출처])</dd>
+      <dt>* alt</dt>
+      <dd>alternative text(대체 글자)</dd>
+      <dd>- 이미지가 엑박일 때 대신 보여질 텍스트</dd>
+      <dd>- 대체 텍스트는 이미지가 전달하는 정보와 동등한 정보를 포함한 텍스트로 작성</dd>
+      <dd>- alt 속성을 생략하면 장애인차별금지법에 위배되어 벌금형</dd>
+      <dd>- 정보 전달이 목적이 아닌 경우, 속성명만 작성하고 값을 생략</dd>
+   </dl>
+   <h2>경로의 이해</h2>
+   <h3>절대 경로</h3>
+   <p>- http로 시작하는 도메인 주소와 디렉토리 이름, 파일명까지 모두 작성</p>
+   <img src="C:/Users/C-14/Desktop/kiwi.jpg" alt="kiwi">
+
+   <h3>상대 경로</h3>
+   <ul>
+      <li>경로를 입력한 파일의 위치에서부터 시작</li>
+      <li>
+         <strong>./</strong>
+         <p>(현재 디렉토리) : 보여질 문서의 위치[디렉토리]</p>
+         <p>생략이 가능 : 일반적으로 html에서는 생략, 리액트 드에서 ./ 를 사용하는 관습이 있음</p>
+      </li>
+      <li>
+         <strong>../</strong></li>
+         <p>(부모 디렉토리) : 보여질 문서가 있는 디렉토리 위치</p>
+         <p>
+			<img src="../banana.jfif" alt="">
+			<img src="../../cherry.jpg" alt="cherry">
+			<img src="../../../mango.png" alt="mango">
+         </p>
+   </ul>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>세로원페이지레이아웃</title>
+  <!-- CSS -->
+  <style>
+    body, ul, li {list-style: none;margin: 0;padding: 0;}
+    header {
+      position: fixed;left: 0;right: 0;top: 0;
+    }
+    nav {
+      display: grid;grid-template-columns: repeat(5, 1fr);gap: 1px;
+      background: #FFF;
+    }
+    nav a {
+      padding: 20px 0;text-align: center;font-size: 22px;
+      text-decoration: none;color: inherit;text-transform: uppercase;
+      background: silver;
+    }
+    nav .active {background: #000;color: #FFF;}
+    section {height: 100vh;min-height: 600px;}
+    section h2 {margin: 0;padding-top: 200px;text-align: center;font-size: 40px;}
+    .sec1 {background: slateblue;}
+    .sec2 {background: pink;}
+    .sec3 {background: salmon;}
+    .sec4 {background: darkseagreen;}
+    .sec5 {background: burlywood;}
+  </style>
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+
+      $('nav a').click(function() {
+        $('nav a').not(this).removeClass('active')
+        $(this).addClass('active')
+
+        let n = $(this).index()
+        pageScroll(n)
+      });
+
+      $('section').each(function() {
+        $(this).on('mousewheel', function(e) {
+          let delta = e.originalEvent.deltaY;
+          let moveTop = 0;
+
+          if(delta > 0) { //down
+            moveTop = $(this).next().offset().top
+          } else { //up
+            moveTop = $(this).prev().offset().top
+          }
+          $('html').stop().animate({
+            scrollTop : moveTop + 'px'
+          }, 300)
+        }) //wheel()
+      })
+
+      function pageScroll(n) {
+        $('html').animate({
+          scrollTop : $('section').eq(n).offset().top
+        })
+      }
+    })//ready
+  </script>
+</head>
+<body>
+  <div id="wrap">
+    <header>
+      <nav>
+        <a href="#" class="active">sec-1</a>
+        <a href="#">sec-2</a>
+        <a href="#">sec-3</a>
+        <a href="#">sec-4</a>
+        <a href="#">sec-5</a>
+      </nav>
+    </header>
+    <section class="sec1">
+      <h2>Section - 1</h2>
+    </section>
+    <section class="sec2">
+      <h2>Section - 2</h2>
+    </section>
+    <section class="sec3">
+      <h2>Section - 3</h2>
+    </section>
+    <section class="sec4">
+      <h2>Section - 4</h2>
+    </section>
+    <section class="sec5">
+      <h2>Section - 5</h2>
+    </section>
+  </div>
+</body>
+</html>

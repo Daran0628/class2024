@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21_트랜지션</title>
+  <style>
+    /*
+    transition 속성
+    * transition-duration (효과가 실행되는데 걸리는 시간)
+    ** transition-property (변하는 속성)
+    transition-delay (지정된 시간 이후에 효과가 시작됨)
+    transition-timing-function (easing => 속도)
+    */
+    body {margin-bottom: 500px;}
+    div {margin: 60px;}
+    ul, li {list-style: none;margin: 0;padding: 0;}
+    button {cursor: pointer;}
+    .ex1 {
+      width: 300px;height: 150px;background: hotpink;
+      transition: width 0.5s;
+    }
+    .ex1:hover {
+      background: dodgerblue;width: 500px;
+    }
+    .ex2 {
+      width: 300px;height: 150px;background: tomato;
+    }
+    .ex2:hover {
+      background: yellowgreen;width: 500px;
+      transition: width 0.5s;
+    }
+    .ex3 button {
+      width: 50px;height: 50px;padding: 0;
+      position: relative;
+      transition: transform 0.5s;
+    }
+    .ex3 button:hover {transform: rotate(180deg);}
+    .ex3 button span {
+      display: block;width: 50px;height: 5px;
+      position: absolute;left: 50%;top: 50%;
+    }
+    .ex3 button .bar1 {
+      background: red;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    .ex3 button .bar2 {
+      background: green;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    .ex4 {
+      width: 218px;height: 260px;padding: 0;
+      background: url(img/char.jpg) no-repeat;
+      overflow: hidden;border: 1px solid #000;
+      cursor: pointer;
+    }
+    .ex4 .inner {
+      margin: 190px 0 0 0;padding: 20px;
+      text-align: center;transition: all 0.3s;
+      background: #FFF;border-radius: 20px 20px 0 0;
+    }
+    .ex4:hover .inner {margin-top: 60px;}
+    .ex4 .inner strong {font-size: 30px;}
+    .ex4 .inner p {font-size: 20px;margin: 40px 0 20px;}
+
+    .ex5 {}
+    .ex5 ul {display: flex;gap: 1px;width: 1250px;}
+    .ex5 li {
+      width: 500px;height: 500px;padding: 30px;
+      box-sizing: border-box;
+      background: no-repeat center;
+      font-size: 40px;font-weight: bold;color: #FFF;dislay: flex;align-items: flex-end;
+      transition: all 0.3s;
+    }
+    .ex5 li:hover {flex-shrink: 0;}
+    .ex5 li:nth-child(1) {background-image: url(img/food_1.png);/*flex-shrink: 0;*/}
+    .ex5 li:nth-child(2) {background-image: url(img/food_2.png);}
+    .ex5 li:nth-child(3) {background-image: url(img/food_3.png);}
+    .ex5 li:nth-child(4) {background-image: url(img/food_4.png);}
+    .ex5 li:nth-child(5) {background-image: url(img/food_5.png);}
+  </style>
+</head>
+<body>
+  <div class="ex1">transition(화면 전환)</div>
+  <div class="ex2">transition(화면 전환)</div>
+  <div class="ex3">
+    <button>
+      <span class="bar1"></span>
+      <span class="bar2"></span>
+    </button>
+  </div>
+  <div class="ex4">
+    <div class="inner">
+      <strong>보노보노</strong>
+      <p>모르는 게 아니냐. 알 때까지 시간이 걸리는 거야</p>
+    </div>
+  </div>
+  <div class="ex5">
+    <ul>
+      <li>감성DIY</li>
+      <li>팀빌딩</li>
+      <li>힐링</li>
+      <li>이색취미</li>
+      <li>자기계발</li>
+    </ul>
+  </div>
+</body>
+</html>

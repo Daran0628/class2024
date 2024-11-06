@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>수학 함수(Math-Methods)</title>
+   <script>
+
+      // Math.methods()
+       // 반올림 : round() - 정수형으로 반올림
+       // 올림 : ceil()
+       // 내림 : floor()
+       // 버림 : trunc()
+       // 절대값 : abs()
+       // 최대수 : max() / 최소값 : min()
+       // 난수(random) : random
+
+      let a, b, c, d, e, f;
+      a = 15;
+      b = 0.3;
+      c = 15.325;
+      d = -2;
+      e = 15.876;
+      f = -0.7;
+
+      console.log(`${b} 반올림 : ${Math.round(b)}`); // 0.3 > 0
+      console.log(`${c} 반올림 : ${Math.round(c)}`); // 15.325 > 15
+      console.log(`${f} 반올림 : ${Math.round(f)}`); // -0.7 > -1
+
+      console.log(`${c} 올림 : ${Math.ceil(c)}`); // 15.325 > 16
+      console.log(`${f} 올림 : ${Math.ceil(f)}`); // -0.7 > -1
+      console.log(`${e} 올림 : ${Math.ceil(e)}`); // 15.876 > 16
+
+      console.log(`${f} 내림 : ${Math.floor(f)}`); // -0.7 > -1
+      console.log(`${c} 내림 : ${Math.floor(c)}`); // 15.325 > 15
+      console.log(`${e} 내림 : ${Math.floor(e)}`); // 15.876 > 15
+
+      // floor 함수는 작거나 같은 정수값으로 반환
+      console.log(`${4.7} 내림 : ${Math.floor(4.7)}`); // 15.876 > 4
+      console.log(`${-4.7} 내림 : ${Math.floor(-4.7)}`); // 15.876 > -5
+      console.log(`${4.3} 내림 : ${Math.floor(4.3)}`); // 15.876 > 4
+      console.log(`${-4.3} 내림 : ${Math.floor(-4.3)}`); // 15.876 > -5
+      
+      // trunc 함수는 소수점 이하를 버림. 정수만 남김.
+      console.log(`${4.7} 버림 : ${Math.trunc(4.7)}`); // 15.876 > 4
+      console.log(`${-4.7} 버림 : ${Math.trunc(-4.7)}`); // 15.876 > -4
+      console.log(`${4.3} 버림 : ${Math.trunc(4.3)}`); // 15.876 > 4
+      console.log(`${-4.3} 버림 : ${Math.trunc(-4.3)}`); // 15.876 > -4
+
+      console.log(`${d}의 절대값 : ${Math.abs(d)}`); // -2 > 2
+      console.log(`${e}의 절대값 : ${Math.abs(e)}`); // 15.876 > 15.876
+      console.log(`${f}의 절대값 : ${Math.abs(f)}`); // -0.7 > 0.7
+
+      console.log(`최대값 ${Math.max(a, b, c, d, e, f)}`); 
+      console.log(`최소값 ${Math.min(a, b, c, d, e, f)}`);
+
+      console.log(`-----------난수 : 0~1사이의 무작위 숫자---------------------`);
+      console.log(Math.random())
+
+      // 난수를 0~9사이로 출력
+      // 소수점 버림
+      console.log(Math.floor(Math.random() * 10))
+      console.log(Math.floor(Math.random() * 10))
+      console.log(Math.floor(Math.random() * 10))
+      console.log(Math.floor(Math.random() * 10))
+      console.log(Math.floor(Math.random() * 10))
+
+      // 0~10 출력
+
+      console.log('------------------0~10 출력------------------------------');
+      
+      console.log(Math.floor(Math.random() * 11));
+      console.log(Math.floor(Math.random() * 11));
+      console.log(Math.floor(Math.random() * 11));
+      console.log(Math.floor(Math.random() * 11));
+      console.log(Math.floor(Math.random() * 11));
+      console.log(Math.floor(Math.random() * 11));
+      
+      
+      // 1~10 출력
+
+      console.log('------------------1~10 출력------------------------------');
+      console.log(Math.ceil(Math.random() * 10));
+      console.log(Math.ceil(Math.random() * 10));
+      console.log(Math.ceil(Math.random() * 10));
+      console.log(Math.ceil(Math.random() * 10));
+      console.log(Math.ceil(Math.random() * 10));
+      console.log(Math.ceil(Math.random() * 10));
+      
+      console.log('------------------1~6 출력------------------------------');
+      console.log(Math.abs(Math.ceil(Math.random() * 10)-4));
+      console.log(Math.abs(Math.ceil(Math.random() * 10)-4));
+      console.log(Math.abs(Math.ceil(Math.random() * 10)-4));
+      console.log(Math.abs(Math.ceil(Math.random() * 10)-4));
+      console.log(Math.abs(Math.ceil(Math.random() * 10)-4));
+      console.log(Math.abs(Math.ceil(Math.random() * 10)-4));
+      console.log(Math.abs(Math.ceil(Math.random() * 10)-4));
+
+      num = Math.ceil(Math.random() * 10);
+      window.onload = function() {
+         document.querySelector('.box').style.backgroundImage = `url(img/food_${num}.png)`
+      }
+      // document - object(객체)
+      // querySelector - 선택자 요청/호출
+      // css == style
+      // .property = 'value'
+      </script>
+      <style>
+         .box {
+            width: 800px;height: 500px;margin: 80px auto;
+            border: 1px solid #000;
+         }
+      </style>
+</head>
+<body>
+   <div class="box"></div>
+</body>
+</html>

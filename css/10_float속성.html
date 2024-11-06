@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>10_float속성</title>
+   <style>
+      body {background: url(img/grid.gif);}
+      ul {list-style: none; padding: 0; margin: 0;}
+      .ex {background: #FFF;border: 1px solid #AAA;
+         padding: 15px;width: 500px;}
+      .ex>img {margin: 0 20px 20px 0; float: left;
+      /* float 속성은 이미지 주위로 텍스트가 감싸는 형태를 만들기 위해 개발 됨 (최초 목적),
+      속성값은 left 또는 right */}
+      .box1 {
+         background: rgba(255,0,0,0.5);
+         width: 500px;height: 200px;
+         float: left;
+      }
+      .box2 {
+         background: lightblue;
+         width:700px;height: 300px;
+         float: left;
+      }
+      .box3 {
+         background: lightgreen;margin-top: 100px;
+         height: 50px;clear: both; /* 형(위쪽에 위치한) 요소들의 float 속성에 영향을 받지 않게 하는 속성 */
+         /* clear - float을 해제 :left, right, both */
+      }
+      .ex2 {background: slateblue; color:#FFF;
+      list-style: none;padding: 20px;
+   /* height: 50px; -> 값이 유동적일때는 사용할 수 없음*/
+   /* float: left; -> 꼭 필요한 것이 아니였다면 다른 float 문제가 발생 */
+   /* 배경과 상관 없을 때, 형제와 형제 사이 여백 margin,
+   특별한 케이스가 아니면 형 오른쪽으로 margin, 부모와 자손 경계에서는 부모에게 padding */
+      overflow: hidden; /* float이 사용된 후손 요소가 없을 때 사용 *//* float이 사용된 후손 요소가 있다면 후손 요소는 진짜 hidden이 됨 */
+      }
+      .ex2 li {float: left;margin-right: 20px;
+      /* 마치 인라인처럼 width가 자손 기준이 됨 */
+      background: pink;}
+
+      .ex2 .last {float: right;margin-right: 0;}
+      
+      .ex3 {background: #FFF;border: 1px solid red;
+         padding: 40px 90px; overflow: hidden;font-size: 16px;}
+      .ex3 h1 {background: red;color: #FFF;margin: 0px;float: left;}
+      .ex3 ul {float: right; list-style: none;}
+      .ex3 li {float: left;margin-left: 100px;}
+      /* .ex3 .youngest {float: right; margin: 0px} */
+
+      .ex4 {width: 1150px;background: #FFF;line-height: 20px;
+         padding: 20px;overflow: hidden;margin: 100px auto;}
+      .ex4 h1 {float: left;margin-right: 50px;border: 1px; font-size: 14px;}
+      .ex4 .gnb {float: left;font-size: 20px;}
+      .ex4 .util {float: right;font-size: 14px;}
+      .ex4 .gnb li {float: left;margin-left: 40px;line-height: 32px;}
+      .ex4 .util li {float: left;margin-right: 20px;line-height: 32px;}
+   </style>
+</head>
+<body>
+   <div class="ex">
+      <img src="img/char.jpg" alt="">
+      어린이 만화의 대표작 중 하나로 여겨지지만, 원작은 상당히 철학적인 주제를 다루고 있으며 어린이들이 이해하기에 어려운 내용도 많다.[4] 1995년 애니메이션판은 아동용으로 대상층을 낮춰 보다 잔잔한 재미와 귀여움, 개그성을 어필했기에[5] 애니메이션을 보고 만화책을 찾아보면 생각보다 더 심오해서 당황한다고.
+
+      최근 연재본은 현대사회에 대한 풍자를 주로 이야기가 진행되며[6] 동시에 등장인물들의 성격도 조금씩 바뀌었다. 초기 연재본과 최근 연재분을 읽어보면 위화감이 들정도.
+   </div>
+   <div class="box1"></div>
+   <div class="box2"></div>
+   <div class="box3">float의 영향을 받지 않는 동생 요소</div>
+   <ul class="ex2">
+      <li><a href="#"></a>HOME</li>
+      <li>ABOUT</li>
+      <li>PORTFOLIO</li>
+      <li class="last">CONTACT</li>
+   </ul>
+   <div class="ex3">
+      <h1>웰컴복지재단</h1>
+      <ul>
+      <li>재단소개</li>
+      <li>사업소개</li>
+      <li>재단소식</li>
+      <li class="youngest">후원</li>
+      </ul>
+   </div>
+   <div class="ex4">
+      <h1><img src="img/hancom.png" alt=""></h1>
+      <ul class="gnb">
+         <li>제품</li>
+         <li>구매</li>
+         <li>고객지원</li>
+         <li>한컴AI</li>
+         <li>한컴데이터로더</li>
+      </ul>
+      <ul class="util">
+         <li>로그인</li>
+         <li>회원가입</li>
+         <li>주문/배송</li>
+         <li>장바구니</li>
+      </ul>
+   </div>
+</body>
+</html>

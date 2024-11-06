@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>배열 메소드 2</title>
+   <script>
+      const fruits = ['banana', 'mango', 'grape', 'apple', 'kiwi']
+
+      // indexof('data') -> data의 인덱스 번호를 반환
+      console.log(fruits.indexOf('grape')); // 2
+      console.log(fruits.indexOf('cherry')); // -1
+
+      // let fruitName = prompt('과일 이름')
+      let fruitName = 'melon'
+      if (fruits.indexOf(fruitName) >= 0 ) {
+         console.log('보유중입니다.');
+         } else { console.log('취급하지 않습니다');
+            }
+
+      fruits.push('banana')
+      fruits.unshift('grape')
+      console.log(fruits);
+
+      console.log(fruits.indexOf('grape')); // 0
+      console.log(fruits.lastIndexOf('grape')); // 3
+      
+      // includes(data) data의 여부에 따라 boolean 값으로 출력 
+         if(fruits.includes(fruitName)) {
+            console.log('기존 상품입니다.');
+            } else { console.log('상품 추가하세요.');
+               }
+
+      // find()
+         const arr1 = [35, 12, 8, 44]
+         arr1.push(10) 
+         console.log(arr1); //  [35, 12, 8, 44, 10]
+
+         // arr1.find(callback) -> callback을 실행해서 조건에 만족하는 첫번째 요소를 반환
+         // arr1.find(function(item) {}) 
+         const a1 = arr1.find(item => item < 10)
+         console.log(a1); // 8
+         console.log(arr1.find(item => item > 10));
+
+         // arr1의 데이터 중 짝수인 첫번째 데이터
+         const a2 = arr1.find(i => i % 2 == 0)
+         console.log(a2); // 12
+         
+         function f1(n) {
+            return n * 2
+         }
+
+         console.log(f1(50)); // 100
+         
+         const f2 = n => n * 3
+
+         console.log(f2(10)); // 30
+
+         const a3 = arr1.find(i => i < 0)
+         console.log(a3);
+         
+         // const users = [{
+         //    name: '홍길동',
+         //    age: 20,
+         //    gender: '남성' }, {}, {}, ...
+         // ]
+            // 생성자 함수 - 객체를 생성하기 위한 함수
+         function User(name, age, gender) { // 생성자 함수
+            this.name = name,
+            this.age = age,
+            this.gender = gender
+         }
+         const user1 = new User('홍길동', 20, '남성')
+         const user2 = new User('고길동', 45, '남성')
+         const user3 = new User('또치', 5, '여성')
+         
+         const users = [user1, user2, user3]
+         console.log(typeof fruits[0]); // string
+         console.log(typeof arr1[0]); // number
+         console.log(typeof users[0]); // object
+         console.log(users[0]); // {name: '홍길동', age: 20, gender: '남성'}
+         console.log(users[2].age); 
+         console.log(users[2].name);
+
+         // find() 를 이용해서 또치의 성별을 출력
+         const fUser = users.find(a => a.name === '또치')
+         console.log(fUser.gender);
+         
+         // forEach()
+         //  arr1 = [35, 12, 8, 44, 10]
+         let arr2 = [];
+         arr1.forEach(function(item) {
+            arr2.push(item * 2 )
+         })
+         console.log(arr1);
+         console.log(arr2);
+
+         fruits.forEach((item, index) => {
+            console.log(`${index+1}: ${item}`);
+         })
+
+         // user에서 번호와 이름
+         users.forEach((user, index) => {
+            console.log(`${index + 1}번 ${user.name}`);
+         })
+
+         // user들의 나이의 합 // 70
+         let sum = 0;
+         users.forEach((user, index) => {
+            console.log(`${index + 1}. ${user.name}, ${user.age}`);
+            sum += user.age;
+         })
+         console.log(`user들의 나이 총합 : ${sum}`);
+         
+         // map(callback) -> 배열을 순회하며 주어진 조건에 따라 새로운 배열을 반환
+         // arr1.map(function(itme) {return item * 2})
+         let arr3 = arr1.map(item => item * 2)
+         arr3 = arr1.map(item => item * 3)
+         console.log(arr3);
+         
+         // arr3의 10% 값을 새로운 배열(arr4)로 출력
+         let arr4 = arr3.map(item => (item * 0.1).toFixed(1))
+         console.log(arr4);
+
+         // users의 이름만 배열(userName)로
+         let userName = users.map(item => item.name);
+         console.log(userName); // [홍길동, 고길동, 또치]
+
+         const fruits2 = ['apple', 'kiwi', 'watermelon', 'strawberry', 'avocado', 'lime']
+         // fruits2에서 글자 갯수가 5글자 이상인 과일만 새로운 배열(fruits3)로 출력
+         let fruits3 = fruits2.map(item => item.length >= 5)
+         console.log(fruits3); // [true, false, true, true, true, false]
+
+         // filter() -> 배열을 순회하며 주어진 조건에 만족하는 요소들로 새로운 배열로 반환
+         let fruits4 = fruits2.filter(item => item.length >= 5)
+         console.log(fruits4); // ['apple', 'watermelon', 'strawberry', 'avocado']
+
+         // user의 나이가 성인인 user만 추출한 배열
+         let adultUser = users.filter(item => item.age >= 20)
+         let adultUserName = adultUser.map(item => item.name)
+
+
+         
+         
+         
+         
+         
+      
+         
+
+         // HTMLCollection에게 이벤트리스너 추가
+         window.addEventListener('DOMContentLoaded', function() {
+            const button = document.querySelector('button')
+            const btns = document.querySelectorAll('button')
+            
+            btns.forEach(function(btn) {
+               btn.addEventListener('click', function() {
+               console.log(this.innerText);
+               })
+            })
+
+            
+         }) // loaded
+   </script>
+</head>
+<body>
+   <button>puppy</button>
+   <button>cat</button>
+   <button>rabbit</button>
+</body>
+</html>

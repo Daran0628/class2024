@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>자손 요소탐색</title>
+   <style>
+      div, div * {
+         padding: 20px;
+         background: #fff;
+         border: 1px solid #ccc
+      }
+      span, em {padding: 0;}
+      h2 {border: 1px solid orangered}
+      .wrapper {position: relative;border: 2px dotted midnightblue;}
+      .inner {position: relative;}
+   </style>
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+   <script>
+      $(function() {
+         $('.btn1').click(function() {
+            // children() -> 선택자의 모든 자손요소
+            $('h2').children().css('border', '2px solid orange')
+         })
+         $('.btn2').click(function() {
+            $('h2').children('div').css('border', '2px solid salmon')
+         })
+         $('.btn3').click(function() {
+            // children('elm') -> 자손요소 중 'elm'요소만 탐색
+            $('h2').children('em').css('border', '2px solid salmon')
+         })
+         $('.btn4').click(function() {
+            // find() -> 자손을 포함한 후손요소 탐색 메소드, BUT 인수 입력 필수
+            $('h2').find().css('border', '2px dotted #000')
+         })
+         $('.btn5').click(function() {
+            // find('*') -> 후손의 모든 요소를 탐색
+            $('.wrapper').find('*').css('border', '2px dotted lime')
+         })
+         $('.btn6').click(function() {
+            // find('elm') -> 후손 요소 중 elm 요소를 탐색
+            $('h2').find('em').css('border', '3px dotted hotpink')
+         })
+      }) // ready
+   </script>
+</head>
+<body>
+   <h1>자손 요소 탐색</h1>
+   <button class="btn1">children()</button>
+   <button class="btn2">children('div')</button>
+   <button class="btn3">children('em')</button>
+   <button class="btn4">find()</button>
+   <button class="btn5">find('*')</button>
+   <button class="btn6">find('em')</button>
+
+   <hr>
+
+   <div class="wrapper"> 
+      <div class="inner"> 
+         <div class="box"> 
+            <h2><span>자손 요소</span><em>탐색</em></h2>
+         </div>
+      </div>
+   </div>
+</body>
+</html>

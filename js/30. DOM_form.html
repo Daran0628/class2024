@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>DOM_form</title>
+   <style>
+      #wrap {width: 800px;margin: auto;}
+      dl {display: flex;flex-wrap: wrap;
+         width: 300px;}
+      dt, dd {
+         padding: 7px 15px;margin: 0;box-sizing: border-box;
+         border: 1px solid #ccc;
+      }
+      dt {width: 100px;background: #eee;}
+      dd {width: 200px;}
+   </style>
+   <script>
+      window.addEventListener('DOMContentLoaded', function() {
+         
+         document.forms['userInfo']['uName'].focus()
+
+         let txt1 = document.forms.length
+         let txt2 = document.forms[0].name
+
+         // 폼태그와 입력양식 요소들도 배열처럼 선택 가능
+         let txt3 = document.forms['adminLogin'].length
+         
+         const $txtBox = document.querySelector('.txt');
+            
+            $txtBox.innerHTML 
+               = `문서에 포함된 form 태그의 갯수 ${txt1} <br>`
+            $txtBox.innerHTML 
+               += `1번째 form 태그의 name 속성 : ${txt2} <br>`
+            $txtBox.innerHTML
+               += `2번째 form 태그의 form과 관련된 자손갯수 : ${txt3} <br>`
+         
+         // 각각 인풋에 입력 받은 값을 가져와서 dd에 작성
+         const $userInfo = document.forms['userInfo']; 
+
+         const $uAge = $userInfo['uAge']
+         const $uName = $userInfo['uName']
+         const $uGender = $userInfo['uGender']
+      
+         const $userTxt = document.querySelectorAll('.usrRes dd')
+         const $btn1 = document.forms[0][3];
+
+         // console.log($userTxt);
+         
+         $btn1.addEventListener('click', function(btnEvent) {    
+            btnEvent.preventDefault(); // 요소가 가지고 있던 기본 이벤트 제거
+            $userTxt[0].innerHTML = $uName.value;
+            $userTxt[1].innerHTML = $uAge.value;
+            $userTxt[2].innerHTML = $uGender.value;
+
+            // form 태그는 submit 버튼을 클릭하면 데이터를 전송하고 기본적으로 페이지를 새로 고침
+            // 데이터를 제대로 전송 되도록 return true를 작성
+            
+            // return false // 새로고침을 방지하기 위해            
+            return false
+         })
+
+         document.getElementById('test').addEventListener('click', function(aEvent) {
+            aEvent.preventDefault();
+            this.style.color = 'dodgerblue'
+         })
+
+
+
+
+         // ** 관리자 로그인
+         // ** form 요소(name) 찾기, 조건문
+
+         // 1. 아이디(admin)와 패스워드(1234)가 맞으면 '반갑습니다. 관리자님.'
+         // 2. 아이디가 공백이면 '아이디를 입력해주세요.'
+         //    비밀번호가 공백이면 '비밀번호를 입력해주세요.'
+         // -> 각각 체크 -> 공백 인풋에 포커스
+         // 3. 아이디가 틀리면 '아이디를 확인하세요'
+         //    비밀번호가가 틀리면 '비밀번호를 확인하세요'
+
+         const $adminLogin = document.forms['adminLogin']
+
+         const $loginId = $adminLogin['loginId']
+         const $loginPw = $adminLogin['loginPw']
+
+         const $btn2 = document.forms[1][2]
+
+         const $ex2 = document.getElementsByClassName('.ex2')
+         const $loginRes = document.getElementsByClassName('.loginRes')
+         
+         const _resTxtbox = document.createElement('div')
+         
+         const wlcmTxt = '반갑습니다. 관리자님'
+      
+
+
+         $btn2.addEventListener('click', function(btnEvent) {
+            btnEvent.preventDefault();
+            const entId = $loginId.value 
+            const entPw = $loginPw.value 
+
+            if(entId === 'admin' && entPw == '1234') {
+               _resTxtbox.innerHTML = wlcmTxt;
+               _resTxtbox.classList.add('newLoginRes')
+            
+               // $newLoginRes = document.querySelector('.newLoginRes')
+            } else {
+            
+            }
+
+            //  document.body.replaceChild($newLoginRes ,$loginRes)
+         })
+
+
+      }) // loaded
+   </script>
+</head>
+<body>
+   <div id="wrap">
+      <h1>DOM - form 요소 다루기</h1>
+      <a href="http://www.naver.com" id="test">기본 이벤트 없애기</a>
+      <div class="txt"></div>
+      <h2>input의 value</h2>
+      <div class="ex1">
+         <form action="" name="userInfo">
+            <label for="">이름 <input type="text" name="uName"></label>
+            <label for="">나이 <input type="number" name="uAge"></label>
+            <label for="">성별 <input type="text" name="uGender"></label>
+            <button type="submit">전송</button>
+         </form>
+         <dl class="usrRes">
+            <dt>이름</dt>
+               <dd></dd>
+            <dt>나이</dt>
+               <dd></dd>
+            <dt>성별</dt>
+               <dd></dd>
+         </dl>
+      </div>
+      <hr>
+      <h2>관리자 로그인</h2>
+      <div class="ex2">
+         <form action="#" name="adminLogin">
+            <label for=""> 아이디 <input type="text" name="loginId"></label><br>
+            <label for=""> 비밀번호 <input type="password" name="loginPw"></label>
+            <button type="submit"> Login </button>
+         </form>
+         <br><hr>
+         <div class="loginRes">로그인 하세요.</div>
+      </div>
+      <!-- <form action=""></form> -->
+   </div>
+</body>
+</html>

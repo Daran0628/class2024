@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9_입력양식태그</title>
+  <style>
+    body {margin-bottom: 500px;}
+    table {
+      min-width: 800px;border-collapse: collapse;
+      border-top: 2px solid #666;
+    }
+    tr {}
+    th, td {padding: 10px 15px;border-bottom: 1px solid #AAA;}
+    th {background: pink;}
+    /* .ex1 th:first-child, .ex1 td:first-child {background: pink;} */
+    .ex1 col:first-child {
+      background: #EEE;width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>입력(input) 양식(서식, form) 관련 요소</h1>
+  <p>- 사용자로부터 데이터를 입력받기 위한 요소</p>
+  <p>
+    - forms 요소들은 name과 value 속성이 필수이지만,
+    - DB(DataBase)와 관련된 속성이므로 db와 관련없는 직무라면 생략
+  </p>
+  <p>
+    - form 태그 속성 : method, action
+    method(전송방식) => get(default), post
+    action(데이터를 처리할 파일 경로)
+  </p>
+  <h2>입력양식 태그 속성</h2>
+  <ul>
+    <li>placeholder : 사용자가 직접입력하는 인풋요소에 미리보기 문구</li>
+    <li>required : 필수 요소를 나타내는 속성</li>
+    <li>selected : select요소의 option 태그에 사용</li>
+    <li>checked : 체크박스와 라디오 요소에 사용</li>
+    <li>readonly : 사용자 할 수 없는 속성</li>
+  </ul>
+
+  <form action="애국가.html" method="">
+    <fieldset><!--인풋 요소들 그룹-->
+      <legend>fieldset 그룹의 heading</legend>
+      <input type="text"> 예) 추가정보
+      <p>별도에 그룹이 필요한 경우에 사용</p>
+    </fieldset>
+    <table class="ex1">
+      <colgroup>
+        <col>
+        <col>
+      </colgroup>
+      <tr>
+        <th>이름</th>
+        <th>사용 예시</th>
+      </tr>
+      <tr>
+        <td>한줄 텍스트 입력상자</td>
+        <td><input type="text" placeholder="이름을 입력" name="uname" required value="dkjflsdkjf" readonly></td>
+      </tr>
+      <tr>
+        <td>비밀번호 입력상자</td>
+        <td><input type="password" placeholder="비밀번호 입력"></td>
+      </tr>
+      <tr>
+        <td>체크박스(다중 선택)</td>
+        <td>
+          <input type="checkbox" name="favorite">건강
+          <input type="checkbox" name="favorite">주식
+          <input type="checkbox" name="favorite">환경
+          <input type="checkbox" name="favorite">학습 <br>
+          <input type="checkbox" name="fruit" value="strawberry">딸기
+          <input type="checkbox" name="fruit" value="grape">포도
+          <input type="checkbox" name="fruit" value="banana">바나나
+          <input type="checkbox" name="fruit" value="watermelon">수박
+        </td>
+      </tr>
+      <tr>
+        <td>라디오 버튼(유일 선택)</td>
+        <td>
+          <input type="radio" name="agree"> 동의함
+          <input type="radio" name="agree"> 동의안함 <br>
+          <input type="radio" name="gender" value="male"> 남성
+          <input type="radio" name="gender" value="female"> 여성 <br>
+          <input type="radio" name="marrige" value="married"> 기혼
+          <input type="radio" name="marrige" value="single"> 미혼
+        </td>
+      </tr>
+      <tr>
+        <td>label 태그</td>
+        <td>
+          * 폼요소를 설명하는 텍스트를 의미적으로 연결하고 접근성을 높이는 태그 <br>
+
+          <label><input type="radio"> Radio</label>
+
+          <input type="checkbox" id="ch">
+          <label for="ch">checkbox</label>
+
+          <input type="text" id="tx">
+          <label for="tx">Text</label>
+        </td>
+      </tr>
+      <tr>
+        <td>셀렉트 메뉴</td>
+        <td>
+          <select name="telecom" required>
+            <option value="skt">SKT</option>
+            <option value="kt">KT</option>
+            <option value="lg">LG U+</option>
+            <option value="선택안함" selected>통신사 선택</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>셀렉트 태그의 optgroup</td>
+        <td>
+          <select>
+            <optgroup label="강남구">
+              <option value="">삼성동</option>
+              <option value="">신사동</option>
+              <option value="">역삼동</option>
+            </optgroup>
+            <optgroup label="관악구">
+              <option value="">대학동</option>
+              <option value="">남현동</option>
+              <option value="">신사동</option>
+              <option value="">삼성동</option>
+            </optgroup>
+            <optgroup label="은평구">
+              <option value="">불광동</option>
+              <option value="">응암동</option>
+              <option value="">신사동</option>
+            </optgroup>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>그냥 버튼</td>
+        <td><input type="button" value="확인"></td>
+      </tr>
+      <tr>
+        <td>제출 버튼</td>
+        <td><input type="submit" value="가입하기"></td>
+      </tr>
+      <tr>
+        <td>초기화 버튼</td>
+        <td><input type="reset" value="취소"></td>
+      </tr>
+      <tr>
+        <td>이미지 버튼</td>
+        <td><input type="image" src="img/search.png" alt="검색"></td>
+      </tr>
+      <tr>
+        <td>파일 업로드 버튼</td>
+        <td><input type="file" value="ㅁㅁㅁ"></td>
+      </tr>
+      <tr>
+        <td>히든 버튼</td>
+        <td>데이터 전송 목적, 브라우저에 노출되지 않는<input type="hidden" name="hidden" value="data"></td>
+      </tr>
+      <!-- html5에 추가된 type -->
+      <tr>
+        <td>이메일</td>
+        <td><input type="email"></td>
+      </tr>
+      <tr>
+        <td>숫자</td>
+        <td><input type="number" min="10" max="50" step="5"></td>
+      </tr>
+      <tr>
+        <td>날짜(년월일)</td>
+        <td><input type="date"></td>
+      </tr>
+      <tr>
+        <td>년월 표시</td>
+        <td><input type="month"></td>
+      </tr>
+      <tr>
+        <td>주(week) 기준 월 표시</td>
+        <td><input type="week"></td>
+      </tr>
+      <tr>
+        <td>시간</td>
+        <td><input type="time"></td>
+      </tr>
+      <tr>
+        <td>컬러</td>
+        <td><input type="color" name="color">어떤값?</td>
+      </tr>
+      <tr>
+        <td>범위</td>
+        <td>
+          <input type="range" value="10" id="a">
+          <output for="a"></output>
+        </td>
+      </tr>
+      <tr>
+        <td>검색</td>
+        <td><input type="search"></td>
+      </tr>
+      <tr>
+        <td>전화번호</td>
+        <td><input type="tel"></td>
+      </tr>
+      <tr>
+        <td>url</td>
+        <td><input type="url"></td>
+      </tr>
+      <tr>
+        <td>여러줄 입력</td>
+        <td>
+          <textarea name="" id="" cols="10" rows="3" style="width: 300px;">
+            cols는 가로에 작성될 글자의 갯수, <br>
+            rows는 세로에 작성될 줄의 갯수<br>
+            => 한글의 갯수와 다름, 면적을 위한 크기가 아님<br>
+            면적은 css를 이용
+          </textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>datalist 태그 </td>
+        <td>
+          * 작성될 내용을 미리 옵션으로 설정<br>
+          <input list="browser" type="text">
+
+          <datalist id="browser">
+            <option value="Edge">
+            <option value="Chrome">
+            <option value="FireFox">
+            <option value="Safari">
+            <option value="Opera">
+          </datalist>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <form action=""></form>
+</body>
+</html>

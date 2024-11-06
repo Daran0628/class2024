@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>회원 관리</title>
+
+   <!-- CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+   <style>
+        button {
+         margin: 0;padding: 0;line-height: 1em;
+         background: none;border: none;
+         cursor: pointer;font: inherit;}
+         h2 {font-size: 1.3rem;font-weight: 700;}
+
+         #wrap {
+            display: flex;flex-direction: column;gap: 3rem;
+            width: 70%;margin: 5rem auto;}
+         #clientInput {display: flex;gap: 1rem;}
+         #clientInput button {font-size: 0.8rem;}
+
+
+   </style>
+
+   <!-- JS -->
+   <script src="./js/clients.js" defer></script>
+</head>
+<body>
+   <div id="wrap">
+    <form id="clientInput">
+         이름 : <input type="text" placeholder="이름을 입력하세요." id='addName' value="" require >
+         <br>
+         연락처 : <select id="tel_1" required>
+            <option value="unselected" selected>선택</option>
+            <option value="010">010</option>
+            <option value="02">02</option>
+            </select>
+         <input id="tel_2" type="number" placeholder="연락처를 입력하세요.">
+            <br>
+         <!-- <select id="group" required>
+            <option value="unselected" selected>기본 그룹</option>
+            <option value="family"> 가족 </option>
+            <option value="friend"> 친구 </option>
+            <option value="coworker"> 직장 </option>
+         </select> -->
+         <button type="submit"> 등록하기 </button>
+   </form>
+
+      <h2>회원 리스트</h2>
+      <ul id="clientList">기본 그룹</ul>
+      <ul class="family">가족</ul>
+      <ul class="friends">친구</ul>
+      <ul class="coworkers">직장</ul>
+
+
+   </div>
+</body>
+</html>

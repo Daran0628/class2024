@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13_flexbox</title>
+  <style>
+    body {margin-bottom: 500px;}
+    * {margin: 0;padding: 0;}
+    h1 {background: gold;height: 0;overflow: hidden;}
+    h2 {margin-bottom: 30px;}
+    section {background: #dedede;padding: 50px 70px;}
+    ul, li {list-style: none;}
+    ul {
+      border: 1px solid #000;
+      display: flex;
+      /*container(부모)에게 선언*/
+    }
+    li {
+      background: pink; width: 100px;
+      margin: 10px;padding: 15px 20px;
+    }
+    .box1 ul {
+      flex-direction: row;
+      /*main축 설정, row(가로), column(세로)*/
+    }
+    .box2 ul {flex-direction: column;height: 400px;}
+    .box3 ul {
+      width: 350px;
+      flex-wrap: nowrap;
+      /*container보다 item의 크기가 클 때 줄이 바뀌는 여부*/
+    }
+    .box4 ul {
+      width: 350px;flex-wrap: wrap;
+    }
+    .box5 ul {
+      flex-flow: column wrap; height: 200px;
+    }
+    .box6 ul {flex-direction: row-reverse;}
+    .box7 ul {flex-direction: column-reverse;height: 400px;}
+    .box8 ul {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+    .box9 ul {
+      flex-direction: row;flex-wrap: nowrap;
+      justify-content: flex-end;
+    }
+    .box10 ul {
+      flex-direction: row;flex-wrap: nowrap;
+      justify-content: center;
+    }
+    .box11 ul {
+      height: 400px;flex-direction: column;
+      justify-content: flex-start;
+      /*main 축 기준의 정렬*/
+    }
+    .box12 ul {
+      height: 400px;flex-direction: column;
+      justify-content: flex-end;
+    }
+    .box13 ul {
+      height: 400px;flex-direction: column;
+      justify-content: center;
+    }
+    .box14 ul {
+      height: 300px;flex-direction: row;
+      align-items: stretch;
+      /*교차축 방향의 정렬*/
+    }
+    .box15 ul {
+      height: 300px;flex-direction: row;
+      align-items: flex-start;
+    }
+    .box15 li:first-child {font-size: 40px;}
+    .box16 ul {
+      height: 300px;flex-direction: row;
+      align-items: flex-end;
+    }
+    .box16 li:first-child {font-size: 40px;}
+    .box17 ul {
+      height: 300px;flex-direction: row;
+      align-items: center;
+    }
+    .box17 li:first-child {font-size: 80px;}
+    .box18 ul {
+      height: 500px;flex-direction: column;
+      align-items: center;
+    }
+    .box18 li:first-child {font-size: 80px;}
+    .box19 ul {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    .box20 ul {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+    .box21 ul {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .box22 ul {
+      flex-direction: column;height: 500px;
+      justify-content: space-between;
+    }
+    .box23 ul {
+      width: 50%;height: 500px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: stretch;
+      align-content: stretch;
+    }
+    .box24 ul {
+      width: 50%;height: 500px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      align-content: stretch;
+    }
+    .box25 ul {
+      width: 50%;height: 500px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      align-content: stretch;
+    }
+    .box25 ul {
+      width: 50%;height: 500px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      align-content: stretch;
+    }
+    .box26 ul {
+      width: 50%;height: 500px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: stretch;
+      align-content: space-between;
+    }
+    .box27 ul {
+      /* flex-flow: row nowrap; => 기본값 */
+    }
+    .box27 .item1 {order: 2; background: gold;}
+    .box27 .item2 {order: 5; background: tomato;}
+    .box27 .item3 {order: 3;}
+    .box27 .item4 {order: 1;}
+    .box27 .item5 {order: 4;}
+    /* 모든 아이템의 order의 default 값은 0 이기때문에, 형제들 중에 하나의 요소에만 order 값을 사용하면 양수일 때는 맨뒤, 음수일 때는 맨 앞으로 이동 */
+
+    .box28 ul {gap: 30px;}
+    .box28 li {
+      width: auto;margin: 0;
+      flex-grow: 1;flex-shrink: 1;
+    }
+    .box28 .item1 {background: gold;}
+    .box28 .item2 {flex-grow: 2; background: tomato;}
+    .box28 .item3 {flex-grow: 3;background: yellowgreen;}
+    .box28 .item4 {background: lightblue;}
+
+    .box29 ul {gap: 10px;}
+    .box29 li {
+      width: 100px;flex-grow: 0;flex-shrink: 1;
+    }
+    .box29 .item1 {background: gold;}
+    .box29 .item2 {
+      width: 250px;background: tomato;
+      flex-shrink: 0;
+    }
+    .box29 .item3 {background: yellowgreen;}
+    .box29 .item4 {background: lightblue;}
+
+    .box30 ul {
+      display: flex;flex-direction: column;
+      /* align-items:center; */
+    }
+    .box30 li {width: auto;}
+    .box30 .item1 {flex-basis: 200px;}
+    .box30 .item2 {
+      background: tomato;flex-basis: 200px;
+      width: 150px;
+    }
+    .box30 .item3 {
+      background: yellowgreen;flex-basis: 200px;
+      width: 250px;align-self: center;
+      /* align-items:center; */
+    }
+
+    .center1 {
+      width: 100px;height: 80px;margin: 0px 80px;
+      background: #CCC;text-align: center;
+      line-height: 80px;
+    }
+    .inner {
+      width: 200px;height: 150px;
+      background: #000;color: #FFF;
+    }
+    .center2 {
+      width: 500px;height: 300px;position: relative;
+      margin: auto;background: pink;
+    }
+    .center2 .inner {
+      position: absolute;left: 50%;top: 50%;
+      /* margin: -75px 0 0 -150px; */
+      transform: translate(-50%, -50%);
+    }
+    .center3 {
+      width: 500px;height: 300px;
+      margin: auto;background: pink;
+      display: flex;justify-content: center;
+      align-items: center;
+    }
+    .center3 .inner {
+      display: flex;justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>flex 속성</h1>
+  <!-- section.box$*10>div>ul>li{Item$}*4 -->
+  <section class="box1">
+    <h2>flex-direction : row(생략, default)</h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box2">
+    <h2>flex-direction: column</h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box3">
+    <h2>flex-wrap: nowrap;(default, 생략)</h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box4">
+    <h2>flex-wrap: wrap;</h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box5">
+    <h2>flow-flow : direction과 wrap의 축약형</h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box6">
+    <h2>flex-direction: row-reverse</h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box7">
+    <h2>flex-direction: column-reverse</h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box8">
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box9">
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box10">
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <!-- section.box$@11*10>h2+div>ul>li{Item$}*4 -->
+  <section class="box11">
+    <h2></h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box12">
+    <h2></h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box13">
+    <h2></h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box14">
+    <h2></h2>
+    <div>
+      <ul>
+        <li>Item1 <br>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box15">
+    <h2></h2>
+    <div>
+      <ul>
+        <li>Item1 <br>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box16">
+    <h2></h2>
+    <div>
+      <ul>
+        <li>Item1 <br>Item1 <br>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box17">
+    <h2></h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box18">
+    <h2></h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box19">
+    <h2>19</h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box20">
+    <h2></h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box21">
+    <h2></h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box22">
+    <h2>justify-content: space-between;</h2>
+    <p>메인축: column</p>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box23">
+    <h2>align-content : stretch; align-items: stretch;</h2>
+    <p>flex-wrap: wrap;(여러 줄)에 대한 교차축 정렬</p>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box24">
+    <h2>align-content : stretch; align-items: center;</h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box25">
+    <h2>align-content : stretch; align-items: flex-end;</h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box26">
+    <h2>align-content : space-between; align-items: stretch;</h2>
+    <div>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box27">
+    <h2>order</h2>
+    <p>flex item 속성 : item에게 직접 사용</p>
+    <div>
+      <ul>
+        <li class="item1">Item1</li>
+        <li class="item2">Item2</li>
+        <li class="item3">Item3</li>
+        <li class="item4">Item4</li>
+        <li class="item5">Item5</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box28">
+    <h2></h2>
+    <div>
+      <ul>
+        <li class="item1">Item1</li>
+        <li class="item2">Item2</li>
+        <li class="item3">Item3</li>
+        <li class="item4">Item4</li>
+        <li class="item5">Item5</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box29">
+    <h2></h2>
+    <div>
+      <ul>
+        <li class="item1">Item1</li>
+        <li class="item2">Item2</li>
+        <li class="item3">Item3</li>
+        <li class="item4">Item4</li>
+        <li class="item5">Item5</li>
+      </ul>
+    </div>
+  </section>
+  <section class="box30">
+    <h2>flex-basis : 200px</h2>
+    <p>flex item 기본 크기값 (메인축이 row이면 가로크기, column이면 세로 크기가 설정됨)</p>
+    <div>
+      <ul>
+        <li class="item1">Item1</li>
+        <li class="item2">Item2</li>
+        <li class="item3">Item3</li>
+        <li class="item4">Item4</li>
+        <li class="item5">Item5</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <h2>인라인 요소의 정중앙 정렬</h2>
+  <div class="center1">텍스트</div>
+  <h2>블럭의 정중앙 정렬</h2>
+  <h3>position 사용</h3>
+  <div class="center2">
+    <div class="inner">inner box</div>
+  </div>
+  <h3>flex 사용</h3>
+  <div class="center3">
+    <div class="inner">inner box</div>
+  </div>
+</body>
+</html>

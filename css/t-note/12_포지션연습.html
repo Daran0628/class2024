@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12_포지션연습</title>
+  <style>
+    @import url(https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/static/pretendard.css);
+    /*font-family: 'Pretendards'*/
+
+    * {margin: 0;padding: 0;font: inherit;line-height: 1;}
+    /* font의 축약형은 순서와 생략여부가 정해져 있음 */
+    ol, ul, li {list-style: none;}
+    a {text-decoration: none;color: inherit}
+    button {background: none;border: none;}
+
+    /* ex1 */
+    .ex1_wrap {
+      background: #dedede;padding: 80px 0;
+    }
+    .ex1 {
+      width: 1400px;border: 1px solid red;
+      margin: auto;color: #242a5c;
+      font-family: 'Pretendards', sans-serif;
+      position: relative;
+    }
+    .ex1 h2 {
+      font-size: 50px;font-weight: 600;
+      margin-bottom: 65px;background: pink;
+    }
+    .ex1 .box {position: relative;}
+    .ex1 ul {overflow: hidden;}
+    .ex1 li {
+      background: gold;margin-right: 32px;
+      width: 326px;height: 500px;float: left;
+    }
+    .ex1 li:last-child {margin-right: 0;}
+    .ex1 .more_btn {background: tomato;
+      position: absolute;right: 0;top: 17px;
+      /* line-height: 50px; */
+    }
+    .ex1 .btns button {
+      width: 55px;height: 55px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 4px 4px 6px rgba(0,0,0,0.2);
+      position: absolute;top: 50%;
+      /* margin-top: -27px; */
+    }
+    .ex1 .btns .prev {
+      background-image: url(img/prev_coupon.png);
+      left: 0;transform: translate(-50%,-50%)
+    }
+    .ex1 .btns .next {
+      background-image: url(img/next_coupon.png);
+      right: 0;transform: translate(50%,-50%)
+    }
+  </style>
+</head>
+<body>
+  <div class="ex1_wrap">
+    <div class="ex1">
+      <h2>분양정보</h2>
+      <div class="box">
+        <ul>
+          <li><!--조감도 배경이미지-->
+            <div><!--블랙 반투명 배경-->
+              분당 금호어울림 <br> 그린파크
+            </div>
+            <div><!--상세내용-->
+              <!--
+                블랙bg와 상세박스는 포지션으로 겹쳐짐.
+                블랙bg가 보이고 내용박스은 안보이고,
+                마우스가 오버된 블랙bg는 페이드아웃 내용박스는 페이드인
+              -->
+            </div>
+          </li>
+          <li>고양 장항 아테라</li>
+          <li>춘천 아테라 <br> 에듀파크</li>
+          <li>청주 테크노폴리스 <br> 아테라</li>
+        </ul>
+        <div class="btns">
+          <button class="prev"></button>
+          <button class="next"></button>
+        </div>
+      </div>
+      <a href="#" class="more_btn">더보기</a>
+    </div>
+  </div>
+</body>
+</html>

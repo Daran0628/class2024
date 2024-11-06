@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>promp.html</title>
+   <script>
+      // prompt() : 브라우저 요소로 사용자에게 값을 입력받기 위한 창
+      // 자바스크립트를 학습하는 동안 간단히 값을 입력받기 위해 사용
+      
+      let birth = prompt('출생년도를 입력', 2024)
+      console.log(2024 - birth + '세');
+
+      let username = prompt('이름을 입력하세요', '이름을 밝히지 않은 게스트')
+      console.log(username + '님! 안녕하세요');
+      
+      let num1 = prompt('1일 근무 시간를 입력하세요', 1), num2 = prompt('한 주 근무 일수를 입력하세요', 1);
+      
+      let pay = (num1 * num2) * 9860 ;
+      // num1과 num2의 곱한 결과값
+      console.log('주급' + pay + '원');
+      
+      
+   </script>
+</head>
+<body>
+   
+</body>
+</html>

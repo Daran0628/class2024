@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Timing Methods</title>
+   <style>
+
+      .clock {
+         display: flex;gap: 10px;
+         width: 300px;margin: 80px auto;
+         font-size: 80px;
+      }
+   </style>
+   <script>
+      // ** setTimeout(function, delay)
+         // - delay 만큼 지연된 후, function 1회 실행
+         // - delay 파라미터에는 ms(밀리세컨) 1s = 1000ms
+
+      // ** setInterval(function, delay)
+         // - delay 마다 function 반복 실행
+         // - clear타임이 필요
+      
+      // clearTimeout()
+      // clearInterval()
+      
+      // - 타이밍 메소드는 생성시점에 따라 고유의 번호를 가짐 -> 알 수 없음?
+      // - 관리와 clear를 위해 변수처리
+      
+      const t1 = setTimeout(function() {console.log('2초가 지났나요?')}, 2000)
+      
+      const t2 = setInterval(function() {console.log('언제 출력되나요?');}, 1000)
+
+      clearInterval(t2)
+      
+      // window.onload = function() {}
+      window.onload = () => {
+         const elmUl = document.querySelector('.ex1 ul');
+         // elmLi.innerText = 'list'
+         n = 0
+         let addLi = setInterval(li, 1000)
+         // console.log(li());
+         
+         function li() {
+            n++
+            const elmLi = document.createElement('li');
+            elmUl.appendChild(elmLi)
+            elmLi.innerText = `list - ${n}`
+         }
+
+         const btn1 = document.querySelector('.btn1')
+         
+            btn1.addEventListener("click", () => {
+               // alert('btn1 click')
+               clearInterval(addLi)
+            })
+
+
+         // Q. 1초 마다 10씩 증가되는 숫자를 콘솔에 출력하고
+         // btn2 클릭하면 10증가 멈춤
+         
+         let nn = 0
+         const addTen = setInterval(function() {
+            console.log(nn);            
+            nn +=10;
+         }, 1000)
+
+         const btn2 = document.querySelector('.btn2')
+
+            btn2.addEventListener("click", () => {
+               clearInterval(addTen)
+            })
+
+         const  btn3 = document.querySelector('.btn3')
+            
+            btn3.addEventListener("click", () => {
+               setInterval(li, 1000)
+            })
+
+               
+         // 10초 뒤에 li 생성 멈춤
+         const removeLi = setTimeout(function() {
+               clearInterval(addLi)
+                  }, 3000)
+
+      const img1 = document.querySelector('.ex2 img');         
+         
+            let num = 0;
+         const imgInt = setInterval(imgChn, 1000)
+         function imgChn() {
+         num++
+         img1.src = `img/banner_${num}.jpg`
+
+      }
+
+      
+
+      // setTimeout(function() {clearInterval(imgInt)}, 5000)
+
+         
+      const img2 = document.querySelector('.ex3 img');
+         img2.src = 'img/otter.jpg'
+
+      const imgA = ['cat', 'hedgehog', 'puppy', 'tiger', 'zbra', 'ram', 'rabbit']
+         const imgInt2 = setInterval(imgChn2, 1000)
+            function imgChn2() {
+            num++
+            img2.src = `img/${imgA[num-1]}.jpg`
+            }
+      
+      setTimeout(function() {clearInterval(imgInt2)}, 7000)
+
+      // clock
+
+         const clock = setInterval(() => {
+            const now = new Date();
+            let hour = now.getHours();
+            let min = now.getMinutes();
+            let sec = now.getSeconds();
+            let mm = min < 10 ? "0 " + min : min ; 
+            let ss = sec < 10 ? "0" + sec : sec ; 
+
+            const h = document.querySelector('.h')
+            const m = document.querySelector('.m')
+            const s = document.querySelector('.s')
+
+            h.innerText = hour;
+            m.innerText = mm;
+            s.innerText = ss;
+         })
+
+
+
+
+      } // onload
+   </script>
+</head>
+<body>
+   <div class="clock">
+      <span class="h">00</span>
+      :
+      <span class="m">00</span>
+      :
+      <span class="s">00</span>
+   </div>
+   <button class="btn1">멈춤</button>
+   <button class="btn2">btn 2</button>
+   <button class="btn3">다시 시작</button>
+   <button class="btn4">btn 4</button>
+   <div class="ex1">
+      <ul></ul>
+   </div>
+   <div class="ex2">
+      <img src="img/banner_1.jpg" alt="">
+   </div>
+   <div class="ex3">
+      <img src="img/cat.jpg" alt="" width="300px">
+   </div>
+</body>
+</html>

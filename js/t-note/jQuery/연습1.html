@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연습1</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+  <style>
+    a {color: inherit}
+    img {width: 100%;display: block;}
+    .ex1 {color: #FFF}
+    .ex1 .inner {width: 1200px;margin: auto;}
+    .ex1 ul {display: flex;}
+    .ex1 li {width: calc(100% / 3);position: relative;overflow: hidden;border: 3px solid red;}
+    .ex1 img {transition: all 0.3s}
+    .overimg {transform: scale(1.3);}
+    .ex1 .content {
+      position: absolute;left: 0;right: 0;top: 0;bottom: 0;
+      display: flex;flex-direction: column;gap: 30px;
+      justify-content: center;align-items: center;
+      background: rgba(0,0,0,.5);opacity: 0;
+    }
+    .ex1 .content strong {font-size: 30px;font-weight: bold;}
+
+    .ex2 {padding: 60px 0;background: #ededed;}
+    .ex2 .inner {width: 1465px;margin: auto;}
+    .ex2 ul {
+      display: flex;gap: 15px;
+    }
+    .ex2 li {
+      width: 170px;height: 500px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: auto 100%;
+      border-radius: 10px;overflow: hidden;
+    }
+    .ex2 .content {
+      display: flex;flex-direction: column;
+      gap: 20px;color: #FFF;height: 100%;
+      box-sizing: border-box;padding: 24px;
+      justify-content: center;align-items: center;
+      background: rgba(0,0,0,.2);text-align: center;
+      transition: background .3s
+    }
+    .ex2 .over {
+      background: rgba(0,0,0,.7);
+    }
+    .ex2 li .content strong {font-size: 24px;font-weight: bold;}
+    .ex2 li .content p {font-size: 14px;line-height: 18px;display: none;}
+
+
+    .ex2 li:nth-child(1) {background-image: url(https://company.ybtour.co.kr/images/bg/bg_category_1.jpg);}
+    .ex2 li:nth-child(2) {background-image: url(https://company.ybtour.co.kr/images/bg/bg_category_2.jpg);}
+    .ex2 li:nth-child(3) {background-image: url(https://company.ybtour.co.kr/images/bg/bg_category_3.jpg);}
+    .ex2 li:nth-child(4) {background-image: url(https://company.ybtour.co.kr/images/bg/bg_category_4.jpg);}
+    .ex2 li:nth-child(5) {background-image: url(https://company.ybtour.co.kr/images/bg/bg_category_5.jpg);}
+    .ex2 li:nth-child(6) {background-image: url(https://company.ybtour.co.kr/images/bg/bg_category_6.jpg);}
+    .ex2 li:nth-child(7) {background-image: url(https://company.ybtour.co.kr/images/bg/bg_category_7.jpg);}
+    .ex2 li:nth-child(8) {background-image: url(https://company.ybtour.co.kr/images/bg/bg_category_8.jpg);}
+  </style>
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script>
+    $(function() {
+      // $('.ex1 li').on(e,f)
+      // $('.ex1 li').on({e:f, e:f})
+      $('.ex1 li').on({
+        'mouseenter': function() {
+          //$(this) => li
+          $(this).find('.content').stop().animate({'opacity' : 1}, 300),
+          // $(this).find('img').animate({
+          //   'width' : '120%',
+          //   'margin' : '0 0 0 -10%'
+          // })
+          $(this).find('img').addClass('overimg')
+        },
+        'mouseleave': function() {
+          $('.ex1 .content').stop().animate({'opacity' : 0},300)
+          $('.ex1 img').removeClass('overimg')
+        }
+      })
+
+      $('.ex2 li').hover(function() {
+        $('.ex2 li').stop().animate({width: 150})
+        $(this).stop().animate({width: 310})
+        $(this).find('.content').addClass('over')
+        $(this).find('strong').stop().animate({fontSize : 32})
+        $(this).find('p').stop().show('fast')
+      }, function() {
+        $('.ex2 li').stop().animate({width: 170})
+        $('.ex2 li strong').stop().animate({fontSize : 24})
+        $('.ex2 li p').hide('fast')
+        $('.ex2 .content').removeClass('over')
+      })
+    })
+  </script>
+</head>
+<body>
+  <div class="ex1">
+    <div class="inner">
+      <ul>
+        <li><a href="#">
+          <img src="../img/food_1.png" alt="">
+          <div class="content">
+            <strong>캠퍼스 갤러리</strong>
+            <span>자세히알아보기</span>
+          </div>
+        </a></li>
+        <li><a href="#">
+          <img src="../img/food_10.png" alt="">
+          <div class="content">
+            <strong>행사 갤러리</strong>
+            <span>자세히알아보기</span>
+          </div>
+        </a></li>
+        <li><a href="#">
+          <img src="../img/food_2.png" alt="">
+          <div class="content">
+            <strong>홍보 동영상</strong>
+            <span>자세히알아보기</span>
+          </div>
+        </a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ex2">
+    <div class="inner">
+      <ul>
+        <li>
+          <div class="content">
+            <strong>Package</strong>
+            <p>전세계 맞춤 패키지여행으로 <br> 연인, 친구, 가족과 함께 <br> 행복한 추억을 만듭니다.</p>
+          </div>
+        </li>
+        <li>
+          <div class="content">
+            <strong>Honeymoon</strong>
+            <p>신혼부부의 취향과 조건에 맞춘 특별한 여행으로 낭만적인 순간을 함께 합니다.</p>
+          </div>
+        </li>
+        <li>
+          <div class="content">
+            <strong>Golf & Theme</strong>
+            <p>골프투어, 가족여행, 크루즈여행, 휴양여행, 성지순례,문화탐방 등 원하는 테마로 여행할 수 있습니다.</p>
+          </div>
+        </li>
+        <li>
+          <div class="content">
+            <strong>Air Ticket</strong>
+            <p>세계 주요 도시 및 국내 항공권 예약 &middot;발권과 단체 그룹 예약까지 가능합니다.</p>
+          </div>
+        </li>
+        <li>
+          <div class="content">
+            <strong>Hotel</strong>
+            <p>마음에 맞는 전세계 및 국내 호텔을 쉽고 빠르게 예약할 수 있습니다.</p>
+          </div>
+        </li>
+        <li>
+          <div class="content">
+            <strong>Tour & Ticket</strong>
+            <p>배낭여행 및 개별 여행을 위한 유레일 패스 등 교통권과 현지투어, 입장티켓을 예약할 수 있습니다.</p>
+          </div>
+        </li>
+        <li>
+          <div class="content">
+            <strong>Domestic</strong>
+            <p>국내의 문화유적, 제주 패키지, 골프 및 렌터카, 특급 호텔 예약을 제공합니다.</p>
+          </div>
+        </li>
+        <li>
+          <div class="content">
+            <strong>Incentive</strong>
+            <p>국제회의 및 박람회, 기업 &middot; 단체 연수 단체 포상, 대학교, 지역 모임 등 인센티브 여행을 함께 합니다.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="ex3">
+    ul>li
+  </div>
+</body>
+</html>

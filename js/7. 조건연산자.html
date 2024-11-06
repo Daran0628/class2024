@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>조건연산자</title>
+   <script>
+      // 삼항 연산자
+      // 조건 ? A : B
+      // 조건이 참이면 A값, 조건이 거짓이면 B값
+
+   // let n1 = -2;
+   // console.log(n1 > 0  ? '양수' : '음수');
+
+   // if(n > 0) {
+   //    res = '양수';
+   // }
+   // else {
+   //    res = '음수';
+   // }
+
+   //Q 60점 이상이면 합격, 그렇지 않으면 '불합격'
+   let score = prompt('점수를 입력하시오.')
+   let res = score > 60 ? '합격' : '불합격';
+
+   console.log(score + '점', res);
+
+   //Q 성인 여부 - 18세이상
+   let age = prompt('나이를 입력하시오.');
+   let adult = age >= 18 ? '성인' : '미성년';
+
+   console.log(age + '세', adult);
+
+   let time = new Date().getHours(); // 16
+   let apm = time < 12 ? '오전' : '오후';
+   let hour = time >= 13 ? time - 12 : time;
+
+   console.log(apm + ' ' + hour + '시'); // 오후 4시 // 16
+   
+
+   let week = '월';
+   week = week == '토' || week == '일' ? '주말' : '평일';
+   // week = week != '토' && week != '일' ? '평일' : '주말';
+
+   console.log('오늘은', week, '입니다.'); //주말, 평일
+
+   let day = prompt('오늘의 요일을 적으시오','월/화/수/목/금/토/일');
+   week = day == '토' || day == '일' ? '주말' : '평일';
+
+   console.log('오늘은', day + '요일,', week + '입니다.'); //주말, 평일
+   
+   // 점수(score) 60점이 넘으면(초과) '합격', 60점이 안되면(미만) '불합격', 60점이면 '재평가'
+   //(조건) ? 'true' : 'not ture'
+      // > 60 '합격'
+      // == 60 '재평가'
+      // < 60 '불합격'
+      
+   res = (score > 60) ? '합격' : (score == 60) ? '재평가' : '불합격';
+
+   console.log(score + '점, ' + res + '입니다.');
+
+   // Q 입력받은 숫자가 짝수인지, 홀수인지, 0인지
+   let num = prompt('숫자를 입력')
+   let isEven = num == 0 ? '0' : (num % 2 == 0) ? '짝수' : (num % 2 == 1) ? '홀수' : '';
+   console.log('숫자 ' + num + '은 ' + isEven + '임');
+   
+
+   // Q
+   day = new Date().getDay(); //
+   let dayKorName = (day) == 0 ? '일' : (day == 1) ? '월' : (day == 2) ? '화' : (day == 3) ? '수' : (day == 4) ? '목' : (day == 5) ? '금' : (day == 6) ? '토' : '';
+
+   console.log( '오늘은', dayKorName + '요일'); // 금요일 0 ~ 6
+   
+   // Q 3~4월 : 봄, 6 ~8월 : 여름, 9 ~ 11월 : 가을, 12 ~ 1, 2월 : 겨울
+   let season = new Date().getMonth(); // 6 -> index 0 ~ 11
+   let month = season + 1;
+   let seasonName = (season >= 2 && season <= 4) ? '봄' : (season >= 5 && season <= 7) ? '여름' : (season >= 8 && season <= 10) ? '가을' : '겨울';
+
+   console.log( month + '월은', seasonName + '입니다.') // 7월은 여름입니다.
+
+   </script>
+</head>
+<body>
+   
+</body>
+</html>

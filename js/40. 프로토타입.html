@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>prototyle</title>
+   <script>
+      function Person(name, age, gender) {
+         this.name = name
+         this.age = age
+         this.gender = gender
+      }
+      Person.prototype.country = 'UK'
+      const p1 = new Person('James', 20, 'male')
+      const p2 = new Person('Alice', 16, 'female')
+      const p3 = new Person('Mary', 22, 'female')
+
+      console.log(p1.country);
+      
+      function Coworker(name, position, age, job) {
+         this.coName = name
+         this.coPosition = position
+         this.coAge = age
+         this.coRole = job
+      }
+      Coworker.prototype.teamName = '웹개발팀'
+      Coworker.prototype.info = function() {
+         return `${this.coName}은 ${this.teamName}의 ${this.coRole}입니다`}
+
+      const coworker1 = new Coworker('김광석', '대리', 30, '디자이너' )
+      const coworker2 = new Coworker('박상훈', '과장', 43, '기획자' )
+      const coworker3 = new Coworker('최유리', '과장', 37, '개발자' )
+
+      console.group('[**[웹개발팀]**]');
+      // console.log(`${coworker1.coName}은 ${coworker1.teamName}의 ${coworker1.coRole}입니다`);
+      // console.log(`${coworker2.coName}은 ${coworker2.teamName}의 ${coworker2.coRole}입니다`);
+      // console.log(`${coworker3.coName}은 ${coworker3.teamName}의 ${coworker3.coRole}입니다`);
+      console.log(coworker1.info());
+      console.log(coworker2.info());
+      console.log(coworker3.info());
+      console.groupEnd();
+      
+      function Product(name, price) {
+         this.name = name
+         this.price = price }
+      
+      const product1 = new Product('수박', 15000)
+      const product2= new Product('복숭아', 10000)
+      const product3 = new Product('바나나', 5000)
+      const product4 = new Product('사과', 9000)
+      
+      Product.prototype.discount = function(dc) {
+        sale = this.price - this.price * (dc / 100)
+         return `${this.price} 원의 ${dc} %의 세일값은 ${sale} 원 입니다.`   
+      }
+      
+      console.group('**[세일 가격]**');
+      console.log(product1.discount(10)); // 수박의 할인 가격
+      // 수박 -> 정상가(15,000원) / 할인가(13,500원)
+      console.log(product1.discount(15));
+      // 복숭아 -> 정산가(10,000원) / 할인가 85,000원
+      console.log(product1.discount(5));
+      console.log(product1.discount(10));
+      console.log(product1.discount(5));
+      console.groupEnd();
+      
+      const currentYear = new Date().getFullYear()
+      function User(name) {this.name = name}
+
+      User.prototype.year = function(yr) {
+         workYr = currentYear - yr
+         return `${this.name}의 입사년도는 ${yr}년으로 ${workYr}년 근속 중`}
+
+      const user1 = new User('James')
+      const user2 = new User('Tom')
+      const user3 = new User('Alice')
+      const user4 = new User('Mary')
+
+      console.group('James의 입사년도는 1999년으로 25년 근속 중');
+      console.log(user1.year(1999));
+      console.log(user2.year(2020));
+      console.log(user3.year(2017));
+      console.log(user4.year(2006));
+      console.groupEnd();
+      
+      
+      
+      
+
+   </script>
+</head>
+<body>
+   
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>다짜고짜 OX퀴즈</title>
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="OX.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <!-- JS -->
+  <script src="OX.js" defer ></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+  <div id="ox_wrap">
+    <section class="home">
+      <div class="inner">
+        <div class="home_wrap">
+          <h1>다짜고짜 <span>O</span> <span>X</span><br> 퀴~즈!!</h1>
+          <button class="start">start</button>
+          <button>게임 설명</button>
+        </div>
+      </div>
+    </section>
+    <section class="play">
+      <div class="inner">
+        <div class="play_wrap">
+          <div class="progress_bar"></div>
+          <div class="play_swiper swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><span>START!! 준비됐나요~?</span></div>
+              <div class="swiper-slide slide1">
+                <span>Q1. 사흘은 4일이다.</span>
+                <span class="screen_out O">0</span>
+                <span class="screen_out X">10</span>
+              </div>
+              <div class="swiper-slide slide2">
+                <span>Q2. 피타고라스의 정리는 삼각형의 내각의 합이다.</span>
+                <span class="screen_out O">0</span>
+                <span class="screen_out X">10</span>
+              </div>
+              <div class="swiper-slide slide3">
+                <span>Q3. 세계에서 가장 긴 강은 나일강이다.</span>
+                <span class="screen_out O">10</span>
+                <span class="screen_out X">0</span>
+              </div>
+              <div class="swiper-slide slide4">
+                <span>Q4. 금일은 금요일이다.</span>
+                <span class="screen_out O">0</span>
+                <span class="screen_out X">10</span>
+              </div>
+              <div class="swiper-slide slide5">
+                <span>Q5. 지구의 대기 중 가장 많은 성분은 질소다.</span>
+                <span class="screen_out O">10</span>
+                <span class="screen_out X">0</span>
+              </div>
+              <div class="swiper-slide slide6">
+                <span>Q6. 하와이안 피자는 캐나다에서 만들었다.</span>
+                <span class="screen_out O">10</span>
+                <span class="screen_out X">0</span>
+              </div>
+              <div class="swiper-slide slide7">
+                <span>Q7. 독사는 자가해독 능력이 있다.</span>
+                <span class="screen_out O">0</span>
+                <span class="screen_out X">10</span>
+              </div>
+              <div class="swiper-slide slide8">
+                <span>Q8. 버섯은 야채다.</span>
+                <span class="screen_out O">0</span>
+                <span class="screen_out X">10</span>
+              </div>
+              <div class="swiper-slide slide9">
+                <span>Q9. 아웃백은 호주의 프랜차이즈 레스토랑이다.</span>
+                <span class="screen_out O">0</span>
+                <span class="screen_out X">10</span>
+              </div>
+              <div class="swiper-slide slide10">
+                <span>Q10. '회자되다'의 '회'는 날고기다.</span>
+                <span class="screen_out O">10</span>
+                <span class="screen_out X">0</span>
+              </div>
+            </div>
+            <div class="pagination">
+              <!-- <span class="current">1</span> /
+              <span class="total">0</span> -->
+            </div>
+          </div>
+          <div class="ox_box">
+            <div class="btn_Op">
+              <button class="btn_O">O</button>
+              <button class="btn_X">X</button>
+              <button class="btn_P">다음 문제 <i class="ri-arrow-right-s-fill"></i></button>
+            </div>
+            <button class="btn_S">시작하기</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="pop">
+      <div class="inner"></div>
+    </section>
+    <section class="result">
+      <div class="inner"></div>
+    </section>
+  </div>
+</body>
+</html>

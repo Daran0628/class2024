@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9_입력양식태그</title>
+  <style>
+   body {margin-bottom: 500px;}
+   table {
+      min-width: 800px;
+      border-top: 2px solid #666;border-collapse: collapse;color: green;
+   }
+   tr {} /* tr은 block 속성이 아님 */
+   th, td {padding: 10px 15px;border-bottom: 1px solid #AAA;}
+    /* .ex1 th:first-child, .ex1 td:first-child {} */
+   th {background: lightgoldenrodyellow;}
+   .ex1 col:first-child {background: #EEE;width: 200px;color: red;}
+</style>
+</head>
+<body>
+<h1>입력(input) 양식(서식, form) 관련 요소</h1>
+<p>- 사용자로부터 데이터를 입력 받기 위한 요소</p>
+<p>- form 요소들은 name과 value 속성이 필수</p>
+<p>- DB(DataBase)와 관련된 속성이므로 db와 관련 없는 직무라면 생략</p>
+<p>- form 태그 속성 : <br>
+   ㄴ method(전송방식) - get(default), post <br>
+   ㄴ action(데이터를 처리할 파일 경로)</p>
+   <h2>입력양식 태그 속성</h2>
+   <ul>
+      <li>placeholder : 사용자가 직접 입력하는 인풋요소에 미리보기 / 안내 텍스트</li>
+      <li>required : 필수 요소를 나타내는 속성</li>
+      <li>selected : select 요소의 option 태그에 사용</li>
+      <li>checked : 체크박스와 라디오 요소에 사용</li>
+      <li>readonly : 사용자가 작용 할 수 없는 속성</li>
+   </ul>
+   <form action="애국.html" method="get">
+   <fieldset> <!--인풋 요소들 그룹-->
+      <legend> fieldset 그룹의 heading</legend>
+      <input type="text"> 예) 추가정보
+      <p>별도의 그룹이 필요한 경우에 사용</p>
+   </fieldset>
+   <table class="ex1">
+   <colgroup>
+   <col>
+   <col>
+   </colgroup>
+    <tr>
+       <th>이름</th>
+       <th>사용 예시</th>
+     </tr>
+     <tr>
+       <td>한 줄 텍스트 입력상자 vlu "이름"/plchdr="이름을 입력하세요"/ readonly</td>
+       <td><input type="text" placeholder="이름을 입력하세요" name="uname" required value="readonly" readonly></td>
+     </tr>
+     <tr>
+       <td>비밀번호 입력상자 plchdr "비밀번호를 입력하세요"</td>
+       <td><input type="password" placeholder="비밀번호를 입력하세요"></td>
+     </tr>
+     <tr>
+       <td>체크박스(다중 선택)</td>
+       <td>
+       <input type="checkbox" name="favorite" value="healthy">건강
+       <input type="checkbox" name="favorite" value="stock">주식
+       <input type="checkbox" name="favorite" value="environment">환경
+       <input type="checkbox" name="favorite" value="education">학습<br>
+       <input type="checkbox" name="fruit" value="strawberry">딸기
+       <input type="checkbox" name="fruit" value="banana">바나나
+       <input type="checkbox" name="fruit" value="watermelon">수박
+       <input type="checkbox" name="fruit" value="apple">사과
+       </td>
+     </tr>
+     <tr>
+       <td>라디오 버튼(유일 선택)</td>
+       <td>
+          <input type="radio" name="agreement" value="agree">동의함
+          <input type="radio" name="agreement" value="disagree">동의 안함 <br>
+          <input type="radio" name="gender" value="male">남성
+          <input type="radio" name="gender" value="female">여성
+          <input type="radio" name="gender" value="other">기타 <br>
+          <input type="radio" name="marital" value="married">기혼
+          <input type="radio" name="marital" value="single">미혼
+       </td>
+     </tr>
+     <tr>
+      <td>Label 태그</td>
+      <td>
+         * 폼요소를 설명하는 텍스트를 의미적으로 연결하고 접근성을 높이는 태그<br>
+        <label><input type="radio"> radio </label> <!-- 암묵적 labelling -->
+         <input type="checkbox" id="cbx"> <!--지정 labelling-->
+         <label for="cbx">checkbox</label>
+
+         <input type="text" id="txt"> 
+         <label for="txt">text</label>
+      </td>
+     </tr>
+     <tr>
+       <td>셀렉트 메뉴(select menu)</td>
+       <td>
+          <select name="telecom" required>
+             <option value="unselected" selected>통신사 선택</option>
+             <option value="SKT">SKT</option>
+             <option value="KT">KT</option>
+             <option value="LGU+">LG U+</option>
+             <option value="MVNO">알뜰폰</option>
+       </td>
+     </tr>
+     <tr>
+      <td>셀렉트 태그의 optgroup + label</td>
+      <td>
+         <select>
+         <optgroup label="강남구">
+            <option value="">삼성동</option>
+            <option value="">신사동</option>
+            <option value="">역삼동</option>
+         </optgroup>
+         <optgroup label="관악구">
+            <option value="">대학동</option>
+            <option value="">남현동</option>
+            <option value="">신사동</option>
+            <option value="">삼성동</option>
+         </optgroup>
+         <optgroup label="은평구">
+            <option value="">불광동</option>
+            <option value="">응암동</option>
+            <option value="">신사동</option>
+         </optgroup>
+         </select>
+
+      </td>
+    </tr>
+     <tr>
+       <td>기본 버튼 vlu "확인"</td>
+       <td><input type="button" value="확인"></td>
+     </tr>
+     <tr>
+       <td>제출 버튼 vlu "가입하기"</td>
+       <td><input type="submit" value="가입하기"></td>
+     </tr>
+     <tr>
+       <td>초기화 버튼 vlu "취소"</td>
+       <td><input type="reset" value="취소"></td>
+     </tr>
+     <tr>
+       <td>이미지 버튼 vlu "src"</td>
+       <td><input type="image" src="img/search.png" alt="검색"></td>
+     </tr>
+     <tr>
+       <td>파일 업로드 버튼 vlu 변경 불가</td>
+       <td><input type="file"></td>
+     </tr>
+     <tr>
+       <td>히든 버튼 vlu "data"</td>
+       <td><input type="hidden" name="hidden" value="data">데이터는 전송 목적, 브라우저에 도출되지 않는 버튼</td>
+     </tr>
+     <!--html5 추가 -->
+     <tr>
+       <td>이메일</td>
+       <td><input type="email"></td>
+     </tr>
+     <tr>
+       <td>숫자</td>
+       <td><input type="number" min="10" max="50" step="5"></td>
+     </tr>
+     <tr>
+       <td>날짜(년월) 표시</td>
+       <td><input type="date"></td>
+     </tr>
+     <tr>
+       <td>월(month)기준 표시</td>
+       <td><input type="month"></td>
+     </tr>
+     <tr>
+       <td>주(week)기준 표시</td>
+       <td><input type="week"></td>
+     </tr>
+     <tr>
+       <td>시간(time)</td>
+       <td><input type="time"></td>
+     </tr>
+     <tr>
+       <td>컬러</td>
+       <td><input type="color" name="color">어떤 값?</td>
+     </tr>
+     <tr>
+       <td>범위 vlu "10"</td>
+       <td>
+       <input type="range" value="10" id="a">
+       <output for="a"></output>
+       </td>
+     </tr>
+     <tr>
+       <td>검색</td>
+       <td><input type="search"></td>
+     </tr>
+     <tr>
+       <td>연락처</td>
+       <td>
+          <select name="" id="">
+             <option value="" selected>-------</option>
+             <option value="">010</option>
+             <option value="">02</option>
+             <option value="">032</option>
+             <option value="">041</option>
+             <option value="">051</option>
+             <option value="">052</option>
+             <option value="">053</option>
+             <option value="">062</option>
+             <option value="">064</option>
+             <option value="">031</option>
+             <option value="">033</option>
+             <option value="">041</option>
+             <option value="">043</option>
+             <option value="">054</option>
+             <option value="">055</option>
+             <option value="">061</option>
+             <option value="">063</option>
+          <input type="tel"></td>
+     </tr>
+     <tr>
+       <td>URL</td>
+       <td>
+         <input type="url">
+       </td>
+     </tr>
+     <tr>
+       <td>여러줄 입력</td>
+       <td>
+         <textarea name="" id="" cols="10" rows="3"></textarea>
+            cols는 가로에 작성될 글자의 갯수
+            rows는 세로에 작성될 줄의 갯수
+            -> 한글의 글자 갯수와 다름, 면적을 위한 크기가 아님
+            면적은 css 이용
+
+       </td>
+     </tr>
+     <tr>
+       <td>datalist 태그</td>
+       <td>
+         * 사용자가 선택할 수 있도록 미리 설정된 옵션 리스트
+         <input list="browsers" id="browser_list" class="datalist">
+         <datalist id="browsers">
+            <option value="Edge">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Safari">
+            <option value="Opera">
+            <!-- datalist 에서 option value 는 속성 값만 입력하고 빈 태그로 적용 가능-->
+         </datalist>
+       </td>
+     </tr>
+     <tr>
+       <td></td>
+       <td></td>
+     </tr>
+   </table>
+
+<table class="ex2">
+
+</table>
+</body>
+</html>

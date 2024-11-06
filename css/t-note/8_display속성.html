@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8_display속성</title>
+  <style>
+    body {
+      margin-bottom: 500px;
+    }
+    h1 {
+      display: inline;color: red;
+      background-color: aquamarine;
+      width: 400px;height: 300px;
+    }
+    strong {
+      display: block;
+      background: pink;width: 400px;height: 300px;
+    }
+    span {
+      display: inline-block;
+      background: lightblue;
+      width: 200px;height: 150px;
+    }
+    button {
+      display: inline;
+      width: 200px;height: 150px;
+    }
+    input {
+      display: block;
+      width: 200px;height: 150px;
+    }
+    img {
+      height: 150px;
+      visibility: hidden;
+    }
+    h2 {
+      /* display: none;없는 것과 동일하기 때문에 화면에 안보인다는 이유로 사용하는 것은 절대 금지 */
+      background: gold;
+    }
+    ul {border: 1px solid #AAA;}
+    span,img,input {vertical-align: top;}
+  </style>
+</head>
+<body>
+  <!--
+    body, head, br, hr, table(tr, td)
+    모든 태그가 display 속성을 가지고 있는 것은 아니다.
+  -->
+  <h1>Block vs Inline</h1>
+  <strong>블럭과 인라인 속성은 매우 중요</strong>
+  <span>span은 인라인용 div</span>
+  인라인블럭 요소의 세로 정렬은 텍스트와 관련
+  <img src="img/char.jpg" alt="">
+  <button>button</button>
+  <input type="text">
+  <h2>Block</h2>
+  <ul>
+    <li>한 행을 다 사용하기 때문에 다른 요소와 줄(행)이 바뀐다.</li>
+    <li><strong>면적(dimension)</strong>을 지정할 수 있다.</li>
+    <li>다른 블럭요소의 부모가 될 수 있다</li>
+    <li>최우선이 되어야 하는 것은 마크업. 태그가 의미하는 내용에 맞게 작성하고, 그 다음 순서로 보여지는 속성을 판단</li>
+  </ul>
+  <h2>Inline</h2>
+  <ul>
+    <li>다른 요소와 행을 공유하기 때문에 줄이 바뀌지 않음</li>
+    <li>면적을 지정할 수 없음</li>
+    <li>다른 인라인 요소의 부모가 될 수 있지만, 블럭요소의 부모가 될 수 없음</li>
+    <li>주로, 텍스트를 포함한다.</li>
+  </ul>
+  <h2>Inline-Block</h2>
+  <ul>
+    <li>줄이 바뀌지 않는 인라인 속성을 가지고 있으나, 자체적으로 면적에 대한 정보를 담고 있거나 박스 형태여야 하기 때문에 면적 적용이 가능해야 함</li>
+    <li>img, button, video, iframe, input 등</li>
+  </ul>
+</body>
+</html>

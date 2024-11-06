@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>산술연산자</title>
+   <script>
+      console.log(5 + 6); // 11 덧셈 연산자
+      console.log(5 - 6); // -1 뺄셈 연산자
+      console.log(5 * 6); // 30 곱셈 연산자
+      console.log(10 / 2); // 5 나눗셈 연산자
+      console.log(10 % 4); // 나머지 연산자 : 배수를 찾는 등 케이스 만들기에 유용
+      console.log('------------------------------------------')
+      
+      // 증가 연산자
+      let num = 0;
+      console.log(num); // 0 
+      num = num + 1;
+      console.log(num); // 1
+      num = num + 1;
+      console.log(num); // 2
+      num = num + 1;
+      console.log(num); // 3
+      
+      num++
+      console.log(num); // 4
+      num++
+      console.log(num); // 5
+      num++
+      console.log(num); // 6
+
+      // 감소 연산자
+
+      num = num - 1;
+      console.log(num); // 5
+
+      num--
+      console.log(num); // 4
+      num--
+      console.log(num); // 3
+      num--
+      console.log(num); // 2 
+   </script>
+</head>
+<body>
+   <h1>0</h1>
+   <button class="increase">+1</button>
+   <button class="decrease">-1</button>
+
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+   <script>
+      // 증가 버튼을 클릭하면 count 변수의 수를 1씩 증가
+      // h1에 text 컨텐츠를 변경된 count 값으로 출력 
+      
+      let count = 0;
+      
+      $('.increase').click(function() {
+         count++;
+         $('h1').text(count);
+      })
+      $('.decrease').click(function() {
+         count--;
+         $('h1').text(count);
+      })
+
+      // 증감연산자는 대표적인 단항 연사자 중 하나
+
+      let a = 0, b = 0;
+      console.log(a, b); // 0 0
+
+      a++;
+      console.log(a); // 1
+
+      b = a;
+      console.log(b); // 1
+
+      a++;
+      console.log(a); // 2
+
+      b = a++;
+      console.log(b); // 3
+
+      a++;
+      console.log(a); // 4
+      b = a++;
+      console.log(b); // 4
+
+      b = a++;
+      console.log(b); //5
+
+      // 선증가(++a) 후증가(a++)
+      // 대입연산자와 함께 연산될 경우...
+      // 선증가는 먼저 증가하고 나중에 대입
+      a = 5, b = a++;
+      b = ++a; // 
+      console.log(b); //7
+      // 후증가는 대입을 먼저하고 나중에 증가
+      b = a++;
+      console.log(b); //7
+
+      console.log('----------------------------------')
+      let aa = 0, bb = 0;
+      console.log(aa,bb); // 0 0
+
+      aa++;
+      console.log(aa); // 1
+      bb = aa
+      console.log(bb); // 1
+      
+      aa++; /// a:2
+      console.log(aa); //2
+      bb = ++aa;
+      console.log(bb); // 3
+      
+      bb = ++aa; /// a:3
+      console.log(bb); // 4
+
+      aa++; /// a:5
+      bb = aa++; /// a:5
+      console.log(bb); // 5
+      bb = ++aa; /// a:6
+      console.log(bb); //7
+      
+      console.log('-----------------------------------------------');
+      //거듭 제곱 연산자
+      console.log(2 * 3); // 6
+      console.log(2 ** 3); // 8
+      
+      console.log(3 * 4); // 12
+      console.log(3 ** 4); // 81
+      
+
+
+   </script>
+</body>
+</html>

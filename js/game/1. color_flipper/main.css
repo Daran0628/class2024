@@ -1,0 +1,16 @@
+ul, li {list-style: none;}
+a {text-decoration: none; color: inherit}
+
+.nav {width: 100vw;height: 2rem;}
+.nav-center {
+   display: flex;justify-content: space-between;align-items: center;
+   width: 45%; margin: auto;
+   font-size: 1rem;font-weight: 400;
+}
+.nav-center h1 {flex-shrink: 0;}
+.nav-center ul {
+   flex-shrink: 0;
+   display: flex;gap: 1rem;
+   font-size: 1.5rem;
+}
+.main {}

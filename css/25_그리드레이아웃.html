@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>25_그리드 레이아웃</title>
+<style>
+.item {background: gold;padding: 15px;}
+.ex1 .container {
+   display: grid; width: 1000px;
+   border: 1px solid #000;
+   /* grid-template-columns: 200px 100px 100px 100px auto; */
+   /*  auto는 아이템 1개를 남은 부모의 사이즈만큼 자동 조절 
+   frection 비율로 조정 가능 
+   */  
+   grid-template-rows: 100px 100px;
+   }
+.ex1 .item {border: 1px solid #AAA;}
+</style>
+</head>
+<body>
+   <div class="ex1">
+      <div class="container">
+         <div class="item">item-1</div>
+         <div class="item">item-2</div>
+         <div class="item">item-3</div>
+         <div class="item">item-4</div>
+         <div class="item">item-5</div>
+         <div class="item">item-6</div>
+         <div class="item">item-7</div>
+         <div class="item">item-8</div>
+         <div class="item">item-9</div>
+         <div class="item">item-10</div>
+         <div class="item">item-11</div>
+         <div class="item">item-12</div>
+      </div>
+   </div>
+</body>
+</html>

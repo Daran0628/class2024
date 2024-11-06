@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>나머지 탐색 방법</title>
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+   <script>
+      $(function() {
+         // first() -> DOM 구조와 상관없이 문서의 첫째 선택자 요소
+         // last() -> DOM 구조와 상관없이 문서의 마지막 선택자 요소
+         // eq(index) -> DOM 구조와 상관 없이 index에 해당하는 선택자
+         $('li:first-child').css('font-weight', 'bold')
+         $('.btn1').click(function() {
+            $('.c1').first().css('background', 'pink')
+         })
+         $('.btn2').click(function() {
+            $('p').last().css('background', 'pink')
+         })
+         $('.btn3').click(function() {
+            $('li').eq().css('text-decoration', 'underline')
+         })
+      })
+   </script>
+</head>
+<body>
+   <h1>Filtering</h1>
+   <button class="btn1">first()</button>
+   <button class="btn2">last()</button>
+   <button class="btn3">eq()</button>
+
+   <hr>
+
+   <p class="c1">This is paragraph.</p>
+   <p class="c2">This is paragraph.</p>
+   <p class="c3">This is paragraph.</p>
+   <p class="c4">This is paragraph.</p>
+   <p class="c5">This is paragraph.</p>
+   <ul>
+      <li class="c1">list item - 1</li>
+      <li class="c2">list item - 2</li>
+      <li class="c3">list item - 3</li>
+      <li class="c4">list item - 4</li>
+      <li class="c5">list item - 5</li>
+      <li class="c6">list item - 6</li>
+      <li class="c7">list item - 7</li>
+   </ul>
+</body>
+</html>

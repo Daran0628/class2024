@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>7_요소별스타일</title>
+   <style>
+      ul{list-style-type: square;
+         list-style: decimal inside;}
+      ol{list-style-type: disc;
+         list-style-image: url(./img/icon.gif);
+         list-style-position: inside;
+         <!--upper-alpha, lower-alpha, upper-loman-->}
+      li {background: pink;margin: 10px}
+      .ex1 {font-size: 40px;}
+      .ex2 {font-size: 40px;list-style: none; 
+      background: url(./img/icon.gif) no-repeat left center pink;text-indent: 17px;}
+      /* a {color: #000; text-decoration/: none;}*/
+      /* *가상 클래스 a:link, a:visited, a:hover, a:active */
+      /* :link, :visited -> a 태그 전용 */
+      a:link {color:orange}
+      a:visited {color:green}
+
+      /* :hover, :active -> global */
+      a:hover {color:red; font-style: italic;}
+      a:active {color: dodgerblue}
+
+      /* link > visited > hover > active 순서로 작성  */
+
+      h1:hover {color: slateblue}
+      
+      /* table {border-spacing: 0;} dt 사이 간격 */
+      table {border-collapse: collapse;}
+      td{border: 1px solid #000;width: 120px;height: 100px;
+      text-align: center;}
+
+      /* 투명도 */
+      body {background: #DDD;}
+      h1 {
+         background: rgba(255,255,100,1);
+         border: 3px solid rgba(0,0,0,1);
+         opacity: 0.5;
+      }
+      h2 {
+         background: rgba(255,255,100,0.5);
+      }
+   </style>
+</head>
+<body>
+   <h1>요소별 스타일</h1>
+   <h2>리스트 스타일</h2>
+   <ul>
+      <li>list - 1</li>
+      <li>list - 2</li>
+      <li>list - 3</li>
+      <li>list - 4</li>
+      <li>list - 5</li>
+   </ul>
+   <ol>
+      <li>list - 1</li>
+      <li class-"ex1">list - 2</li>
+      <li class="ex2">list - 3</li>
+      <li>list - 4</li>
+      <li>list - 5</li>
+   </ol>
+   <h2>링크 스타일</h2>
+   <a href="#">link</a><br>
+   <a href="http://www.naver.com">Naver</a> <button>click</button>
+   <h2>테이블 스타일</h2>
+   <table>
+      <tr>
+         <td>cell</td>
+         <td>cell</td>
+         <td>cell</td>
+      </tr>
+      <tr>
+         <td>cell</td>
+         <td>cell</td>
+         <td>cell</td>
+      </tr>
+      <tr>
+         <td>cell</td>
+         <td>cell</td>
+         <td>cell</td>
+      </tr>
+   </table>
+</body>
+</html>

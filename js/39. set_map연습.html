@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>set & map 연습</title>
+</head>
+<body>
+   <label for="student_name">학생명</label>
+   <input type="text" id="student_name" placeholder="이름을 입력하세요"> <br>
+   <label for="student_score">점수</label>
+   <input type="number" id="student_score" placeholder="점수를 입력하세요">
+   <button id="input_info">입력</button>
+   <script>
+      // Q. 이름과 점수를 입력 받아서 map 데이터로 추가
+      // 1. 입력 버튼을 클릭 -> 입력 정보를 studentMap에 추가
+      // 2. 같은 이름을 작성하면 경고
+      //    - 같은 사람의 점수를 수정할지, (맞으면 점수 업데이트)
+      //    - 잘못 입력했는지 (다시 입력할 수 있도록)
+      // 3. 전체학생의 점수를 리스트로 출력
+      
+      const elmUl = document.createElement('ul')
+      document.body.appendChild(elmUl)
+
+      const $btn = document.getElementById('input_info')
+      const $sName = document.getElementById('student_name')
+      const $sScore = document.getElementById('student_score')
+      const $ul = document.querySelector('ul')
+      const scoresMap = new Map();
+   
+         
+         $btn.addEventListener('click', function() {
+
+            if($sName.value == '' || $sScore.value == '') {
+               alert('이름과 점수를 입력하세요')
+               
+               let focusElm;
+               focusElm = ($sName.value == '') ? $sName : $sScore
+               focusElm.focus();
+               return
+            }
+            
+            if(scoresMap.has($sName.value)) {
+               const update = confirm('등록된 학생의 점수를 수정하나요?')
+                  console.log(update);
+               
+                  if(!update) { // 취소를 선택하면 
+                     clearInputs()
+                     return
+                  }
+               }
+            
+            scoresMap.set($sName.value, $sScore.value)
+            clearInputs()
+
+            // Map에서 데이터 불러와서 li 텍스트로 추가(함수로)
+            //  $ul.innerHTML += `<li> 이름 : ${$sName.value}, 점수 : ${$sScore.value} 점 </li>`
+            updateStudentList()
+            
+            // alert('경고창')
+            // confirm()
+            // if(confirm('')) console.log('Okay!');
+            //    else console.log('Cancle')
+
+            
+            
+         })
+
+         const updateStudentList = () => {
+            // 클릭할 때 마다, 함수가 호출 될 때 마다
+            // Map의 데이터로 li를 추가해 줌
+            // 기존(이미 작성된)의 li는 삭제하고 추가
+            $ul.innerHTML = ''
+
+            scoresMap.forEach(function(value, key) {
+               $ul.innerHTML += `<li> 이름 : ${key}, 점수 : ${value} 점 </li>`
+            })
+         }
+         
+         const clearInputs = () => { 
+                  $sName.value = '';
+                  $sScore.value = '';
+                  $sName.focus()
+            }
+         
+
+   </script>
+</body>
+</html>

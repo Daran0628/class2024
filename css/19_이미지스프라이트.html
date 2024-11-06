@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>19_이미지스프라이트</title>
+   <style>
+      .google {border: 1px solid red;}
+      .google a {
+         background: url(img/google.png);
+         /* text-indent: -9999999999px; - 권장 x */
+         /* width: 376px;height: 134px; */
+         width: 200px;height: 71px;
+         background-size: contain;
+         display: block;
+      }
+      .google span {
+         border: 1px solid red;margin-left: -1px;
+         width: 1px;height: 1px;display: block;overflow: hidden;
+      }
+
+      /* .starbucks {border: 1px solid red;} */
+      .starbucks a {
+         background: url(img/starbucks.png);
+         width: 225px;height: 225px; background-size: contain;
+         display: block;
+      }
+      .starbucks span {
+         /* border: 1px solid #000; */
+         margin: -1px;
+         width: 1px;height: 1px;display: block;overflow: hidden;
+      }
+   </style>
+</head>
+<body>
+   <h1 class="google"><a href="#"><span>google</span></a></h1>
+   <h1 class="starbucks"><a href="#"><span>starbucks</span></a></h1>
+</body>
+</html>

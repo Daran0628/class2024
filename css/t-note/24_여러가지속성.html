@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24_여러가지속성</title>
+  <style>
+    :root { /*ex) html*/
+      --green: #0d4633;
+      --orange: #f26b24;
+      --mainTxt: 26px;
+    }
+    body {margin-bottom: 550px;}
+    .ex1 {display: flex;gap: 40px;}
+    .ex1 .box {
+      border: 1px solid #AAA;
+      width: 350px;height: 400px;
+      padding: 20px;box-sizing: border-box;
+    }
+    .ex1 .b1 {/*한줄 말줄임, 표준*/
+      font-size: 20px;font-weight: bold;
+      white-space: nowrap;overflow: hidden;
+      text-overflow: ellipsis;
+      background: #0d4633;color: #FFF
+    }
+    .ex1 .b2 {/*여러줄 말줄임, 비표준*/
+      /* height: auto;align-self: flex-start; */
+    }
+    .ex1 .b2 p {
+      background: pink;margin: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .ex2 {
+      border: 1px solid red;
+      width: 80%;margin: 50px;padding: 30px;
+      line-height: 1.5em;text-align: justify;
+      column-count: 4; column-gap: 40px;
+      column-rule: 1px dotted #AAA;
+    }
+    .ex2 h3 {column-span: all;color: #f26b24}
+
+    .ex3 {
+      display: flex;gap: 40px;padding: 50px;
+      width: 1200px;height: 500px;
+      background: #ededed;justify-content: center;
+    }
+    .ex3 .box {
+      border: 1px solid #AAA;background: #FFF;
+      width: 350px;height: 400px;
+      padding: 20px;box-sizing: border-box;
+    }
+    .ex3 .b2 {
+      background: pink;z-index: 3;
+      transform: translate(200px,50px);
+    }
+    .ex3 .b3 {
+      background: gold;z-index: 2;
+      transform: translate(-80px, 0);
+    }
+    .ex3 .b4 {
+      background: mediumaquamarine;z-index: -1;
+      transform: translate(150px, -80px);
+    }
+
+    .ex4 {
+      display: flex;padding: 50px;gap: 30px;
+      width: 80%;background: palevioletred;
+    }
+    .ex4 .box {
+      border: 1px solid #AAA;background: #FFF;
+      width: calc(25% - 22px);
+      height: 400px;flex-shrink: 0;
+      padding: 20px;box-sizing: border-box;
+    }
+    .ex5 h2 {color: #0d4633}
+    .ex5 .txt {color: var(--orange); font-size: var(--mainTxt);}
+
+    .ex6 {
+      background: #AAA;padding: 80px 0;
+      display: flex;gap: 50px;align-items: flex-start;
+    }
+    .ex6>div {
+      background: #FFF;flex-shrink: 0;
+      width: 300px; /*고정값*/
+      height: auto;
+    }
+    .ex6 .dim1 {
+      background: pink;min-width: 500px;
+    }
+    .ex6 .dim2 {
+      background: gold;max-width: 200px;
+    }
+    .ex6 .dim3 {max-height: 200px;}
+    .ex6 .dim4 {
+      /* height: 300px; */
+      max-height: 400px;min-height: 200px;
+    }
+    .ex7 {background: cadetblue;height: 300px;}
+    @media screen and (max-width: 1440px) {
+      .ex7 {
+        background: salmon;height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>여러 가지 속성</h1>
+  <h2>말줄임표</h2>
+  <p>- 실무에서는 스크립트나 프로그래밍 언어를 이용해서 글자 갯수 제한으로 사용되는 경우가 많음</p>
+  <div class="ex1">
+    <div class="box b1">
+      뉴스나 유저가 사용하는 게시판의 제목은 길어지는 경우가 발생하는데, 레이아웃보다 길어질 경우에는 말줄임표를 이용
+    </div>
+    <div class="box b2">
+      <p>뉴스나 유저가 사용하는 게시판의 제목은 길어지는 경우가 발생하는데, 레이아웃보다 길어질 경우에는 말줄임표를 이용뉴스나 유저가 사용하는 게시판의 제목은 길어지는 경우가 발생하는데, 레이아웃보다 길어질 경우에는 말줄임표를 이용뉴스나 유저가 사용하는 게시판의 제목은 길어지는 경우가 발생하는데, 레이아웃보다 길어질 경우에는 말줄임표를 이용</p>
+    </div>
+  </div>
+  <h2>다단(Multiple Column)</h2>
+  <div class="ex2">
+    <h3>다단 박스 안에 제목</h3>
+    대통령은 제1항과 제2항의 처분 또는 명령을 한 때에는 지체없이 국회에 보고하여 그 승인을 얻어야 한다. 평화통일정책의 수립에 관한 대통령의 자문에 응하기 위하여 민주평화통일자문회의를 둘 수 있다. 국가안전보장회의는 대통령이 주재한다. 모든 국민은 사생활의 비밀과 자유를 침해받지 아니한다. 모든 국민은 종교의 자유를 가진다. 이 헌법은 1988년 2월 25일부터 시행한다. 다만, 이 헌법을 시행하기 위하여 필요한 법률의 제정·개정과 이 헌법에 의한 대통령 및 국회의원의 선거 기타 이 헌법시행에 관한 준비는 이 헌법시행 전에 할 수 있다. 국가원로자문회의의 의장은 직전대통령이 된다. 다만, 직전대통령이 없을 때에는 대통령이 지명한다.선거와 국민투표의 공정한 관리 및 정당에 관한 사무를 처리하기 위하여 선거관리위원회를 둔다. 국회나 그 위원회의 요구가 있을 때에는 국무총리·국무위원 또는 정부위원은 출석·답변하여야 하며, 국무총리 또는 국무위원이 출석요구를 받은 때에는 국무위원 또는 정부위원으로 하여금 출석·답변하게 할 수 있다. 대통령은 헌법과 법률이 정하는 바에 의하여 국군을 통수한다. 모든 국민은 학문과 예술의 자유를 가진다. 국정의 중요한 사항에 관한 대통령의 자문에 응하기 위하여 국가원로로 구성되는 국가원로자문회의를 둘 수 있다. 정부는 예산에 변경을 가할 필요가 있을 때에는 추가경정예산안을 편성하여 국회에 제출할 수 있다.민주평화통일자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 대통령은 내우·외환·천재·지변 또는 중대한 재정·경제상의 위기에 있어서 국가의 안전보장 또는 공공의 안녕질서를 유지하기 위하여 긴급한 조치가 필요하고 국회의 집회를 기다릴 여유가 없을 때에 한하여 최소한으로 필요한 재정·경제상의 처분을 하거나 이에 관하여 법률의 효력을 가지는 명령을 발할 수 있다. 이 헌법공포 당시의 국회의원의 임기는 제1항에 의한 국회의 최초의 집회일 전일까지로 한다. 대법원장과 대법관이 아닌 법관의 임기는 10년으로 하며, 법률이 정하는 바에 의하여 연임할 수 있다. 제1항의 탄핵소추는 국회재적의원 3분의 1 이상의 발의가 있어야 하며, 그 의결은 국회재적의원 과반수의 찬성이 있어야 한다. 다만, 대통령에 대한 탄핵소추는 국회재적의원 과반수의 발의와 국회재적의원 3분의 2 이상의 찬성이 있어야 한다.제3항의 승인을 얻지 못한 때에는 그 처분 또는 명령은 그때부터 효력을 상실한다. 이 경우 그 명령에 의하여 개정 또는 폐지되었던 법률은 그 명령이 승인을 얻지 못한 때부터 당연히 효력을 회복한다. 모든 국민은 헌법과 법률이 정한 법관에 의하여 법률에 의한 재판을 받을 권리를 가진다. 국가는 국민 모두의 생산 및 생활의 기반이 되는 국토의 효율적이고 균형있는 이용·개발과 보전을 위하여 법률이 정하는 바에 의하여 그에 관한 필요한 제한과 의무를 과할 수 있다. 대통령은 조약을 체결·비준하고, 외교사절을 신임·접수 또는 파견하며, 선전포고와 강화를 한다. 법률안에 이의가 있을 때에는 대통령은 제1항의 기간내에 이의서를 붙여 국회로 환부하고, 그 재의를 요구할 수 있다. 국회의 폐회중에도 또한 같다.국회는 법률에 저촉되지 아니하는 범위안에서 의사와 내부규율에 관한 규칙을 제정할 수 있다. 법률이 정하는 주요방위산업체에 종사하는 근로자의 단체행동권은 법률이 정하는 바에 의하여 이를 제한하거나 인정하지 아니할 수 있다. 선거운동은 각급 선거관리위원회의 관리하에 법률이 정하는 범위안에서 하되, 균등한 기회가 보장되어야 한다. 국회는 국정을 감사하거나 특정한 국정사안에 대하여 조사할 수 있으며, 이에 필요한 서류의 제출 또는 증인의 출석과 증언이나 의견의 진술을 요구할 수 있다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다.
+  </div>
+
+  <h2>z-index</h2>
+  <p>- position 속성으로 요소들이 겹쳐진 경우 앞에 보이는 순서를 정함. 숫자가 클수록 앞에</p>
+  <div class="ex3">
+    <div class="box b1"></div>
+    <div class="box b2"></div>
+    <div class="box b3"></div>
+    <div class="box b4"></div>
+  </div>
+
+  <h2>calc() 함수</h2>
+  <div class="ex4">
+    <div class="box b1"></div>
+    <div class="box b2"></div>
+    <div class="box b3"></div>
+    <div class="box b4"></div>
+  </div>
+
+  <div class="ex5">
+    <h2>var() 함수</h2>
+    <p class="txt">var는 variables의 줄임말로 변수의 의미</p>
+  </div>
+
+  <h2>dimention(면적)</h2>
+  <div class="ex6">
+    <div class="dim1">Quis nulla commodo deserunt incididunt minim adipisicing do commodo aute elit. Tempor minim voluptate laboris est minim. Eu laborum velit anim aute. Sit nisi laboris voluptate amet ullamco. Mollit qui elit sunt incididunt pariatur. Veniam cillum dolore quis culpa mollit tempor deserunt reprehenderit Lorem consequat nostrud elit ex. Sint Lorem veniam dolore consectetur do.Est nulla minim aute labore magna magna occaecat in incididunt sint dolore. Ex irure irure non laboris deserunt veniam adipisicing dolore exercitation. Ad ea dolore mollit sint cupidatat sunt commodo. Dolore irure Lorem exercitation pariatur deserunt excepteur ullamco excepteur. Minim fugiat eu id dolore proident culpa pariatur occaecat duis commodo esse dolor. Tempor et anim quis proident irure ut laboris.</div>
+    <div class="dim2">Occaecat est pariatur pariatur eu aute excepteur enim et pariatur ipsum do ea ex. Sint non culpa labore aliqua veniam ullamco laborum. Ea magna do esse cillum qui qui Lorem ex exercitation.Cupidatat non est magna eiusmod aliqua nisi aliqua. Magna fugiat fugiat adipisicing officia consectetur velit minim tempor excepteur aliqua commodo voluptate voluptate. Pariatur esse non aliqua Lorem nisi ad eu ex laboris. Voluptate sit quis anim consequat veniam.</div>
+    <div class="dim3">Ex officia ut magna dolore non in Lorem. Est aute dolor laboris exercitation velit sint amet velit. Mollit Lorem do esse cillum nisi magna. Et dolor ex enim excepteur dolor minim nulla duis cupidatat Lorem eiusmod et duis. Magna deserunt quis sit deserunt ipsum magna aliqua consequat ad in eu elit. Incididunt culpa reprehenderit commodo nulla minim culpa. Deserunt et in dolor amet ex incididunt incididunt.</div>
+    <div class="dim4">Ut laboris ullamco adipisicing nulla consectetur velit dolor nulla fugiat officia.</div>
+  </div>
+
+  <h2>Media Query</h2>
+  <div class="ex7">반응형은 미디어쿼리와 가변값</div>
+</body>
+</html>

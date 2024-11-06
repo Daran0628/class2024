@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11_멀티미디어태그</title>
+</head>
+<body>
+  <h1>멀티미디어태그</h1>
+  <h2>비디오 태그</h2>
+  <video autoplay muted height="700">
+    <source src="media/main.mp4">
+    <source src="media/main.ogg">
+  </video>
+
+  <video src="media/movie.mp4" controls poster="media/mov_thumb.png" width="1000"></video>
+  <video src="media/video.mp4" autoplay muted loop></video>
+
+  <h2>오디오 태그</h2>
+  <audio src="media/audio.mp3" autoplay controls muted>
+    <!--sourc 태그를 사용하거나 video나 audio 태그를 모르는 브라우저에 대체 문자를 사용-->
+  </audio>
+  <audio src="media/sound.mp3" controls></audio>
+
+  <h2>source 태그</h2>
+  <p>- 브라우저마다 지원하는 파일 포맷이 달랐을 때 여러 파일 경로를 사용하기 위한 태그</p>
+  <p>- video나 audio 태그 자손으로 사용되며, src 속성 사용</p>
+
+  <h2>속성</h2>
+  <h3>공통</h3>
+  <ul>
+    <li>autoplay : 자동재생(단 video의 경우, 음소거 속성이 없으면 재생되지 않음)</li>
+    <li>muted : 음소거</li>
+    <li>controls : 재생 제어 UI</li>
+    <li>loop : 무한 반복 재생</li>
+  </ul>
+  <h3>video 전용</h3>
+  <ul>
+    <li>width / height : img와 video는 레이아웃과 관련이 있을 때 미리 자리를 잡아놓기 위함이지만, css를 사용</li>
+    <li>poster : 영상이 멈춰 있을 때 보여질 이미지(섬네일)</li>
+  </ul>
+</body>
+</html>

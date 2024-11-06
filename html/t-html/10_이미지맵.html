@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="img/ico.png">
+  <title>10_이미지맵</title>
+</head>
+<body>
+  <h1>이미지맵</h1>
+  <p>하나의 이미지에 여러 개의 링크</p>
+
+  <a href="http://www.naver.com">
+    <img src="img/btn_main_sns01.png" alt="">
+  </a>
+
+  <img src="img/img1.jpg" alt="" usemap="#map1">
+  <map name="map1">
+    <area shape="rect" coords="253,1221,1135,1581" href="http://www.police.go.kr" alt="경찰청">
+    <area shape="poly" coords="1057,1877,1102,1877,1123,1915,1102,1952,1057,1952,1035,1915" href="#" alt="컨버스">
+  </map>
+
+  <img src="img/img2.jpg" alt="" usemap="#map2">
+  <map name="map2">
+    <area shape="circle" coords="569,2476,107" href="#" alt="">
+    <area shape="circle" coords="1390,1926,107" href="#" alt="">
+  </map>
+</body>
+</html>

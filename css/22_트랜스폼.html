@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22_트랜스폼</title>
+  <style>
+    body {margin-bottom: 500px;}
+    .trans {
+      background: #DDD;padding: 50px 70px;
+      display: flex;gap: 50px;
+    }
+    .box {width: 200px;height: 200px;background: url(img/grid.gif);}
+    .ex {background: rgba(255,0,0,0.5);
+      width: 200px;height: 200px;}
+    .ex1 {transform: translateX(-50px)}
+    .ex2 {transform: translateY(30px)}
+    .ex3 {transform: translate(50%, 25%)}
+    .ex4 {transform: scaleX(1.5)}
+    .ex5 {transform: scaleY(50%)}
+    .ex6 {transform: scale(0.5,0.5)}
+
+    .ex7 {transform: rotate(deg)}
+    .ex8 {transform: rotateX(0);transition: transform 3s}
+    .ex8:hover {transform: rotateX(360deg)}
+
+    .ex9 {transform: rotateY(0);transition: transform 3s}
+    .ex9:hover {transform: rotateY(350deg)}
+    .ex10 {transform: rotateZ(0);transition: transform 3s}
+    .ex10:hover {transform: rotateZ(360deg)}
+
+    .ex11 {transform: skewX(45deg);}
+    .ex12 {transform: skewY(20deg);}
+    .ex13 {transform: skew(45deg, 20deg);}
+
+    .ex14 {transform: matrix(1,0.5,0,1,0,100)}
+    .ex15 {transform: rotate(-45deg);
+      transform-origin: 0 0}
+    
+      .test1 .img_box {width: 400px;height: 250px;overflow: hidden;
+         border: 2px solid greenyellow;margin-left: 200px;}
+      .test1 .img_box img {width: 100%;transition: all 0.6s}
+      .test1 .img_box:hover img {transform: scale(1.3);}
+
+
+  </style>
+</head>
+<body>
+  <!-- translate(위치), scale(크기), rotate(회전), skew(기울기) -->
+  <!--
+    예) 이동하기 위해 margin을 사용한 경우,
+    margin 만큼의 영역이 추가되기 때문에
+    동생요소(위치)와 부모요소(크기)에 영향을 끼침
+
+    트랜스폼은 부모나 동생의 면적이나 위치에 영향을 주지 않고 형태를 변화시킴
+    : 동생과 겹쳐지거나 부모요소의 overflow 현상이 발생할 수 있음
+   -->
+
+  <h1>트랜스폼</h1>
+  <h2>translate : 위치 이동</h2>
+  <div class="t1 trans">
+    <div class="box">
+      <div class="ex ex1">translateX(x-offset)</div>
+    </div>
+    <div class="box">
+      <div class="ex ex2">translateY(y-offset)</div>
+    </div>
+    <div class="box">
+      <div class="ex ex3">translate(x-offset, y-offset)</div>
+    </div>
+  </div>
+  <h2>scale : 크기</h2>
+  <div class="t2 trans">
+    <div class="box">
+      <div class="ex ex4">scaleX(w)</div>
+    </div>
+    <div class="box">
+      <div class="ex ex5">scaleY(h)</div>
+    </div>
+    <div class="box">
+      <div class="ex ex6">scale(w, h)</div>
+    </div>
+  </div>
+  <h2>rotate : 회전</h2>
+  <div class="t3 trans">
+    <div class="box">
+      <div class="ex ex7">rotate(angle)</div>
+    </div>
+    <div class="box">
+      <div class="ex ex8">rotateX(angle)</div>
+    </div>
+    <div class="box">
+      <div class="ex ex9">rotateY(angle)</div>
+    </div>
+    <div class="box">
+      <div class="ex ex10">rotateZ(angle)</div>
+    </div>
+  </div>
+  <h2>skew : 기울기</h2>
+  <div class="t4 trans">
+   <div class="box">
+      <div class="ex ex11">skewX(angle)</div>
+   </div>
+   <div class="box">
+      <div class="ex ex12">skewY(angle)</div>
+   </div>
+   <div class="box">
+      <div class="ex ex13">skew(X, Y)</div>
+   </div>
+  </div>
+  <h2>matrix() / transform-origin 속성</h2>
+  <p>- 함수의 인수를 정확히 기입해야 함 matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())</p>
+  <p>- 트렌스폼의 기준점 설정(transform-origin)</p>
+  <div class="t5 trans">
+   <div class="box">
+      <div class="ex ex14"></div>
+   </div>
+   <div class="box">
+      <div class="ex ex15">기준점 변경</div>
+   </div>
+   <div class="box">
+      <div class="ex ex16"></div>
+   </div>
+  </div>
+  <h2>연습</h2>
+<div class="test1">
+   <div class="img_box">
+      <img src="img/food_1.png" alt="">
+   </div>
+</div>
+</body>
+</html>

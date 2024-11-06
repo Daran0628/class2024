@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장바구니</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.min.css">
+</head>
+<body>
+<div id="wrap">
+  <header>
+    <button id="shop_icon">
+      <i class="ri-store-2-line"></i>
+    </button>
+    <button id="cart_icon">
+      <span>1</span>
+      <i class="ri-shopping-cart-line"></i>
+    </button>
+  </header>
+  <div class="container">
+    <div id="product_list">
+      <ul>
+        <li>
+          <img src="" alt="">
+          <button class="add_cart"><i class="ri-shopping-cart-line"></i></button>
+          <span class="product_name">한라봉</span>
+          <span class="product_price">3000</span>
+        </li>
+        <li>
+          <img src="" alt="">
+          <button class="add_cart"><i class="ri-shopping-cart-line"></i></button>
+          <span class="product_name">아보카도</span>
+          <span class="product_price">5000</span>
+        </li>
+        <li>
+          <img src="" alt="">
+          <button class="add_cart"><i class="ri-shopping-cart-line"></i></button>
+          <span class="product_name">방울토마토</span>
+          <span class="product_price">4000</span>
+        </li>
+        <li>
+          <img src="" alt="">
+          <button class="add_cart"><i class="ri-shopping-cart-line"></i></button>
+          <span class="product_name">레몬</span>
+          <span class="product_price">2000</span>
+        </li>
+      </ul>
+    </div>
+
+    <div id="cart_list">
+      <ul></ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  const addBtns = document.querySelectorAll('.add_cart')
+  const shoppingCart = new Map()
+
+  addBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const productName = this.parentNode.querySelector('.product_name').textContent;
+      const productPrice = this.parentNode.querySelector('.product_price').textContent;
+      const procuctQuantity = 1;
+
+      addProduct(productName, productPrice, procuctQuantity)
+
+    })
+  })
+
+  function addProduct(pname, price, quantity) {
+    if(shoppingCart.has(pname)) {
+      let existProduct = shoppingCart.get(pname);
+      let newQuantity = existProduct.quantity + quantity;
+      let totalPrice = price * newQuantity
+      // shoppingCart.set(pname, price * (currentQuantity + quantity), currentQuantity + quantity)
+      shoppingCart.set(pname, {price: totalPrice, quantity : newQuantity})
+    } else {
+      shoppingCart.set(pname, {price : price * quantity, quantity : quantity})
+    }
+    console.log(shoppingCart);
+    addCartList()
+  }
+
+  const cartList = document.querySelector('#cart_list ul')
+  function addCartList() {
+    cartList.innerHTML = ''
+
+    shoppingCart.forEach(function(value, key) {
+      const cartItem = document.createElement('li')
+      cartItem.innerText = `${key} : ${value.quantity}개, ${value.price}원`
+      cartList.appendChild(cartItem)
+    })
+  }
+</script>
+</body>
+</html>

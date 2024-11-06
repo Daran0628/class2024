@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+
+button {
+   margin: 0;padding: 0;
+   border: none; background: none;cursor: pointer}
+.inner {padding: 10rem}
+img {display: block;object-fit: fill;}
+
+#game_wrap {}
+
+#game_wrap .gameBox {
+   display: flex;gap: 3rem;justify-content: center;
+   border: 1px solid black;
+}
+.gameBox .playArea {
+   display: flex;flex-direction: column;
+   margin: 5rem 0;
+   border: 2px dotted black;
+}
+.gameBox .playBox {
+   width: 30rem;height: 30rem;
+   padding: 1rem;
+}
+.gameBox .ctrlArea {
+   display: flex;justify-content: center;gap: 5rem;
+   padding: 1.5rem 1.5rem;
+   background: lightgoldenrodyellow;
+}
+.gameBox .playbtn {}
+
+.playBox .rock {}
+.playBox .scissors {}
+.playBox .paper {}
+
+
+.gameBox .p1 {}
+.gameBox .p1 span {}
+.gameBox .p1 .playBtn .btn1 {}
+.gameBox .p1 .playBox .box1 {}
+
+.gameBox .p2 {}
+.gameBox .p2 span {}
+.gameBox .p2 .playBtn .btn2 {}
+.gameBox .p2 .playBox .box2 {}
+
+.gameBox .result {}
+.gameBox .result span {}
+

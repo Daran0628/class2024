@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>16_그림자속성</title>
+   <style>
+      body {background: url(img/grid.gif);}
+      .b {
+         margin: 50px;width: 300px;height: 300px;
+         background: lightpink;
+      }
+      .box1 {box-shadow: 10px 10px 0 hotpink;}
+      .box2 {box-shadow: 10px 10px 50px hotpink;}
+      .box3 {box-shadow: -10px -10px 30px slategray;}
+      .box4 {box-shadow: 15px 15px 5px rgba(0,0,0,0.2);}
+      .box5 {box-shadow: 10px 10px 0 slateblue, 20px 20px 0 darkslategray}
+
+      .t {font-size: 50px;font-family: "Arial Black";text-transform: uppercase;
+      background: #FFF;padding: 50px 20px;margin: 30px;}
+      .txt1 {text-shadow: 5px 5px 5px hotpink;}
+      .txt2 {color: #FFF;text-shadow: 5px 5px plum;}
+      /* 글자를 투명하게 하면(transparent) 그림자만 보임 */
+      .txt3 {color: lightpink;text-shadow: 2px 0 darkorchid, 0 2px hotpink, -2px 0 lightskyblue, 0 -2px limegreen;}
+      .txt4 {color:lemonchiffon; -webkit-text-stroke: 2px hotpink;}
+      /* 
+      *text-stroke 표준이 아님
+      * prefix 접두사
+      -webkit- : 웹킷기반 브라우저(크롬, 사파리)
+      -moz- : 모질라 파이어폭스 브라우저
+      -o- : 오페라 브라우저
+      -ms- : 마이크로 소프트 IE, edge 브라우저
+      */
+      .txt5 {text-shadow: 5px 5px 5px hotpink;}
+   </style>
+</head>
+<body>
+   <h1>그림자 속성</h1>
+   <h2>box-shadow : x-offset y-offset blur color</h2>
+   <!-- .b.box$ b가 공통 클래스 box$가 각자 클래스 -->
+   <div class="b box1"></div>
+   <div class="b box2"></div>
+   <div class="b box3"></div>
+   <div class="b box4"></div>
+   <div class="b box5"></div>
+   <h2>text-shadow</h2>
+   <div class="t txt1">text shadow</div>
+   <div class="t txt2">text shadow</div>
+   <div class="t txt3">text shadow</div>
+   <div class="t txt4">text shadow</div>
+   <div class="t txt5">text shadow</div>
+</body>
+</html>

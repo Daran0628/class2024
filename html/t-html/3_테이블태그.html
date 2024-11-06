@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>3_테이블태그</title>
+	<style>
+		body {margin-bottom: 500px;}
+		table {
+			border-collapse: collapse;
+		}
+		td, th {
+			border: 1px solid #666;
+			padding: 10px 20px;
+		}
+		thead {
+			background: pink;
+		}
+		tbody {
+			background: #EEE;
+		}
+		tfoot {
+			background: gold;
+		}
+	</style>
+</head>
+<body>
+	<h1>표(table) 태그</h1>
+	<!-- table>tr*3>td*3 -->
+	<table>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>5</td>
+			<td>6</td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>8</td>
+			<td>9</td>
+		</tr>
+	</table>
+	<h2>달력</h2>
+	<table>
+		<tr>
+			<th>일</th>
+			<th>월</th>
+			<th>화</th>
+			<th>수</th>
+			<th>목</th>
+			<th>금</th>
+			<th>토</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>6</td>
+			<td>7</td>
+			<td>8</td>
+			<td>9</td>
+			<td>10</td>
+			<td>11</td>
+		</tr>
+		<tr>
+			<td>12</td>
+			<td>13</td>
+			<td>14</td>
+			<td>15</td>
+			<td>16</td>
+			<td>17</td>
+			<td>18</td>
+		</tr>
+		<tr>
+			<td>19</td>
+			<td>20</td>
+			<td>21</td>
+			<td>22</td>
+			<td>23</td>
+			<td>24</td>
+			<td>25</td>
+		</tr>
+		<tr>
+			<td>26</td>
+			<td>27</td>
+			<td>28</td>
+			<td>29</td>
+			<td>30</td>
+			<td>31</td>
+			<td></td>
+		</tr>
+	</table>
+
+	<h2>나나 문구점의 일별 판매실적</h2>
+	<!-- table>(tr>th*5)+(tr*6>td*5) -->
+	<table>
+		<caption>일별 판매실적</caption>
+		<thead>
+			<tr>
+				<th>날짜</th>
+				<th>연필</th>
+				<th>지우개</th>
+				<th>볼펜</th>
+				<th>노트</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td>합계</td>
+				<td>168,000</td>
+				<td>24,200</td>
+				<td>36,900</td>
+				<td>128,000</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>7월 1일</td>
+				<td>50,000</td>
+				<td>1,200</td>
+				<td>5,500</td>
+				<td>47,000</td>
+			</tr>
+			<tr>
+				<td>7월 2일</td>
+				<td>20,000</td>
+				<td>5,400</td>
+				<td>6,500</td>
+				<td>38,000</td>
+			</tr>
+			<tr>
+				<td>7월 3일</td>
+				<td>35,500</td>
+				<td>3,300</td>
+				<td>12,500</td>
+				<td>20,000</td>
+			</tr>
+			<tr>
+				<td>7월 4일</td>
+				<td>7,500</td>
+				<td>8,900</td>
+				<td>3,500</td>
+				<td>15,500</td>
+			</tr>
+			<tr>
+				<td>7월 5일</td>
+				<td>55,000</td>
+				<td>5,400</td>
+				<td>8,900</td>
+				<td>7,500</td>
+			</tr>
+		</tbody>
+	</table>	
+</body>
+</html>

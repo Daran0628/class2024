@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13_문서내부이동</title>
+  <style>
+    body {margin: 0;}
+    a {color: inherit;text-decoration: none;}
+    ul, li {list-style: none;}
+    h2 {margin: 0;}
+    header {
+      padding: 20px 0 10px 0;background: #000;
+      text-align: center;color: #FFF;
+      /* position: sticky; top: 0; */
+    }
+    nav {
+      border-top: 1px solid rgba(255,255,255,0.3);
+      /* position: sticky; top: 0;
+        sticky는 부모 요소가 스크롤되는 높이값이어야 적용됨
+      */
+    }
+    nav ul {display: flex;justify-content: center;gap: 100px;}
+    .top_btn a {
+      position: fixed;right: 50px;bottom: 50px;
+      width: 60px;height: 60px;background: #000;
+      line-height: 60px;border-radius: 50%;
+    }
+    section {padding: 20px 0;}
+    .inner {width: 1000px;margin: auto;}
+    .inner pre {font: inherit;font-size: 18px;line-height: 30px;}
+    #song2 {background: #DDD;}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>문서 내부 이동</h1>
+    <nav id="nav">
+      <ul>
+        <li><a href="#song1">Supernova - aespa</a></li>
+        <li><a href="#song2">고민중독 - QWER</a></li>
+        <li><a href="#song3">How Sweet - NewJeans</a></li>
+      </ul>
+    </nav>
+    <div class="top_btn"><a href="#nav">TOP</a></div>
+  </header>
+  <section id="song1">
+    <div class="inner">
+      <h2>Supernova - aespa</h2>
+      <pre>
+        I'm like some kind of Supernova
+        Watch out
+        Look at me go
+        재미 좀 볼
+        빛의 Core
+        So hot hot
+        문이 열려
+        서로의 존재를 느껴
+        마치 Discord
+        날 닮은 너 너 누구야
+        (Drop)
+        사건은 다가와 Ah Oh Ay
+        거세게 커져가 Ah Oh Ay
+        That tick that tick tick bomb
+        That tick that tick tick bomb
+        감히 건드리지 못할 걸
+        (누구도 말이야)
+        지금 내 안에선
+        Su su su Supernova
+        Nova
+        Can't stop hyperstellar
+        원초 그걸 찾아
+        Bring the light of a dying star
+        불러낸 내 우주를 봐 봐
+        Supernova
+        Ah Body bang
+        Make it feel too right
+        휩쓸린 에너지 It's so special
+        잔인한 Queen 이며 Scene 이자 종결
+        이토록 거대한 내 안의 Explosion
+        내 모든 세포 별로부터 만들어져
+        (Under my control Ah)
+        질문은 계속돼 Ah Oh Ay
+        우린 어디서 왔나 Oh Ay
+        느껴 내 안에선
+        Su su su Supernova
+        Nova
+        Can't stop hyperstellar
+        원초 그걸 찾아
+        Bring the light of a dying star
+        불러낸 내 우주를 봐 봐
+        Supernova
+        보이지 않는 힘으로
+        네게 손 내밀어 볼까
+        가능한 모든 가능성
+        무한 속의 너를 만나
+        It's about to bang bang
+        Don't forget my name
+        Su su su Supernova
+        사건은 다가와 Ah Oh Ay
+        거세게 커져가 Ah Oh Ay
+        질문은 계속돼 Ah Oh Ay
+        우린 어디서 왔나 Oh Ay
+        사건은 다가와 Ah Oh Ay
+        거세게 커져가 Ah Oh Ay
+        Tell me, tell me, tell me Oh Ay
+        우린 어디서 왔나 Oh Ay
+        우린 어디서 왔나 Oh Ay
+        Nova
+        Can't stop hyperstellar
+        원초 그걸 찾아
+        Bring the light of a dying star
+        불러낸 내 우주를 봐 봐
+        Supernova
+        사건은 다가와 Ah Oh Ay
+        (Nu star)
+        거세게 커져가 Ah Oh Ay
+        질문은 계속돼 Ah Oh Ay
+        (Nova)
+        우린 어디서 왔나 Oh Ay
+        사건은 다가와 Ah Oh Ay
+        거세게 커져가 Ah Oh Ay
+        질문은 계속돼 Ah Oh Ay
+        (Nova)
+        Bring the light of a dying star
+        Supernova
+      </pre>
+    </div>
+  </section>
+  <section id="song2">
+    <div class="inner">
+      <h2>고민중독 - QWER</h2>
+      <pre>
+        One! Two! Q! W! E! R!
+        어떤 인사가 괜찮을까 천 번쯤 상상해 봤어
+        근데 오늘도 천 번 하고 한 번 더 고민 중
+        막상 네 앞에 서니 꽁꽁 얼어버렸다
+        숨겨왔던 나의 맘 절반의 반도 주지를 못했어
+        아, 아, 아직은
+        준비가 안됐다구요
+        소용돌이쳐 어지럽다구
+        쏟아지는 맘을 멈출 수가 없을까?
+        너의 작은 인사 한마디에 요란해져서
+        네 맘의 비밀번호 눌러 열고 싶지만
+        너를 고민고민해도 좋은 걸 어쩌니
+        거울 앞에서 새벽까지 연습한 인사가
+        손을 들고 웃는 얼굴을 하고서 고개를 숙였다
+        아, 아, 아직도 준비가 안됐나 봐요
+        소용돌이쳐 어지럽다구
+        쏟아지는 맘을 멈출 수가 없을까?
+        너의 작은 인사 한마디에 요란해져서
+        네 맘의 비밀번호 눌러 열고 싶지만
+        너를 고민고민해도 좋은 걸
+        이러지도 저러지도 못하는데
+        속이 왈칵 뒤집히고
+        이쯤 왔으면 눈치 챙겨야지
+        날 봐달라구요!
+        좋아한다 너를 좋아한다 좋아해
+        너를 많이 많이 좋아한단 말이야
+        벅차오르다 못해 내 맘이 쿡쿡 아려와
+        두 번은 말 못 해 너 지금 잘 들어봐
+        매일 고민하고 연습했던 말
+        좋아해
+        One! Two! Q! W! E! R!
+        어떤 인사가 괜찮을까 천 번쯤 상상해 봤어
+        근데 오늘도 천 번 하고 한 번 더 고민 중
+        막상 네 앞에 서니 꽁꽁 얼어버렸다
+        숨겨왔던 나의 맘 절반의 반도 주지를 못했어
+        아, 아, 아직은
+        준비가 안됐다구요
+        소용돌이쳐 어지럽다구
+        쏟아지는 맘을 멈출 수가 없을까?
+        너의 작은 인사 한마디에 요란해져서
+        네 맘의 비밀번호 눌러 열고 싶지만
+        너를 고민고민해도 좋은 걸 어쩌니
+        거울 앞에서 새벽까지 연습한 인사가
+        손을 들고 웃는 얼굴을 하고서 고개를 숙였다
+        아, 아, 아직도 준비가 안됐나 봐요
+        소용돌이쳐 어지럽다구
+        쏟아지는 맘을 멈출 수가 없을까?
+        너의 작은 인사 한마디에 요란해져서
+        네 맘의 비밀번호 눌러 열고 싶지만
+        너를 고민고민해도 좋은 걸
+        이러지도 저러지도 못하는데
+        속이 왈칵 뒤집히고
+        이쯤 왔으면 눈치 챙겨야지
+        날 봐달라구요!
+        좋아한다 너를 좋아한다 좋아해
+        너를 많이 많이 좋아한단 말이야
+        벅차오르다 못해 내 맘이 쿡쿡 아려와
+        두 번은 말 못 해 너 지금 잘 들어봐
+        매일 고민하고 연습했던 말
+        좋아해
+      </pre>
+    </div>
+  </section>
+  <section id="song3">
+    <div class="inner">
+      <h2>How Sweet - NewJeans</h2>
+      <pre>
+        All I know is now
+        알게 됐어 나 (I know)
+        그동안 맨날
+        Always up and down (No more)
+        생각 또 생각
+        Spinnin' 'round and 'round
+        Changing my mind
+        수상해서 그렇지
+        이런 헛소리 (No more)
+        How it's supposed to be
+        그만해 cus it's clear (It's simple)
+        It's like biting an apple
+        Toxic lover
+        You're no better, 거기 숨지 말고 얼른 나와
+        You little demon in my storyline
+        Don't knock on my door, I'll see you out
+        And don't you know how sweet it tastes
+        (How sweet it tastes)
+        Ya don't you know how sweet it tastes
+        (How sweet it tastes)
+        Ya don't you know how sweet it tastes
+        Now that I'm without you
+        나 더는 묻지 않을래
+        (How sweet it tastes)
+        알려주지 않아도 돼
+        (How sweet it tastes)
+        Wow don't you know how sweet it tastes
+        Now that I'm without you
+        모든 게 typical
+        So I've been praying so hard for a miracle
+        부르고 있어 나의 이름을
+        더는 안 봐 drama it's good karma
+        Done scrolling thousand times
+        다 알고 있어 뻔한 수작일 뿐이야
+        완전 쉬운 공식이야
+        It's like biting an apple
+        And don't you know how sweet it tastes
+        (How sweet it tastes)
+        Ya don't you know how sweet it tastes
+        (How sweet it tastes)
+        Ya don't you know how sweet it tastes
+        Now that I'm without you
+        나 더는 묻지 않을래
+        (How sweet it tastes)
+        알려주지 않아도 돼
+        (How sweet it tastes)
+        Wow don't you know how sweet it tastes
+        Now that I'm without you
+        I won't wait, I'm feeling
+        My own way, I'm in it
+        Cause me and you are diﬀerent
+        So I won't stay, I'm leaving
+        I won't wait, I'm feeling
+        My own way, I'm in it
+        Cause me and you are diﬀerent
+        So I won't stay, I'm leaving
+        And don't you know how sweet it tastes
+        (How sweet it tastes)
+        Ya don't you know how sweet it tastes
+        (How sweet it tastes)
+        Ya don't you know how sweet it tastes
+        Now that I'm without you
+        나 더는 묻지 않을래
+        (How sweet it tastes)
+        알려주지 않아도 돼
+        (How sweet it tastes)
+        Wow don't you know how sweet it tastes
+        Now that I'm without you
+        Toxic lover
+        You're no better, 거기 숨지 말고 빨리 나와
+        You little demon in my storyline
+        Don't knock on my door 너 얼른 나가버려
+        Toxic lover
+        You're no better, 거기 숨지 말고 얼른 나와
+        You little demon in my storyline
+        Don't knock on my door, I'll see you out
+      </pre>
+    </div>
+  </section>
+</body>
+</html>

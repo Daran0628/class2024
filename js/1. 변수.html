@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>변수</title>
+   <style>
+      h1 {color: cadetblue;}
+      strong {text-decoration: underline;}
+      span {background: rgba(255, 100, 100, .4);}
+   </style>
+   <script>
+      //키워드와 숫자 데이터는 따옴표 없이,
+      //문자나 이름 (태그이름, 클래스이름)은 따옴표 사용
+      // object.method(parameter)
+
+      document.write('<h1>hello world</h1>')
+      document.write('<strong>hello java script</strong>')
+      document.write('<span>i will beat you up so soon</span>')
+      console.log(5); // 5
+      console.log('oh!'); // oh!
+      console.log(5 + 6); // 11
+      console.log('5 + 6'); // 5 + 6
+
+      // 변수는 선언을 하고 사용하여야 함
+      let a;
+      console.log(a); // undefined (데이터 타입)
+      console.log(typeof a); // undefined (데이터 타입 명시)
+
+      let b;
+      // 저장공간인 변수에 값을 할당
+      b = 10;
+      console.log(b); //10
+      console.log(typeof b); // number
+
+      // 변수 선언과 값 할당(초기화)
+      let c = 100;
+      console.log(c); 
+
+      let d, e, f;
+      console.log(e);
+      // console.log(g);
+
+      let x = 5, y = 22, z = 0.5;
+      console.log(y);
+
+      d = 'hello~~!';
+      console.log(d);
+      console.log(typeof d); // string
+
+      e = 10 + 120;
+      console.log(e); // 130
+      console.log(typeof e); // number
+
+      console.log(x, y, z); // 5 22 0.5 (값만 출력)
+      console.log(a + b); // NaN Not a Number
+      console.log(b + c); // 110
+
+      b = 200; // 이전 값에 덮어쓰기 - 변수가 변경됨
+      console.log(b + c); // 300
+
+      // 숫자 데이터와 문자 데이터를 + 기호로 연결하면 하나의 단어로 나열
+      console.log(c + d); // 100hello~~!
+
+      f = c + d 
+      console.log(typeof f); // string
+      
+      console.log(c - d); // NaN 
+
+      // 연산자 우선순위 () {} [] * / + - = ; left to right
+      console.log(typeof '5'); //string(문자열)
+      console.log('5' + 5); // 55 - string
+      console.log(5 + '5'); // 55 - string
+      console.log(5 + 5 + '5'); //105 - string
+      console.log('5'+ 5 + 5); // 555 - string
+      console.log(5 + '5'+ 5); // 555 - string
+
+      a = 17, // 값을 할당
+      b = 20; // 재할당
+      // let a = 20; let 변수 선언은 한 번만 이후는 재할당 (변수값 변경)
+
+      var i = 1;
+      var j = 2;
+      var k = 3;
+      l = 4; // 키워드 없어 변수 선언 -> var 방식
+      I = 0;
+      var i = 5; // 중복 선언 가능 
+      // var 키워드는 ES6 이전 버전에서 사용
+      // 중복 선언 가능, 데이터의 교환이 비교적 자유로움 -> 단점 - 에러, 버그 검사 어려움
+      // 사용 권장하지 않음
+      console.log(i); // 5
+      console.log(l); // 4
+      console.log(j); // 2
+      console.log(I); // 0
+
+      // greet1, greet2 변수에 각각 인사말 작성하여 콘솔에 출력
+
+      let greet1 = 'Good Morning', greet2 = 'Good Afternoon', greet3 = 'Good Evening';
+      console.log(greet1, greet2);
+      console.log('just in case I miss you', greet1 , greet2 , greet3);
+
+      // username 변수와 age 변수에 각각 '홍길동', 19 값 할당
+
+      let username = '홍길동', age = 19;
+      console.log(username + '님의 나이는 ' + age + '세 입니다.'); // 홍길동님의 나이는 19세 입니다.
+      console.log();
+      console.log();
+      console.log();
+      
+      const apple =10;
+      console.log(apple);
+      
+      // apple = 20;
+      // console.log(apple);
+
+      // const banana; - error
+      // banana = 30; - error
+      // console.log(banana);
+
+      
+
+
+
+      </script>
+</head>
+<body>
+   <h2>변수란?</h2>
+   <p>- 임의의 데이터를 저장하는 공간</p>
+
+   <h2>변수 네이밍 규칙</h2>
+   <ul>
+      <li>한글, 한자, 아랍어 등 모든 어언가 가능하지만, 영문자나 영단어만 사용</li>
+      <li>대소문자는 구분해서 사용</li>
+      <li>띄어쓰기 불가</li>
+      <li>2개 이상의 단어를 조합하여 만드는 경우 ‘_’를 이용 / 두번째 단어부터 첫글자를 대문자로 (카멜케이스)</li>
+      <li>'_'(언더바)를 제외한 특수 기호는 사용 금지</li>
+      <li>숫자 사용 가능 BUT 숫자만 사용 불가, 첫 글자 사용 불가</li>
+      <li>자바스크립트 키워드, 예약어 사용 금지</li>
+      <li>사용 목적을 알 수 있는 유의미한 단어를 사용</li>
+   </ul>
+   <h2>변수 키워드</h2>
+   <p>변수를 사용하려면 선언부터 한다. 선언할 때 사용되는 키워드</p>
+   <dl>
+      <dt>var</dt>
+       <dd>ES6 이전 방식으로 비권장</dd>
+      <dt>let</dt>
+       <dd>- 처음 선언할 때 한 번만 사용</dd>
+       <dd>- 값을 재할당 할 때는 변수 키워드 생략</dd>
+       <dd>- 같은 이름의 변수는 사용할 수 없음</dd>
+      <dt>const</dt>
+       <dd>- 선언하면서 초기값 할당</dd>
+       <dd>- 값의 재할당 불가</dd>
+       <dd>- 값이 변경되는 데이터에서 사용할 수 없음</dd>
+   </dl>
+</body>
+</html>

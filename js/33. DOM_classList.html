@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>DOM_classList</title>
+</head>
+<body>
+   <div id="box1" class="box">box</div>
+   <div id="box2" class="box on c1 c2">box</div>
+   <div id="box3" class="box c1 c2">box</div>
+   <div id="box4" class="box orange">box</div>
+
+   <hr>
+
+   <ul id="tabs">
+      <li class="active">공지사항</li>
+      <li>미디어</li>
+      <li>학술정보</li>
+      <li>교원채용</li>
+   </ul>
+
+   <!-- CSS -->
+<style>
+   .box {
+      width: 300px;height: 200px;margin: 200px;
+      border: 1px solid #999;
+   }
+   .on {background: lightpink;}
+   .c1 {font-size: 30px;}
+   .c2 {border: 3px dashed slateblue;}
+   .c3 {text-decoration: underline;}
+   .c4 {font-style: italic;}
+   .orange {background: orange;}
+   .lime {background: lime;}
+
+   #tabs {
+      display: flex;gap: 40px;
+      padding: 30px;
+      font-size: 24px;color: #aaa;
+      list-style: none;
+      }
+   .active {
+      text-decoration: underline green ;
+      text-underline-offset: 10px;
+      color: #333;
+   }
+
+   #tabs li {cursor: pointer;user-select: none;}
+</style>
+
+   <!-- JS -->
+<script>
+   const box1 = document.getElementById('box1')
+   const box2 = document.getElementById('box2')
+   const box3 = document.getElementById('box3')
+   const box4 = document.getElementById('box4')
+   // add()
+   box1.addEventListener('click', function() {
+      this.classList.add('on', 'c3')
+   })
+   // remove()
+   box2.addEventListener('click', function() {
+      this.classList.remove('on')
+   })
+   // toggle() -> add() / remove() 를 toggle
+   box3.addEventListener('click', function() {
+      this.classList.toggle('on')
+   })
+   // conatins() -> class 포함여부를 불리언 타입으로 반환
+   box2.innerHTML = box2.classList.contains('on')
+   // replace('old', 'new') ->
+   box2.classList.replace('on', 'orange')
+   // box4의 orange 클래스를 클릭할 떄 마다 green 클래스와 토글
+   // 1. 오렌지면 그린으로 리플레이스
+      // ㄴ 1) 클릭할 때 적용된 클래스이름은 무엇?
+   // 2. 그린이면 오렌지로 리플레이스
+
+      box4.addEventListener('click' ,function() {
+         if(box4.classList.contains('orange')) {
+            this.classList.replace('orange', 'lime')
+         } else {
+            this.classList.replace('lime', 'orange')
+         }
+      })
+
+      // 클래스 리스트 유사배열 선택하기
+         // .classList -> DOMTokenList(n) []
+      let ex1 = box3.classList
+      console.log(ex1); // DOMTokenList(n) []
+      box3.innerHTML = ex1
+      
+         // length & item()
+      box3.innerHTML += `<br>${ex1.length} </br> ${ex1[1]} <br> ${ex1.item(0)}`
+      
+         // 
+   const tabItem = document.querySelectorAll('#tabs li')
+   // tabItem[0].addEventListener('click', function() {
+   //    console.log(tabItem)
+   // })
+      // tabItem.forEach(item => {
+      //    item.addEventListener('click', function() {
+      //       tabItem.forEach(others => {
+      //          others.classList.remove('active')
+      //       })
+      //       this.classList.add('active')
+      //       })
+      // })
+
+      tabItem.forEach(item => {
+         let itemSelected = tabItem[0]; // 클릭된 객체
+         item.addEventListener('click', function() {
+            tabItem.forEach(others => {
+               others.classList.remove('active')
+            })
+               this.classList.add('active');
+               console.log(`clicked this: ${this}`); 
+               itemSelected = this
+               console.log(`itemSelected this: ${this}`);
+            })
+            
+            item.addEventListener('mouseover', function() {
+               this.classList.add('active')
+               console.log(`overed ${this}`);
+            })
+            item.addEventListener('mouseout', function() {
+                  if (itemSelected !== this) {
+                     this.classList.remove(active)} else {} 
+               })
+      })
+      /* syntax sugar
+
+      function fn(p) {}
+      const fn = (p) => {}
+
+      fundtion fn(p) {return p}
+      const fn = p => p
+
+      fundtion(p) {}
+      p => p
+      */
+
+</script>
+</body>
+</html>

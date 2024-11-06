@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>탬플릿 문자열</title>
+   <script>
+      let a = 'hello';
+      let b = 'world';
+      console.log(a); // hello
+      console.log(typeof a); // string
+
+      console.log(a, b); // hello world
+      console.log(a + b); // hello world
+      
+      let c = 'My name is "Tomas"';
+      console.log(c); // My name is "Tomas"
+      c = "My name is 'Tomas'";
+      console.log(c); // My name is 'Tomas'
+
+      // " ", ' '를 문자열(" "/ ' ') 안에 쓸 수 있지만 중첩에 신경 쓸 것 
+
+      let d = `My name is 'Tomas'`;
+      console.log(d);
+
+      let username = '홍길동';
+      let userage = 2024 - 2008;
+      let greet1 = username + '님은' + userage + '세';
+
+      console.log(greet1); //홍길동님은 16세
+
+      let greet2 = `${username}님은 ${userage}세`;
+      console.log(greet2); //홍길동님은 16세
+
+      let now = new Date()
+      
+      let y = now.getFullYear()
+      let m = now.getMonth()
+      let dt = now.getDate()
+
+      console.log(`${y}년 ${m + 1}월 ${dt}일`); // 2024년 7월 29일
+      
+      
+   </script>
+</head>
+<body>
+   
+</body>
+</html>

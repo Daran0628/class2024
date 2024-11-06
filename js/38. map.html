@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>map</title>
+   <script>
+      // map : 객체 타입의 set
+      // - 객체(object)처럼 key와 value를 한 세트로 데이터 저장
+      
+      const set = new Set([1, 2, 3]);
+      const testMap = new Map();
+      console.log(set);
+      console.log(testMap);
+
+      const myMap = new Map([['apple', 5000],['orange', 3000]]);
+      console.log(myMap);
+      
+      // 요소 추가 -> set(key, value)
+      const usersMap = new Map();
+      usersMap.set('id', 1).set('name', '홍길동').set('age', 20)
+
+      console.log(usersMap);
+
+      // const user = {
+      //    id : 1,
+      //    name : '홍길동'
+      // }
+
+      // const fruits = {
+      //    // apple: 5000
+      //    name: 'apple',
+      //    price: 5000
+      // }
+
+      // fruits = [
+      //    {name : 'apples', price: 5000},
+      //    {name : 'bananas', price: 3000}
+      // ]
+
+      // 값 가져오기 => get(key)
+      console.log(usersMap.get('name'));
+      console.log(usersMap.get('age'));
+
+      usersMap.set('gender', 'male')
+      console.log(usersMap);
+
+      // 요소 삭제 -> delete(key)
+      usersMap.delete('age')
+      console.log(usersMap);
+      
+      // 포함 여부 : has(key) -> boolean 값 반환
+      console.log(usersMap.has('gender'));
+      console.log(usersMap.has('age'));
+
+      // keys() -> 요소의 key의 이름을 반환
+      console.log(usersMap.keys());
+      
+      // value() -> key의 값들만 반환
+      let val = usersMap.values()
+      
+      console.log(val);
+      console.log(typeof val); // object, 배열
+      // console.log(val[1]); -> 배열 인덱스로 값 반환 불가
+      
+      // entries() -> key와 value를 차례대로 반환
+      let ent = usersMap.entries();
+      console.log(ent);
+      // console.log(`${ent}`);
+      document.write(ent)
+
+      // clear()
+      usersMap.clear()
+      console.log(usersMap);
+      console.log(usersMap.size);
+
+      // fruitsMap 객체를 생성하고, set()을 이용하여 과일 이름, 과격 3개 추가
+
+      const fruitsMap = new Map();
+      fruitsMap.set('apples', 500).set('bananas', 300).set('oranges', 200)
+      
+      console.log(fruitsMap);
+
+      fruitsMap.set('mangos', 5000)
+      // key는 바뀌지 않고, value를 덮어쓰기
+      fruitsMap.set('apples', 5000)
+      console.log(fruitsMap);
+
+      // forEach(function(value, key) {}) 
+      // function myFunction(itme, index) {text += index + ''}
+      fruitsMap.forEach((value, key) => {
+         console.log(`${key} : ${value}원`);
+      })
+
+      
+      let cat = {name: 'cat'}
+
+      const animalsMap = new Map();
+      animalsMap.set(cat, {sound: 'meow', kind: 'pet'})
+      animalsMap.set('dog', {sound: 'waff', kind: 'pet'})
+      animalsMap.set('pig', {sound: 'oink', kind: 'livestock'})
+      console.log(animalsMap);
+      // console.log(fruitsMap.get('bananas'));
+      console.log(animalsMap.get(cat).sound);
+      console.log(animalsMap.get('dog').kind);
+      console.log(animalsMap.get('pig').kind);
+      
+      animalsMap.forEach((value, key) => {
+         console.log(` ${value.kind}, ${key.name}는 ${value.sound}${value.sound}`);
+      })
+      animalsMap.forEach((value, key) => {
+         console.log(` ${value.kind}, ${key}는 ${value.sound}${value.sound}`);
+      })
+
+      for(let [name, price] of fruitsMap) {
+         console.log(`${name} : ${price}`);
+      }
+      for(let fruit of fruitsMap) {
+         console.log(fruit);
+         
+      }
+
+      // 장바구니 구현 (다음 시간에)
+      window.addEventListener('DOMContentLoaded', function() {
+         document.body.innerHTML = '<ul></ul>'
+         const $elmUl = document.querySelector('ul')
+
+         // for .. of
+         for(let [name, value] of fruitsMap.entries()) {
+            // console.log(f[0], [1]);
+            // f.join(',', '')
+            $elmUl.innerHTML += `<li>${name} : ${value}원</li>`
+         }
+      })
+      
+      
+      // keys()/value() -> array와 object에 모두 사용 가능
+      // Object.keys() / Object.values()
+
+      
+
+      
+   </script>
+</head>
+<body>
+   
+</body>
+</html>

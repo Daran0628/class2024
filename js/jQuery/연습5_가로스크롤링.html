@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>연습5_ 가로 스크롤링</title>
+
+   <!-- CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-ui@1.14.0/themes/base/theme.min.css">
+   <style>
+      html {overflow-y: hidden;overflow-x: hidden;}
+      h1 {
+         display: flex;justify-content: center;align-items: center;
+         position: fixed;left: 30px;top: 30px;
+         background: #fff;border-radius: 10px;font-size: 22px;font-weight: 600;
+         box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);padding: 20px 30px;
+      }
+      nav {
+         display: flex;gap: 30px;height: 60px;align-items: center;
+         position: fixed;right: 30px;top: 30px;
+      }
+      nav a {
+         text-decoration: none;color: #fff;
+      }
+      nav a.active {
+         text-decoration: underline 2px;
+         text-underline-offset: 6px;font-weight: 600;
+      }
+      main {display: flex;}
+      main section {
+         flex-shrink: 0;
+         width: 100vw;height: 100vh;
+      }
+      main section h2 {
+         color: #fff; text-align: center;padding-top: 200px;font-size: 50px;font-weight: bold;
+         /* color: lightsteelblue */
+      }
+      #slider {
+      width: 600px;height: 4px;
+      background: #ededed;position: fixed;
+      left: 50%;transform: translateX(-50%);bottom: 100px;
+    }
+    #slider span {
+      display: block;width: 30px;height: 20px;background: gold;
+      position: absolute;left: 0;top: 50%;transform: translateY(-50%);border: none;
+    }
+    #wheel {
+      width:100px;height:100px;background-color:Tomato;
+      margin: 200px;
+
+    }
+   </style>
+   <!-- JS -->
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+   <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"></script>
+   <script>
+      $(function() {
+         // h2 생성, 아이디를 텍스트로 넣기 -> attr()
+         // 배경색 서로 다는 컬러로 넣기 -> append()
+         // h2에 섹션의 아이디를 텍스트로 -> text()
+         // 아이디를 저장하기 위해 배열, 여러 섹션에 반복적인 동작 for
+
+         //*** 배경색 서로 다른 컬러
+         // 1. 배경색을 배열로 저장
+         // 2. 각 섹션에 배경색 스타일 -> css()
+         // 3. 
+         
+      
+         const sectionIds = [];
+         const bgColors = ['cadetblue', 'skyblue', 'mediumaquamarine', 'midnightblue', 'lightsteelblue'];
+
+         $('section').each(function() {
+            let n = $(this).index();
+
+            sectionIds.push($(this).attr('id'))
+               $(this).css({'background' : bgColors[n]});
+               $(this).append(`<h2>${sectionIds[n]}</h2>`);
+               
+               // console.log($(this).offset().left);
+         });
+
+         $('nav a').click(function() {
+                  // style
+               $('nav a').not(this).removeClass('active')
+               $(this).addClass('active')
+
+                  // move
+               let n = $(this).index()
+
+               $('html').animate({
+                  scrollLeft : $('section').eq(n).offset().left
+               })
+            })
+
+            $('#slider').slider({
+        step: $('section').width(),
+        min: 0, max: $('section').width() * 5,
+        change: function(event, ui) {
+          $(window).scrollLeft(ui.value)
+        }
+      })
+
+      //마우스휠 이벤트
+
+      $('html').on('mousewheel',function(e) {
+         let d = e.originalEvent.deltaY;
+
+         // 현재의 스크롤레프트 값을 가져와서
+         let cureentLeft = $(this).scrollLeft()
+
+         // 델타의 100 을 합침
+         $(this).scrollLeft(currentLeft + d)
+         console.log(d);
+         
+      })
+
+      }) // ready
+   </script>
+</head>
+<body>
+   <div id="wrap">
+      <header>
+         <h1>LOGO</h1>
+         <nav>
+            <a herf="#" class="active">HOME</a>
+            <a herf="#">ABOUT</a>
+            <a herf="#">WORK</a>
+            <a herf="#">CLASS</a>
+            <a herf="#">CONTACT</a>
+         </nav>
+      </header>
+      <main>
+         <section id="home"></section>
+         <section id="about"></section>
+         <section id="work"></section>
+         <section id="class"></section>
+         <section id="contact"></section>
+      </main>
+      <div id="slider"></div>
+   </div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>퍼즐</title>
+      
+      <!-- CSS -->
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-ui@1.14.0/themes/base/theme.min.css">
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+
+   <style>
+      * {margin: 0;padding: 0;}
+      img {display: block;}
+      body {background: #444;}
+      .pieces_wrap {width: 400px;height: 400px;}
+      .draggable {
+         position: absolute;z-index: 100;
+      }
+      .gallery {
+         display: flex;flex-wrap: wrap;align-content: flex-start;
+         position: absolute;left: 500px;top: 100px;
+         width: 282px;height: 282px;
+      }
+      .gallery>div {margin: 1px;opacity: 0.5;}
+
+      #finish_msg {
+         display: none;
+         position: absolute;left: 500px;top: 400px;
+      }
+   </style>
+
+   <!-- JS -->
+
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+   <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"></script>
+   <script>
+      $(function() {
+         const $pieces = $('.draggable');
+         const $gPieces = $('.gallery > div')
+         let cnt = 0;
+
+         // const p = document.querySelectorAll('.draggable')
+         // p.forEach(function() {})
+
+         $pieces.each(function() {//java script 의 forEach() 와 같음
+          // 위치의 랜덤 값(left : 300, top: 300)
+            let x, y;
+         posX =  parseInt((Math.random() * 300));
+         posY =  parseInt((Math.random() * 300));
+
+            $(this).css({left: posX , top: posY})
+         })
+         
+         let startX, startY, gPosX, gPosY;
+
+         $pieces.draggable({
+            
+              
+               
+             
+               // 범위 안에서 stop이 되면 갤러리 위치에 정확히 배치,
+               // 범위 밖에서 stop이 되면 원래 자리로(start 메소드에 원래 값 저장)
+               
+            start: function() {
+               startX = $(this).offset().left;
+               startY = $(this).offset().top;
+               // console.log(startX, startY);
+               
+            },
+            // // drag: function() {
+            // //    console.log($(this).offset().left); 
+            // // },
+            stop: function() {
+                  // 퍼즐 조각의 좌표값과 갤러리 조각의 위치 값
+                // 퍼즐 조각의 인덱스 번호와 갤러리 조각의 인덱스 번호
+            let idx = $(this).index()
+            let $target = $gPieces.eq(idx)
+
+            let stopX = $(this).offset().left
+            let stopY = $(this).offset().top
+            
+            let targetX = $target.offset().left;
+            let targetY = $target.offset().top;
+
+              // 갤러리 조각의 위치값의 1/2 값의 범위
+
+            let minLeft = targetX - $(this).width() / 2
+            let maxLeft = targetX + $(this).width() / 2
+            let minTop = targetY - $(this).height() / 2
+            let maxTop = targetY + $(this).height() / 2
+      // stopX 값이 targetX(500-282) 값보다 141px 이상 작거나 141px 이상 크면 땡!
+      // stopX 값이 targetX 값보다 141px 이상 작지 않거나 141px 이상 크지 않으면 딩동댕!
+      // 282px 50% 141px
+
+                  
+               if(stopX > minLeft && stopX < maxLeft && stopY > minTop && stopY < maxTop) {
+               
+                  $(this).draggable('destroy')
+                  $(this).animate({left: targetX, top: targetY}, 300, 'easeInOutBack', 
+                  function() {
+                     cnt++
+                     if(cnt >= 9) {
+                        console.log('finish');
+                        $pieces.hide()
+                        $gPieces.animate({margin: 0,opacity: 1}, function() {
+                           $('#finish_msg').show();
+                        })
+                     }
+                  })
+                  // console.log(stopX); 
+                  // console.log(targetX);
+                  // console.log('okay');
+               } else {
+                  $(this).css({left: startX, top: startY})
+                  // console.log(stopX, stopY); 
+                  // console.log(targetX, targetY);
+                  // console.log('nope');
+               }
+            }
+         })
+         $('#btn_reset').click(gameStart)
+         
+         function gameStart() {
+            $pieces.each(function() {//java script 의 forEach() 와 같음
+            // 위치의 랜덤 값(left : 300, top: 300)
+               let x, y;
+            posX =  parseInt((Math.random() * 300));
+            posY =  parseInt((Math.random() * 300));
+
+               $(this).css({left: posX , top: posY})
+               $pieces.show()
+               $gPieces.css({margin: 1, opacity: 0.5})
+            })
+         }
+      }) // ready
+   </script>
+
+</head>
+<body>
+   <div class="pieces_wrap">
+      <div class="draggable"><img src="../img/puzzle0.jpg" alt=""></div>
+      <div class="draggable"><img src="../img/puzzle1.jpg" alt=""></div>
+      <div class="draggable"><img src="../img/puzzle2.jpg" alt=""></div>
+      <div class="draggable"><img src="../img/puzzle3.jpg" alt=""></div>
+      <div class="draggable"><img src="../img/puzzle4.jpg" alt=""></div>
+      <div class="draggable"><img src="../img/puzzle5.jpg" alt=""></div>
+      <div class="draggable"><img src="../img/puzzle6.jpg" alt=""></div>
+      <div class="draggable"><img src="../img/puzzle7.jpg" alt=""></div>
+      <div class="draggable"><img src="../img/puzzle8.jpg" alt=""></div>
+   </div>
+
+   <div class="gallery">
+      <div><img src="../img/puzzle0.jpg" alt=""></div>
+      <div><img src="../img/puzzle1.jpg" alt=""></div>
+      <div><img src="../img/puzzle2.jpg" alt=""></div>
+      <div><img src="../img/puzzle3.jpg" alt=""></div>
+      <div><img src="../img/puzzle4.jpg" alt=""></div>
+      <div><img src="../img/puzzle5.jpg" alt=""></div>
+      <div><img src="../img/puzzle6.jpg" alt=""></div>
+      <div><img src="../img/puzzle7.jpg" alt=""></div>
+      <div><img src="../img/puzzle8.jpg" alt=""></div>
+   </div>
+
+   <div id="finish_msg">
+      <button id="btn_reset">다시하기</button>
+   </div>
+</body>
+</html>

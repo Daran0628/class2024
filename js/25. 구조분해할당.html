@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>구조 분해 할당</title>
+   <script>
+      // 변수명 = [], {}
+      const vehicles = ['mustang', 'f-150', 'expedition'];
+         const car = vehicles[0]; // mustang
+         const truck = vehicles[1]; // f-150
+         const suv = vehicles[2]; // expedition
+
+      const [car1, truck1, suv1] = vehicles;
+
+      console.group('vehicles');
+         console.log(car,  car1);
+         console.log(truck, truck1);
+         console.log(suv, suv1);
+      console.groupEnd()
+
+      const fruits = ['banana', 'mango', 'cherry', 'apple']
+      const [f1, f2, f3, f4] = fruits
+      
+      console.group('fruits')
+         console.log(f1); // banana
+         console.log(f2); // mango
+         console.log(f3); // cherry
+         console.log(f4); // apple
+      console.groupEnd()
+
+      function calc(a, b) {
+         const add = a + b;
+         const subtract = a - b;
+         const multiply = a * b;
+         const divide = a / b
+         const res = [add, subtract, multiply, divide]
+
+         return res
+         // 리턴은 하나만 출력 가능
+      }
+      
+      const [add, subtract, multiply, divide] = calc(5, 6)
+
+      // const add = cals(5, 6)
+      console.group('사칙연산');
+         console.log(`덧셈: ${add}`);
+         console.log(`뺄셈: ${subtract}`);
+         console.log(`곱셈: ${multiply}`);
+         console.log(`나눗셈: ${divide}`);
+      console.groupEnd();
+
+      console.log(`fruits: ${fruits}`); // bananan, mango, cherry, apple
+      let [first, second] = fruits; // const first = fruits[0]
+      console.log(first);
+      console.log(second);
+      
+      let a, b, c;
+      [a, b, c, d] = [vehicles[0], fruits[0], suv, f2]
+
+      console.log(a); // mustang
+      console.log(b); // banana
+      console.log(c); // expedition
+      console.log(d); // mango
+
+      const color = ['red', 'green', 'blue', 'yellow', 'tomato', 'olive']
+      //r(red), g(green), b(blue) ...
+      // const [r, g, bl] = ['red', 'green', 'blue', 'yellow', 'tomato', 'oliv']
+      const [r, g, bl, ...rest] = color; // ...rest -> var 변수
+
+      console.group();
+         console.log(r);
+         console.log(g);
+         console.log(bl);
+         console.log(rest); //  ['yellow', 'tomato', 'olive']
+         console.log(...rest); // yellow tomato olive
+      console.groupEnd();      
+
+      [first, second, ...frest] = fruits // ...frest -> var 변수
+      console.group('fruits');
+         console.log(first);
+         console.log(second);
+         console.log(frest);
+         console.log(...frest);
+      console.groupEnd();
+
+      let [x, y = 1, z = 2] = [10, 20];
+      // let 변수에 배열 값 할당 없이 선언할 경우 빈 배열로 표시
+      // 초기값을 넣어둘 수 있음
+
+      console.log('x :', x); // 10
+      console.log('y :', y); // 20
+      console.log('z :', z); // 30
+      
+      
+      // 객체
+      const person = {name: 'Jane Doe', age: 25}
+      // property(key) 이름을 사용
+      const {name, age} = person;
+      console.log('--* person *--');
+      // console.log(person.name); // Jane Doe
+      // console.log(person['age']); // 25
+      console.log(name); // Jane Doe
+      console.log(age); // 25
+      
+      // 다른 이름의 변수로 분해
+      // key 이름: 변수 선언
+      const {name: uName, age: uAge} = person
+      console.log(uName, uAge);
+      
+      const member = {
+         name: {
+         fName: 'Eric',
+         lName: 'Pitt'
+      },
+         city: 'New York',
+         birthDate: {
+            year: 1999,
+            month: 'May',
+            date: 29
+         }
+      };
+      const {name: {fName: fn, lName} = 'John Doe', mAge = 20, city, birthDate: {year, month, date}} = member;
+      // 초기값은 디폴트 값으로 출력
+
+      console.log('--* member *--');
+      console.log(`fName : ${fn}`); // John
+      console.log(`mage : ${mAge}`); // 
+      console.log(`city : ${city}`); // 
+      console.log(`에릭이 태어난 달 : ${month}`); // May
+
+      // 별개의 날짜 데이터를 하나의 날짜 객체로 만들기
+      
+      const now = new Date()
+      const ericBday = new Date(year, month, date) //
+      console.log(now);      
+      console.log(ericBday);
+      
+      
+      // 복습 
+      const array = [10, 20, 30]
+      // let n1 = array[0]
+      // let n2 = array[1]
+      // let n3 = array[2]
+
+      const [n1, n2, n3] = array
+      // n1, n2, n3 -> 변수, array -> 배열
+
+      console.log(n1); // 10      
+
+      const friends = [
+         {
+            name: 'Alice',
+            age: 23,
+            job: 'designer'
+         },{
+            name: 'Bob',
+            age: 30,
+            job: 'Musicion'
+         },{
+            name: 'Charlie',
+            age: 32,
+            job: 'Actor'
+         }
+      ]
+
+      const [fr1, fr2, fr3] = friends;
+      const {name: frName1, age: frAge1, job: frJob1 } = fr1;
+      const {name: frName2, age: frAge2, job: frJob2 } = fr2;
+      const {name: frName3, age: frAge3, job: frJob3 } = fr3;
+      
+      console.log(`Alice의 직업은? ${frJob1}`);
+      console.log(`Charlie의 나이는? ${frAge3}`);
+      
+      const customer1 = {
+         pname: '라면', price: '3,800원', paymentMethod: '현금'
+      }
+      const customer2 = {
+         pname: '우유', price: '2,500원', paymentMethod: '포인트'
+      }
+      const customer3 = {
+         pname: '달걀', price: '6,900원', paymentMethod: '카드'
+      }
+
+      const payment = ({pname, price, paymentMethod: pay}) => {
+         // let pname = i.pname;
+         // let {pname, price, paymentMethod: pay} = i;
+         return `구매상품: ${pname}, 가격: ${price}, 결제방법: ${pay}`
+      }
+      console.log('구매자 A:',payment(customer1) ); // 구매상품: 라면, 가격: 3800, 결제방법: 현금
+      console.log('구매자 B:',payment(customer2) ); // 구매상품: 우유, 가격: 2500, 결제방법: 포인트
+      console.log('구매자 C:',payment(customer3) ); // 구매상품: 달걀, 가격: 6900, 결제방법: 카드
+      
+      const student1 = {
+         name: '아이유',
+         score: {
+            music: 100,
+            art: 100,
+            math: 80
+            }
+      }
+      const student2 = {
+         name: '마동석',
+         score: {
+            music: 70,
+            art: 80,
+            math: 90
+            }
+      }
+      const student3 = {
+         name: '우도환',
+         score: {
+            music: 60,
+            art: 75,
+            math: 98
+            }
+      }
+   
+      const scoreSheet = (
+         {name: sName, score: {music, art, math}}
+      ) => {
+         let sum = music + art + math;
+         return `이름: ${sName}, 음악 점수: ${music}, 미술 점수: ${art}, 수학 점수: ${math}, 합계: ${sum}`
+      }
+      console.log('student1의 성적표',scoreSheet(student1));
+      // 이름: 아이유, 음악 점수: 100, 미술 점수: 100, 수학 점수: 80, 합계 280
+      console.log('student2의 성적표',scoreSheet(student2));
+      console.log('student3의 성적표',scoreSheet(student3));
+      </script>
+</head>
+<body>
+   
+</body>
+</html>
