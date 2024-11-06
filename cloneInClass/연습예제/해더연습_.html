@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>헤더연습</title>
+  <link rel="stylesheet" href="reset.css">
+  <style>
+    body {margin-bottom: 700px;}
+    header {margin: 40px 0 100px;}
+    b {display: block;margin-top: 30px;text-align: center;font-size: 24px;font-weight: bold;}
+    .ex1 {
+      display: flex;justify-content: space-between;
+      padding: 0 5%;background: #EEE;
+      border-top: 2px solid #AAA;
+      border-bottom: 2px solid #AAA;
+      height: 100px;align-items: center;
+    }
+    .ex1 h1 {width: 300px;height: 40px;background: pink;}
+    .ex1 nav {background: lightblue;}
+    .ex1 nav ul {
+      display: flex;gap: 70px;
+      border: 1px solid orange;
+    }
+    .ex1 nav li {background: yellowgreen;}
+    .ex1 nav li a {background: slateblue;}
+    .ex1 .util {
+      display: flex;gap: 10px;
+      border: 1px solid red;
+    }
+    .ex1 .util a {background: gold;}
+
+    /* ex2 */
+    .ex2 {
+      display: flex;justify-content: space-between;
+      padding: 0 5%;background: #ededed;
+    }
+    .ex2 h1 {width: 300px;height: 40px;background: pink;}
+    .ex2 nav {background: lightblue;}
+    .ex2 nav ul {
+      display: flex;gap: 70px;
+      border: 1px solid orange;
+    }
+    .ex2 nav li {background: yellowgreen;}
+    .ex2 nav li a {background: slateblue;}
+
+    /* ex3 */
+    .ex3 {
+      display: flex;justify-content: space-between;
+      padding: 20px 10%;border: 1px solid #000;
+    }
+    .ex3 .header_left {display: flex;gap: 30px;}
+    .ex3 h1 {width: 300px;height: 40px;background: pink;}
+    .ex3 nav {background: lightblue;}
+    .ex3 nav ul {
+      display: flex;gap: 70px;
+      border: 1px solid orange;
+    }
+    .ex3 nav li {background: yellowgreen;}
+    .ex3 nav li a {background: slateblue;}
+    .ex3 .util {
+      display: flex;gap: 10px;
+      border: 1px solid red;
+    }
+    .ex3 .util a {background: gold;}
+
+    /* ex4 */
+    .ex4 {
+      /* display: flex;justify-content: space-between; */
+      position: relative;
+      padding: 20px 5%;background: #efefef;
+    }
+    .ex4 h1 {
+      position: absolute;left: 5%;
+      width: 250px;height: 40px;background: rgba(255,150,150,0.5);
+    }
+    .ex4 nav {background: lightblue;}
+    .ex4 nav ul {
+      display: flex;gap: 70px;justify-content: center;
+      border: 1px solid orange;font-size: 20px;
+    }
+    .ex4 nav li {background: yellowgreen;}
+    .ex4 nav li a {background: slateblue;}
+    .ex4 .util {
+      display: flex;gap: 10px;
+      position: absolute;right: 5%;top: 50%;
+      transform: translateY(-50%);
+      border: 1px solid red;font-size: 14px;
+    }
+    .ex4 .util a {background: gold;}
+
+    .ex5 {/*header*/
+      padding: 0 5%;height: 70px;
+      background: burlywood;position: relative;
+    }
+    .ex5 .header_left {
+      display: flex;gap: 50px;align-items: center;
+      position: absolute;left: 5%;top: 50%;
+      transform: translateY(-50%);
+    }
+    .ex5 .btn_sitemap {
+      display: flex;flex-direction: column;
+      justify-content: space-between;
+      width: 36px;height: 27px;border: 1px solid red;
+    }
+    .ex5 .btn_sitemap span {
+      width: 100%;height: 3px;background: #333;
+    }
+    .ex5 h1 {background: slateblue;width: 190px;height: 16px;}
+    .ex5 nav {
+      display: flex;height: 100%;
+      justify-content: center;align-items: center;
+    }
+    .ex5 nav ul {
+      display: flex;gap: 40px;
+      border: 1px solid #000;
+    }
+    .ex5 nav li {
+      font-size: 20px;background: gold;
+    }
+    .ex5 form {
+      display: flex;align-items: center;
+      position: absolute;right: 5%;top: 50%;
+      transform: translateY(-50%);
+      height: 40px;padding: 0 15px;
+      border: 2px solid #000;border-radius: 24px;
+    }
+    .ex5 form input {
+      width: 100px;height: 14px;
+      background: transparent;font-size: 14px;
+    }
+    .ex5 form button {
+      width: 25px;height: 21px;
+      background: url(https://www.shinsegaefood.com/images/web/icon/ico_search_25.png);
+    }
+  </style>
+</head>
+<body>
+  <b>신세계푸드 헤더</b>
+  <header class="ex5">
+    <div class="header_left">
+      <button class="btn_sitemap"><span></span><span></span><span></span></button>
+      <h1><a href="#"><span class="screen_out">shinsegae food</span></a></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">gnb</a></li>
+        <li><a href="#">gnb</a></li>
+        <li><a href="#">gnb</a></li>
+        <li><a href="#">gnb</a></li>
+        <li><a href="#">gnb</a></li>
+        <li><a href="#">gnb</a></li>
+      </ul>
+    </nav>
+    <form action="">
+      <input type="text">
+      <button type="submit"></button>
+    </form>
+  </header>
+
+  <b>헤더연습 1</b>
+  <header class="ex1">
+    <h1><a href="#">logo</a></h1>
+    <nav>
+      <ul>
+        <li><a href="#">gnb1</a></li>
+        <li><a href="#">gnb2</a></li>
+        <li><a href="#">gnb3</a></li>
+        <li><a href="#">gnb4</a></li>
+        <li><a href="#">gnb5</a></li>
+      </ul>
+    </nav>
+    <div class="util">
+      <a href="#">로그인</a>
+      <a href="#">eng</a>
+    </div>
+  </header>
+
+  <b>노랑풍선</b>
+  <header class="ex2">
+    <h1><a href="#">노랑풍선</a></h1>
+    <nav>
+      <ul>
+        <li><a href="#">gnb1</a></li>
+        <li><a href="#">gnb2</a></li>
+        <li><a href="#">gnb3</a></li>
+        <li><a href="#">gnb4</a></li>
+        <li><a href="#">gnb5</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <b>아트앤컬쳐</b>
+  <header class="ex3">
+    <div class="header_left">
+      <h1><a href="#">logo</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#">gnb1</a></li>
+          <li><a href="#">gnb2</a></li>
+          <li><a href="#">gnb3</a></li>
+          <li><a href="#">gnb4</a></li>
+          <li><a href="#">gnb5</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="util">
+      <a href="#">로그인</a>
+      <a href="#">eng</a>
+    </div>
+  </header>
+
+  <b>gnb 중앙 배치</b>
+  <header class="ex4">
+    <h1><a href="#">logo</a></h1>
+    <nav>
+      <ul>
+        <li><a href="#">gnb1</a></li>
+        <li><a href="#">gnb2</a></li>
+        <li><a href="#">gnb3</a></li>
+        <li><a href="#">gnb4</a></li>
+        <li><a href="#">gnb5</a></li>
+      </ul>
+    </nav>
+    <div class="util">
+      <a href="#">로그인</a>
+      <a href="#">eng</a>
+    </div>
+  </header>
+</body>
+</html>

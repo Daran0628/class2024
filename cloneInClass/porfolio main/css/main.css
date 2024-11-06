@@ -1,0 +1,42 @@
+/* main.css */
+<<<<<<< HEAD
+
+/* common */
+=======
+   /* font */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+>>>>>>> a5419b0b62b0c2a8e3ced3a25941637849483502
+
+   /* common */
+* {font-family: "pretendard";}
+.inner {padding: 3rem;}
+
+<<<<<<< HEAD
+	/*  header */
+
+.header_h1, .header_title {
+	display: block;
+	margin-top: 45vh;
+	font-size: 3rem;font-weight: 700;
+	text-align: center;}
+=======
+
+/*  header */
+#home_wrap {background: black;color: dimgray;}
+
+#header_wrap h1 {
+   font-size: 2.2rem;font-weight: 600;
+   text-align: center;
+   
+}
+#header_wrap h1 .head_title {font-size: 2.5rem;font-weight: 500;color: aliceblue;}
+
+/* nav */
+nav ul {color: gold}
+nav .nav_menu {color:rgb(195, 163, 81)}
+nav .nav_PORTFOLIO_text {color:lightsteelblue}
+>>>>>>> a5419b0b62b0c2a8e3ced3a25941637849483502
+
+.header_h1.hidden {display: none;}
+
+/* body */

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>흐르는컨텐츠</title>
+  <style>
+    @keyframes flow {
+      from {transform: translateX(0);}
+      to {transform: translateX(-100%);}
+    }
+    .ex1 {margin: 50px 0;overflow: hidden;}
+    .flow_container {display: flex;}
+    .ex1 .flow_item {
+      font-size: 40px;border: 1px solid silver;
+      white-space: nowrap;
+      animation: flow 10s linear infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="ex1">
+    <div class="flow_container">
+      <div class="flow_item">흐르는 글자 흐르는 글자 흐르는 글자 흐르는 글자 흐르는 글자 흐르는 글자 흐르는 글자 흐르는 글자 흐르는 글자 </div>
+      <div class="flow_item">흐르는 글자 흐르는 글자 흐르는 글자 흐르는 글자 흐르는 글자 흐르는 글자 흐르는 글자 흐르는 글자 흐르는 글자 </div>
+    </div>
+  </div>
+</body>
+</html>

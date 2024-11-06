@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>코엑스</title>
+   <!-- css -->
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+   <link rel="stylesheet" href="css/reset.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+   <link rel="stylesheet" href="css/main.css">
+   <!-- js -->
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js" integrity="sha256-sw0iNNXmOJbQhYFuC9OF2kOlD5KQKe1y5lfBn4C9Sjg=" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+   <script defer src="./js/main.js"></script>
+
+</head>
+<body>
+   <div id="home_wrap">
+      <header>
+         <div class="inner">
+            <div class="header_wrap">
+               <h1><a href="#"><span class="screen_out">COEX</span></a></h1>
+               <nav>
+                     <ul class="header_dep1">
+                        <li><a href="#">행사</a></li>
+                        <li><a href="#">가이드</a>
+                           <ul class="header_dep2">
+                              <li><a href="#">오시는길</a></li>
+                              <li><a href="#">실내길찾기</a></li>
+                              <li><a href="#">주차안내</a></li>
+                              <li><a href="#">편의시설</a></li>
+                              <li><a href="#">알림마당</a></li>
+                              <li><a href="#">문의시설</a></li>
+                              <li><a href="#">뉴스</a></li>
+                           </ul>
+                        </li>
+                        <li><a href="#">하이라이트</a></li>
+                        <li><a href="#">Business <i class="ri-arrow-right-up-line"></i></a></li>
+                     </ul>
+               </nav>
+               <div class="util">
+                  <a class="branch_link" href="https://coexmagok.co.kr/" target="_blank">마곡컨벤션센터<i class="ri-arrow-right-up-line"></i></a>
+                  <div class="lang_mode">
+                     <a class="lang_kor" href="#">KOR</a>
+                     <a class="lang_eng" href="https://www.coexcenter.com/" target="_blank">
+                        ENG</a>
+                  </div>
+                  <button type="button" class="search_btn_open">
+                     <span class="screen_out">검색 오픈</span>
+                  </button>
+                  <div class="search_pop_up">
+                     <div class="search_bar_wrap">
+                        <img src="./img/ico_search.svg" alt="">
+                        <form action="">
+                           <input type="text"></input>
+                        </form>
+                        <button type="submit" class="submit_btn">
+                           <span class="screen_out">검색 입력</span>
+                           <i class="ri-arrow-right-fill"></i>
+                        </button>
+                     </div>
+                     <div class="box_sugg">
+                        <span>추천 검색어</span>
+                        <ul>
+                           <li>#코엑스 전시</li>
+                           <li>#행사</li>
+                           <li>#주차안내</li>
+                           <li>#편의시설</li>
+                           <li>#오시는길</li>
+                           <li>#컨퍼런스</li>
+                        </ul>
+                     </div>
+                  </div>
+                  <button type="button" class="search_btn_close">
+                     <span class="screen_out">검색 닫기</span>
+                  </button>
+               </div>
+            </div>
+         </div>
+      </header>
+      <main>
+         <section class="whats_on_wrap">
+            <div class="inner">
+            </div>
+         </section>
+
+         <section class="site_guide_wrap">
+            <div class="inner">
+               <div class="guide_container">
+                  <div class="main_guide_wrap">
+                     <div class="site_link_box">
+                        <a href="https://coexmagok.co.kr/" target="_blank">
+                           <img src="./img/logo-magok.png" alt="">
+                           <span>코엑스 마곡 컨벤션센터</span>
+                        </a>
+                     </div>
+                     <div class="rent_info_box">
+                        <a href="https://business.coex.co.kr/?_gl=1%2Akk9y16%2A_ga%2AMTY2MjgyOTM3OS4xNzIyNTc2Nzky%2A_ga_QH4VHWKPSZ%2AMTcyMjU3Njc5Mi4xLjEuMTcyMjU4NjkxOS42MC4wLjU2ODA2NjY5OQ..">
+                           <span>대관안내</span>
+                           <p>전시 및 회의실 임대 정보</p>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="guest_guide_wrap">
+                     <span>GUIDE</span>
+                     <ul>
+                        <li><a href="https://www.coex.co.kr/guide/parking-information/infomation/"><span>주차 안내</span></a></li>
+                        <li><a href="https://www.coex.co.kr/guide/directions/"><span>오시는 길</span></a></li>
+                        <li><a href="https://www.coex.co.kr/guide/indoor-navigation/"><span>실내 길찾기</span></a></li>
+                        <li><a href="https://www.coex.co.kr/guide/amenities/"><span>층별 편의시설</span></a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="ongoing_event_wrap">
+            <div class="inner">
+               <div class="ongoing_event_container">
+                  <div class="title_box">
+                     <h3 >
+                        <span class="event_title">진행중인 행사</span>
+                        <span class="event_title_num">42</span>
+                     </h3>
+                     <div class="view_all_event">
+                        <a href="https://www.coex.co.kr/event/full-schedules/">View All Events</a>
+                     </div>
+                  </div>
+                  <div class="ad_box">
+                     <a href="https://www.coex.co.kr/exhibitions/2024-%ea%b7%b8%eb%a6%b0%eb%b9%84%ec%a6%88%eb%8b%88%ec%8a%a4%ec%9c%84%ed%81%ac/">
+                        <span>AD</span>
+                        <div class="ad_info_wrap">
+
+                        </div>
+                     </a>
+                  </div>
+                  <div class="event_box box1">
+                     <a href="https://www.coex.co.kr/exhibitions/%ed%98%91%ec%97%85%ed%88%b4-%ed%94%8c%eb%a1%9c%ec%9a%b0-%ed%8c%9d%ec%97%85%ec%8a%a4%ed%86%a0%ec%96%b4/">
+                        <div class="event_info_wrap">
+                           <div class="event_info_contents">
+                              <p class="event_type popup">Pop-up/Event</p>
+                              <h4>협업툴 플로어 팝업스토어</h4>
+                              <span>2024.10.04 - 2024.10.30</span>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div class="event_box box2">
+                     <a href="https://www.coex.co.kr/exhibitions/%ec%a0%9c18%ed%9a%8c-%ea%b5%ad%ec%a0%9c-%ec%8b%9c%ed%81%90%eb%a6%ac%ed%8b%b0-%ec%bd%98%ed%8d%bc%eb%9f%b0%ec%8a%a4/">
+                       <div class="event_info_wrap">
+                        <div class="event_info_contents">
+                         <p class="event_type convention">Convention</p>
+                         <h4>제18회 국제 시큐리티 <br> 콘퍼런스</h4>
+                         <span>2024.10.16 - 2024.10.17</span>
+                       </div>
+                       </div>
+                     </a>
+                  </div>
+                  <div class="event_box box3">
+                     <a href="https://www.coex.co.kr/exhibitions/%ec%a0%9c12%ed%9a%8c%ea%b5%ad%ec%a0%9c%ec%b2%a8%eb%8b%a8%ec%86%8c%ec%9e%ac%ec%84%b8%eb%9d%bc%eb%af%b9%ed%83%84%ec%86%8c%ec%a0%91%ec%b0%a9%ec%bd%94%ed%8c%85%eb%b0%8f-%ec%9c%b5%eb%b3%b5%ed%95%a9/">
+                        <div class='event_info_wrap'>
+                           <div class="event_info_contents">
+                           <p class="event_type exhibitions">Exhibition</p>
+                           <h4>제12회 국제첨단소재기술대전</h4>
+                           <span>2024.10.16 - 2024.10.18</span>
+                        </div>
+                     </div>
+                     </a>
+                  </div>
+                  <div class="event_box box4">
+                     <a href="https://www.coex.co.kr/exhibitions/2024-%ed%95%9c%ea%b5%ad%ea%b1%b4%ec%b6%95%ec%82%b0%ec%97%85%eb%8c%80%ec%a0%84/">
+                       <div class='event_info_wrap'>
+                        <div class="event_info_contents">
+                         <p class="event_type exhibitions">Exhibition</p>
+                         <h4>2024 한국건축사업대전</h4>
+                         <span>2024.10.16 - 2024.10.18</span>
+                       </div>
+                       </div>
+                     </a>
+                  </div>
+                  <div class="event_box box5">
+                     <a href="https://www.coex.co.kr/exhibitions/2024-%ea%b7%b8%eb%a6%b0%eb%b9%84%ec%a6%88%eb%8b%88%ec%8a%a4%ec%9c%84%ed%81%ac/">
+                        <div class='event_info_wrap'>
+                           <div class="event_info_contents">
+                           <p class="event_type exhibitions">Exhibition</p>
+                           <h4>2024 그린비즈니스위크</h4>
+                           <span>2024.10.16 - 2024.10.18</span>
+                        </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div class="event_box box6">
+                     <a href="https://www.coex.co.kr/exhibitions/%ec%a0%9c-76%ec%b0%a8-%eb%8c%80%ed%95%9c%eb%b9%84%eb%87%a8%ec%9d%98%ed%95%99%ed%9a%8c-%ec%a0%95%ea%b8%b0%ed%95%99%ec%88%a0%eb%8c%80%ed%9a%8c-kua-2024/">
+                       <div class='event_info_wrap'>
+                        <div class="event_info_contents">
+                         <p class="event_type convention">Convention</p>
+                         <h4>제 76차 대한비뇨의학회<br> 정기학술대회 (KUA 2024)</h4>
+                         <span>2024.10.16 - 2024.10.18</span>
+                       </div>
+                       </div>
+                     </a>
+                  </div>
+                  <div class="event_box box7">
+                     <a href="https://www.coex.co.kr/exhibitions/%ec%a0%9c58%ed%9a%8c-%ec%ba%90%eb%82%98%eb%8b%a4-%ec%9c%a0%ed%95%99%eb%b0%95%eb%9e%8c%ed%9a%8c/">
+                       <div class='event_info_wrap'>
+                        <div class="event_info_contents">
+                         <p class="event_type convention">Convention</p>
+                         <h4>제58회 캐나다 유학박람회</h4>
+                         <span>2024.10.19 - 2024.10.20</span>
+                       </div>
+                       </div>
+                     </a>
+                  </div>
+                  <div class="event_box box8">
+                     <a href="https://www.coex.co.kr/exhibitions/idp-%ec%84%b8%ea%b3%84%ec%9c%a0%ed%95%99%eb%b0%95%eb%9e%8c%ed%9a%8c-3/">
+                       <div class='event_info_wrap'>
+                        <div class="event_info_contents">
+                         <p class="event_type convention">Convention</p>
+                         <h4>IDP 세계 유학박람회</h4>
+                         <span>2024.10.19 - 2024.10.20</span>
+                       </div>
+                       </div>
+                     </a>
+                  </div>
+                  <div class="event_box box9">
+                     <a href="https://www.coex.co.kr/exhibitions/%ec%a0%9c357%ed%9a%8c-%ec%9b%a8%eb%94%a9%eb%b0%95%eb%9e%8c%ed%9a%8c/">
+                        <div class='event_info_wrap'>
+                           <div class="event_info_contents">
+                           <p class="event_type convention">Convention</p>
+                           <h4>제 357회 웨딩박람회</h4>
+                           <span>2024.10.19 - 2024.10.20</span>
+                        </div>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="ticket_open_wrap">
+            <div class="inner"></div>
+         </section>
+         <section class="info_update_wrap">
+            <div class="inner">
+               <div class="info_board_warp">
+                  <div class="title">
+                     <h3>코엑스 소식</h3>
+                     <a href="https://www.coex.co.kr/guide/notification/coex-notice/">More</a>
+                  </div>
+                  <div class="update_warp">
+                     <ul class="update_index">
+                        <li class="up_notice current">공지사항</li>
+                        <li class="up_continfo">입찰정보</li>
+                        <li><a href="https://www.coex.co.kr/guide/news/">뉴스</a></li>
+                     </ul>
+                     <div class="board_warp">
+                        <ul class="notice_board">
+                           <li>
+                              <a href="#">
+                                 <div class="up_date">
+                                    <span>12</span>
+                                    <span>2024.07</span>
+                                 </div>
+                                 <div class="up_txt">
+                                    <p>[채용 공고] 코엑스 2024년도 경력직 채용공고</p>
+                                 </div>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#">
+                                 <div class="up_date">
+                                    <span>20</span>
+                                    <span>2024.05</span>
+                                 </div>
+                                 <div class="up_txt">
+                                    <p>[공지] 영동대로 지하공간 복합 개발 공사로 인한 삼성역 7번 출구 버스 임시 정류소 이설 안내(2025년 말까지)</p>
+                                 </div>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#">
+                                 <div class="up_date">
+                                    <span>16</span>
+                                    <span>2023.10</span>
+                                 </div>
+                                 <div class="up_txt">
+                                    <p>[채용 공고] 2024년도 코엑스 신입 및 경력 사원 채용</p>
+                                 </div>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#">
+                                 <div class="up_date">
+                                    <span>04</span>
+                                    <span>2023.10</span>
+                                 </div>
+                                 <div class="up_txt">
+                                    <p>2024년도 코엑스 전시장 서비스협력업체 등록 공고</p>
+                                 </div>
+                              </a>
+                           </li>
+                        </ul>
+                        <ul class="contract_board">
+                           <li>
+                              <a href="#">
+                                 <div class="up_date">
+                                    <span>07</span>
+                                    <span>2024.08</span>
+                                 </div>
+                                 <div class="up_txt">
+                                    <p>2024년 중국국제수입박람회 한국관 조성 및 운영업체 선정 제안입찰</p>
+                                 </div>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#">
+                                 <div class="up_date">
+                                    <span>05</span>
+                                    <span>2024.08</span>
+                                 </div>
+                                 <div class="up_txt">
+                                    <p>코엑스마곡 컨벤션센터 회의실 강연대(포디움), 전시홀 인포데스크, 분리수거함 입찰</p>
+                                 </div>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#">
+                                 <div class="up_date">
+                                    <span>25</span>
+                                    <span>2024.07</span>
+                                 </div>
+                                 <div class="up_txt">
+                                    <p>냉각수 수처리 약품 구매 (다년계약)</p>
+                                 </div>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#">
+                                 <div class="up_date">
+                                    <span>24</span>
+                                    <span>2024.07</span>
+                                 </div>
+                                 <div class="up_txt">
+                                    <p>무역센터 공조용 자동제어밸브 교체공사</p>
+                                 </div>
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="media_wall_wrap">
+            <div class="media_wall_bg"></div>
+            <div class="inner">
+               <div class="media_wall_container">
+                  <div class="media_wall_left">
+                     <h3>MediaWall</h3>
+                     <div class="wall_left_bottom">
+                        <div class="media_sns_link">
+                           <ul>
+                              <li><a href="#" target="_blank"><span>INSTAGRAM <div class="more_arrow"></div></span></a></li>
+                              <li><a href="#" target="_blank"><span>YOUTUBE <div class="more_arrow"></div></span></a></li>
+                              <li><a href="#" target="_blank"><span>FACEBOOK <div class="more_arrow"></div></span></a></li>
+                              <li><a href="#" target="_blank"><span>NAVER BLOG <div class="more_arrow"></div></span></a></li>
+                              <li><a href="#" target="_blank"><span>TWITTER <div class="more_arrow"></div></span></a></li>
+                           </ul>
+                        </div>
+                        <span class="slogan">To Create The Best <br> Event Service</span>
+                     </div>
+                  </div>
+                  <div class="media_thumb_container">
+                     <ul>
+                        <li>
+                           <a href="#" target="_blank">
+                              <img src="" alt="">
+                              <div></div>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#" target="_blank">
+                              <img src="" alt="">
+                              <div></div>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#" target="_blank">
+                              <img src="" alt="">
+                              <div></div>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#" target="_blank">
+                              <img src="" alt="">
+                              <div></div>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#" target="_blank">
+                              <img src="" alt="">
+                              <div></div>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#" target="_blank">
+                              <img src="" alt="">
+                              <div></div>
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </main>
+
+      <footer>
+         <div class="inner">
+            <div class="footer_prime">
+               <div class=" footer_wrap">
+                  <div class="footer_info_wrap">
+                     <div class="footer_info">
+                        <div class="f_logo">
+                           <h2><span class="screen_out">coex</span></h2>
+                        </div>
+                        <address class="f_address">
+                           서울특별시 강남구 영동대로 513 <br>                          
+                           (삼성동, 코엑스) 06164</address>
+                     </div>
+                     <a href="#" class="footer_tel">
+                        대표번호 02 - 6000 - 0114
+                     </a>
+                  </div>
+                  <div class="footer_nav">
+                     <ul class="f_nav_list">
+                        <li><a href="https://www.coex.co.kr/event/full-schedules/">행사일정</a></li>
+                        <li><a href="https://www.coex.co.kr/guide/directions/">오시는 길</a></li>
+                        <li><a href="https://www.coex.co.kr/guide/parking-information/infomation/">주차안내</a></li>
+                        <li><a href="https://www.coex.co.kr/guide/amenities/">편의시설</a></li>
+                     </ul>
+                  </div>
+                  <div class="footer_link">
+                     <ul class="f_link_list">
+                        <li><a href="https://www.coex.co.kr/about/introduction/ ">Coex 소개</a></li>
+                        <li><a href="https://cyber.coex.co.kr/">Cyber Coex</a></li>
+                        <li><a href="https://www.coex.co.kr/coex-mice-cluster/">Coex MICE Cluster</a></li>
+                     </ul>
+                     <div class="footer_sns">
+                        <ul class="f_sns_list">
+                           <li><a href="https://www.instagram.com/coex_official/" target="_blank"><span class="screen_out">인스타그램</span></a></li>
+                           <li><a href="https://www.youtube.com/@coextv" target="_blank"><span class="screen_out">유튜브</span></a></li>
+                           <li><a href="https://www.facebook.com/coex.fb/" target="_blank"><span class="screen_out">페이스북</span></a></li>
+                           <li><a href="https://www.linkedin.com/company/coex/" target="_blank"><span class="screen_out">링크인</span></a></li>
+                           <li><a href="https://x.com/Coex_Seoul" target="_blank"><span class="screen_out">트위터</span></a></li>
+                           <li><a href="https://blog.naver.com/coex_seoul" target="_blank"><span class="screen_out">블로그</span></a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="footer_menu">
+                     <ul class="f_menu_list">
+                        <li><a href="https://www.coex.co.kr/safety-management/management-policy/">안전경영</a></li>
+                        <li><a href="https://www.coex.co.kr/privacy-policy/">개인정보처리방침</a></li>
+                        <li><a href="https://www.coex.co.kr/email-security/">이메일무단수집거부</a></li>
+                        <li><a href="https://www.kita.net/cvplSttemnt/main.do" target="_blank">무역센터 신문고</a></li>
+                        <li><a href="https://www.coex.co.kr/sitemap/">사이트맵</a></li>
+                     </ul>
+                     <div class="f_family_site">
+                        <div class="family_site_bar">
+                           <span>Family Site</span>
+                           <img src="./img/ico_family_arrow.svg" alt="" class="fam_arrow">
+                        </div>
+                        <div class="fam_list_wrap">
+                           <ul>
+                              <li><a href="https://www.kita.net/" target="_blank">KITA</a></li>
+                              <li><a href="http://www.wtcseoul.com/" target="_blank">WTC seoul</a></li>
+                              <li><a href="https://www.ktnet.com/index.do?sso=ok" target="_blank">KTNET</a></li>
+                              <li><a href="https://www.calt.co.kr/" target="_blank">CALT</a></li>
+                              <li><a href="http://www.caltasset.co.kr/" target="_blank">CAAM</a></li>
+                              <li><a href="https://coex.vn/ko/" target="_blank">Coex VINA</a></li>
+                              <li><a href="https://www.starfield.co.kr/coexmall/main.do" target="_blank">CoexMall</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="footer_copyright">
+                  <p> &copy; COPYRIGHT 2023 Coex. All Rights Reserved</p>
+               </div>
+            </div>
+         </div>
+      </footer>
+   </div>
+</body>
+</html>

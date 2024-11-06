@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover 애니메이션 예제</title>
+    <style>
+        .container {
+            display: flex;float: left;
+            gap: 10px; /* Flex item 간격 */
+        }
+        .li {
+            flex: 1 1 auto;  /*Flex item의 기본 크기 설정 */
+            background-color: #ccc;
+            margin: 10px;
+            padding: 10px;
+            transition: all 0.3s; /* 부드러운 전환 효과 추가 */
+        }
+        .container:hover  .li {
+            flex: 0 1 300px; /* Hover 시 크기를 300px로 설정 */
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="li">Hover over me!</div>
+        <div class="li">Another</div>
+    </div>
+
+    <script>
+      fu
+  </script>
+</body>
+</html>

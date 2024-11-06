@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반응형연습</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.min.css">
+  <style>
+    /*
+1440 이상 => 1400(width) / 1600
+1440 이하 => 5%
+1024 이하 => 3%
+
+1440 햄버거 컬럼6
+1024 컬럼3
+768 컬럼 2
+500 컬럼1 */
+    .ex1 {position: relative;}
+    .ex1 main {
+      height: 100vh;
+      background: url(https://images.unsplash.com/photo-1719153863464-b2ee7e28b6df?q=80&w=1738&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) center;
+      background-size: cover;
+    }
+    .ex1 header {
+      position: absolute;left: 0;right: 0;
+      background: pink;color: #FFF;
+    }
+    .ex1 header .inner {
+      display: flex;justify-content: space-between;
+      align-items: center;position: relative;
+    }
+    .ex1 h1 {font-weight: bold;font-size: 40px;}
+    .ex1 #gnb {display: flex;font-size: 20px;}
+    .ex1 .gnb_wrap button {font-size: 30px;}
+
+    /* .ex2 li img {width: 100%;} */
+    .ex3 {padding: 100px 0;}
+    .ex3 .inner {
+      max-width: 1400px;margin: auto;
+    }
+    .ex3 ul {display: flex;gap: 40px;background: pink;}
+    .ex3 li {
+      height: 200px;
+      background: gold;border: 1px solid #AAA;
+    }
+
+    /*
+* 가로 크기
+1440 이상 => 8% / 1600이상 커지지 않도록
+1440 이하 => 5%
+1024 이하 => 3%
+
+* 레이아웃, gap 40
+1024이상 => 3단
+1024 이하 => 2단
+500 이하 => 1단
+    */
+
+    @media screen and (min-width: 1441px) {
+      .ex1 .gnb_wrap button {display: none;}
+      .ex1 header .inner {width: 1400px;height: 80px;margin: auto;}
+      .ex1 #gnb {gap: 50px;}
+
+      .ex3 {}
+      .ex3 .inner {width:84%;}
+      .ex3 li {width: calc(100% / 3);}
+    }
+    @media screen and (max-width: 1440px) {
+      .ex1 header .inner {height: 60px;margin: 0 5%;}
+      .ex1 #gnb {
+        display: none;position: absolute;
+        left: 0;right: 0;top: 60px;background: green;
+      }
+      .ex1 #gnb li {
+        width: calc(100% / 6);padding: 14px 0;
+        text-align: center;
+      }
+      .ex3 .inner {width: 90%;}
+      .ex3 ul {flex-wrap: wrap;}
+      .ex3 li {width: calc(50% - 20px);}
+    }
+    @media screen and (max-width: 1024px) {
+      .ex1 header .inner {margin: 0 3%;}
+      .ex1 #gnb {flex-wrap: wrap;}
+      .ex1 #gnb li {width: calc(100% / 3);}
+
+      .ex3 .inner {width: 94%;}
+      .ex3 li {width: 100%;}
+    }
+    @media screen and (max-width: 768px) {
+      .ex1 #gnb li {width: calc(100% / 2);}
+    }
+    @media screen and (max-width: 500px) {
+      .ex1 #gnb {display: block;}
+      .ex1 #gnb li {width: 100%;}
+
+    }
+  </style>
+</head>
+<body>
+  <div class="ex1">
+    <header>
+      <div class="inner">
+        <h1>LOGO</h1>
+        <div class="gnb_wrap">
+          <button><i class="ri-menu-3-fill"></i></button>
+          <ul id="gnb">
+            <li>HOME</li>
+            <li>ABOUT</li>
+            <li>WORK</li>
+            <li>SERVICE</li>
+            <li>CONTACT</li>
+            <li>INCRUIT</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main></main>
+  </div>
+
+  <div class="ex2">
+    <div class="inner">
+      <ul>
+        <li><img src="img/hancom_docs_out.png" alt=""></li>
+        <li><img src="img/hancom_office_out.png" alt=""></li>
+        <li><img src="img/hancom_web_out.png" alt=""></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ex3">
+    <div class="inner">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script>
+    $('.ex1 .gnb_wrap button').click(function() {
+      $('.ex1 #gnb').css('display' , 'flex')
+    })
+  </script>
+</body>
+</html>

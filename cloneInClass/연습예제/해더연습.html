@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>헤더연습</title>
+   <link rel="stylesheet" href="reset.css">
+   <style>
+      header {margin: 40px 0 100px;}
+      b {
+         display: block;
+         margin-top: 30px;
+         font-size: 24px;font-weight: bold;text-align: center;
+      }
+      /* ex1 */
+      .ex1 {
+         display: flex;
+         justify-content: space-between;align-items: center;
+         padding: 0 5%;height: 100px;
+         background: #cecece;
+      }
+      .ex1 h1 {width: 200px;height: 40px;background: pink;}
+      .ex1 nav {background: lightblue;}
+      .ex1 nav ul {
+         display: flex;gap: 70px;
+         border: 1px solid orange;}
+      .ex1 nav li {background: yellowgreen;}
+      .ex1 nav li a {background: slateblue;}
+      .ex1 .util {
+         display: flex;gap: 10px;
+         border: 1px solid red;
+      }
+      .ex1 .util a {
+         background: gold;
+      }
+      /* ex2:노란풍선 */
+      .ex2_wrap {
+         position: relative;background: #666;
+      }
+      .ex2 {
+         position: absolute;left: 0;right: 0;
+         display: flex;
+         justify-content: space-between;align-items: center;
+         padding: 0 210px;margin: 0;
+         /* background: #666; */
+         color: #FFF;
+      }
+      .ex2 h1 a {
+         display: block;
+         width: 134px;height: 42px;background: yellow;
+      }
+      /* .ex2 nav {background: lightblue;} */
+      .ex2 nav ul#gnb {
+         display: flex;
+         /* border: 1px solid orange; */
+      }
+      .ex2 nav ul#gnb>li {position: relative;}
+      .ex2 nav ul#gnb>li>a {
+         display: flex;position: relative;
+         justify-content: center;align-items: center;
+         /* border: 1px solid #000; */
+         width: 142px;height: 100px;
+         font-size: 18px;font-weight: 600;
+      }
+      .ex2 nav ul#gnb>li>a::after {
+         content: '';
+         position: absolute;left: 50%;right: 50%;bottom: 0;
+         height: 4px;
+         background: gold;
+         transition: all 0.5s;
+      }
+      .ex2 nav ul#gnb>li.over>a::after {left: 0;right: 0;}
+      .ex2.on nav ul#gnb>li>a::after {
+         content: '';
+         position: absolute;left: 0;right: 0;bottom: 0;
+         height: 4px;
+         background: gold;
+      }
+      .ex2 nav ul#gnb ul {
+         position: absolute;
+         display: none;flex-direction: column;gap: 20px;
+         align-items: center;
+         left: 0;right: 0;top: 100px;z-index: 1;
+         padding: 35px 0;
+         /* background: salmon; */
+         text-align: center;
+      }
+      
+   .ex2.on {
+      border-bottom: 1px solid #ccc;
+      background: #fff;
+      color: #333;
+   }
+   .ex2.on::after {
+      content: "";
+      position: absolute;left: 0;right: 0;top: 101px;
+      height: 300px;background: #FFF;
+   }
+   /* .ex2.on::after {height: 300px} */
+
+   .ex2.on ul#gnb ul{display: flex;}
+   .ex2_wrap main {
+      height: 600px;background: url(https://images.unsplash.com/photo-1530053969600-caed2596d242?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+      no-repeat;
+      background-size: cover;
+   }
+
+      /* ex3 */
+      @font-face {
+   font-family: 'SEBANG_Gothic_Regular';
+   src: url('https://cdn.jsdelivr.net/gh/webfontworld/sebang/SebangGothicRegular.woff') format('woff');
+   font-weight: regular;
+   font-style: normal;
+}
+.ex3 {
+   display: flex;justify-content: space-between;
+   align-items: center;
+   padding: 0 2.5%;
+   margin: auto;
+         width: 100%;height: 100px;
+         background: #fcdc00;
+         font-family: "SEBANG_Gothic_Regular";
+      }
+      .ex3 .header_left {
+         display: flex;gap: 55px;align-items: center;
+      }
+      .ex3 h1 {width: 117px;height: 39px;
+         background: url(./img/logo.svg);
+      }
+      .ex3 h1 .screen_out {
+         display: block;overflow: hidden;
+         width: 0;height: 0;
+      }
+      /* .ex3 nav {background: lightblue;} */
+      .ex3 nav ul {
+         display: flex;gap: 28px;
+         margin-left: 13px;
+         /* border: 1px solid orange; */
+         font-size: 22px;
+      }
+      /* .ex3 nav li {background: yellowgreen;} */
+      /* .ex3 nav li a {background: slateblue;} */
+      .ex3 .util {
+         display: flex;gap: 38px;
+         /* border: 1px solid red; */
+         font-size: 18px;
+      }
+      .ex3 .util a {
+         /* background: gold; */
+      }
+      .ex3 .util button {
+         width: 22px;height: 22px;
+         background: url(./img/search.svg);
+         background-repeat: no-repeat;
+         background-position: center;
+         background-size: contain;
+      }
+
+      /* ex4 */
+      @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+      .ex4 {
+         /* display: flex;justify-content: space-between; */
+         position: relative;
+         padding: 20px 5%;
+         width: 1750px;height: 70px;margin: auto;
+         background: #fff;
+         font-family: pretendard;
+         font-weight: 700;
+      }
+      .ex4 .header_left {
+         position: absolute;left: 5%;
+         display: flex;gap: 40px;
+      }
+      .ex4 button {
+         display: block;
+         width: 36px;height: 30px;
+         background: 1px solid red;
+      }
+      .ex4 button a {
+         display: block;
+      }
+      .ex4 button span {
+         width: 36px;height: 3px;background: #333;
+         border: 1px solid salmon;
+      }
+
+      .ex4 h1 {
+         /* position: absolute;left: 5%; */
+         width: 190px;height: 16.45px;
+         background: url(./img/logo_b_277.png) no-repeat;
+         background-size: contain;
+         }
+      .ex4 h1 .screen_out {
+         display: block;overflow: hidden;
+         width: 0;height: 0;
+      }
+      .ex4 nav {background: lightblue;}
+      .ex4 nav ul {
+         display: flex;justify-content: center;gap: 70px;
+         height: 70px;
+         border: 1px solid orange;
+         font-size: 18px;}
+      /* .ex4 nav li {background: yellowgreen;} */
+      /* .ex4 nav li a {background: slateblue;} */
+      .ex4 .util {
+         position: absolute;right: 5%;top: 50%;
+         transform: translateY(-50%);
+         display: flex;gap: 10px;
+         border: 1px solid red;
+      }
+      .ex4 .util a {
+         background: gold;
+      }
+
+      .ex5 {
+         position: relative;
+         padding: 0 5%;height: 70px;
+         background: burlywood;
+      }
+      .ex5 .header_left {
+         position: absolute;left: 5%;top: 50%;
+         transform: translateY(-50%);
+         display: flex;gap: 50px;
+         align-items: center;
+      }
+      .ex5 .btn_sitemap {
+         display: flex;
+         flex-direction: column;justify-content: space-between;
+         width: 36px;height: 27px;
+      }
+      .ex5 .btn_sitemap span {
+         width: 100%;
+         height: 3px;background: #333;
+      }
+      .ex5 h1 {
+         width: 190px;height: 16.45px;
+         background: url(./img/logo_b_277.png) no-repeat;
+         background-size: contain;
+      }
+      .ex5 h1 .screen_out {
+         display: block;overflow: hidden;
+         width: 0;height: 0;
+      }
+      .ex5 nav {
+         display: flex;
+         justify-content: center;align-items: center;
+         height: 100%;
+      }
+      .ex5 nav ul {
+         display: flex;gap: 40px;
+         /* background: grey; */
+      }
+      .ex5 nav li {
+         /* background: goldenrod; */
+         font-size: 20px;
+      }
+      .ex5 form {
+         position: absolute;right: 5%;top: 0;
+         /* width: 160px; */
+         height: 40px;
+         padding: 0 15px;
+         border: 2px solid #000;
+         border-radius: 24px;
+      }
+      .ex5 form input {
+         width: 100px;height: 14px;
+         background: transparent;
+         font-size: 14px;
+      }
+      .ex5 form button {
+         width: 25px;height: 21px;
+         background: url(https://www.shinsegaefood.com/images/web/icon/ico_search_25.png);
+      }
+
+   </style>
+</head>
+<body>
+   <b>신세계 푸드 헤더</b>
+   <header class="ex5">
+      <div class="header_left">
+         <button class="btn_sitemap">
+            <span></span>
+            <span></span>
+            <span></span>
+         </button>
+         <h1><a href="#"><span class="screen_out">shinsegea food</span></a></h1>
+      </div>
+      <nav>
+         <ul>
+            <li><a href="#">gnb1</a></li>
+            <li><a href="#">gnb2</a></li>
+            <li><a href="#">gnb3</a></li>
+            <li><a href="#">gnb4</a></li>
+            <li><a href="#">gnb5</a></li>
+            <li><a href="#">gnb6</a></li>
+         </ul>
+      </nav>
+      <form>
+         <input type="text">
+         <button type="submit"></button>
+      </form>
+   </header>
+   <b>헤더연습 1</b>
+   <header class="ex1">
+      <h1><a href="#">logo</a></h1>
+      <nav>
+         <ul>
+            <li><a href="#">gnb1</a></li>
+            <li><a href="#">gnb2</a></li>
+            <li><a href="#">gnb3</a></li>
+            <li><a href="#">gnb4</a></li>
+            <li><a href="#">gnb5</a></li>
+         </ul>
+      </nav>
+      <div class="util">
+         <a href="#">로그인</a>
+         <a href="#">eng</a>
+      </div>
+   </header>
+   <b>노랑풍선</b>
+   <div class="ex2_wrap">
+      <header class="ex2">
+         <h1><a href="#">노랑풍선</a></h1>
+         <nav>
+            <ul id="gnb">
+               <li><a href="#">회사소개</a>
+                  <ul>
+                     <li><a href="#">회사소개</a></li>
+                     <li><a href="#">대표인사말</a></li>
+                     <li><a href="#">연혁</a></li>
+                     <li><a href="#">고객만족경영</a></li>
+                     <li><a href="#">윤리경영</a></li>
+                     <li><a href="#">CI소개</a></li>
+                     <li><a href="#">오시는길</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">투자정보</a>
+                  <ul>
+                     <li><a href="#">재무정보</a></li>
+                     <li><a href="#">공고사항</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">대리점안내</a>
+               <ul>
+                  <li><a href="#">대리점소개</a></li>
+                  <li><a href="#">개설신청안내</a></li>
+               </ul>
+               </li>
+               <li><a href="#">홍보센터</a>
+                  <ul>
+                     <li><a href="#">사회공헌</a></li>
+                     <li><a href="#">보도기사</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">채용정보</a>
+                  <ul>
+                     <li><a href="#">인재상</a></li>
+                     <li><a href="#">복지재도</a></li>
+                     <li><a href="#">채용정보</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </nav>
+         <!-- ::after -->
+         
+      </header>
+      <main>main</main>
+   </div>
+   <b>아트앤컬쳐</b>
+   <header class="ex3">
+   <div class="header_left">
+      <h1><a href="#"><span class="screen_out">아트앤컬쳐</span></a></h1>
+      <nav>
+         <ul>
+            <li><a href="#">아트앤컬쳐</a></li>
+            <li><a href="#">교과서자료실</a></li>
+            <li><a href="#">작품감상실</a></li>
+            <li><a href="#">포트폴리오</a></li>
+            <li><a href="#">고객센터</a></li>
+         </ul>
+      </nav>
+   </div>
+   <div class="util">
+      <a href="#">로그인</a>
+      <button><a href="#"></a></button>
+   </div>
+   </header>
+   <b>신세계 푸드</b>
+   <header class="ex4">
+      <div class="header_left">
+         <button>
+            <a href="http://wwww.naver.com">
+               <span></span>
+            </a>
+         </button>
+      <h1><a href="#"><sapn class="screen_out">SHINSEGAE FOOD</sapn></a></h1>     
+   </div> 
+      <nav>
+         <ul>
+            <li><a href="#">COMPANY</a></li>
+            <li><a href="#">BUSINESS</a></li>
+            <li><a href="#">ESG</a></li>
+            <li><a href="#">고객지원</a></li>
+            <li><a href="#">채용</a></li>
+         </ul>
+      </nav>
+      <div class="search">
+         <form>
+            <a href=""></a>
+         </form>
+      </div>
+   </header>
+
+   <!-- JS -->
+   <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous">
+   </script>
+   <script>
+      $('.ex2 #gnb>li').mouseover(function() {
+         $('.ex2').addClass('on')
+         $(this).addClass('over')
+      });
+      $('.ex2 #gnb>li').mouseout(function() {
+         $('.ex2').removeClass('on')
+         $('.ex2 #gnb>li').removeClass('over')
+      });
+   </script>
+</body>
+</html>

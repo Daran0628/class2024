@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반응형 단위</title>
+  <style>
+    body {background: #AAA;margin: 0;margin-bottom: 500px;}
+    strong, em {display: block;}
+    .ex1 {background: #FFF;overflow: auto;}
+    .ex1 h1 {background: pink;width: 700px;margin: auto;}
+
+    .ex2 {background: #FFF;margin: 80px 0;width: 80%;}
+    .ex2 h1 {background: gold;width: 50%;}
+
+    .ex2 > .ancestor {
+      border: 10px solid #000;width: 100%;
+      /* box-sizing: border-box; */
+    }
+    .ex2 > .ancestor > .parent {
+      background: lightblue;width: 50%;
+    }
+    .ex2 > .ancestor > .parent > p {
+      border: 5px solid red;width: 50%;/*196*/
+    }
+    .ex2 > .ancestor > .parent > p > em {
+      background: orange;width: 50vw;
+    }
+    .ex3 {background: #FFF;margin: 80px 0;}
+    .ex3 h1 {
+      background: yellowgreen;
+      width: 100vw;
+    }
+    .ex3 > .ancestor {
+      border: 10px solid #000;width: 100vw;
+      box-sizing: border-box;
+    }
+    .ex3 > .ancestor > .parent {
+      background: lightblue;width: 50vw;
+    }
+    .ex3 > .ancestor > .parent > p {
+      border: 5px solid red;width: 50vw;
+    }
+    .ex3 > .ancestor > .parent > p > em {
+      background: orange;width: 50vw;
+    }
+    .swiper {
+      border: 0.3vw solid red;
+    }
+    .swiper > .wrapper {
+      display: flex;gap: 1vw;
+      background: green;padding: 1vw;
+    }
+    .swiper > .wrapper > .item {
+      width: 47vw;height: 25vw;
+      box-sizing: border-box;flex-shrink: 0;
+      background: #FFF;border: 1px solid #AAA;
+
+      /* 텍스트 중앙정렬 */
+      display: flex;justify-content: center;align-items: center;
+   }
+   .ex4 {
+      background: #FFF;margin: 100px 50px;
+      font-size: 20px;
+   }
+   .ex4 h1 {font-size: 30px;}
+   .ex4 p {font-size: 2em;} /* 40px*/
+   .ex4 section {font-size: 1.5em;}/*30px*/
+   .ex4 strong {font-size: 3em;}/*60px*/
+
+   html {font-size: 30px;}
+   .ex5 {
+      width: 1200px;
+      border: 1px solid #000; margin: auto;
+      font-size: 30px;
+   }
+   /* .ex5 h1 {} */
+   .ex5 em {font-size: 3em;}
+   .ex5 p {font-size: 3rem;font-weight: bold;}/*3em: 90px, 3rem: 48px*/
+   .ex5 section {font-size: 2rem;} /*2rem : 60px*/
+   .ex5 strong {font-size: 1rem;} /*1rem : 16px*/
+
+   article {
+      margin: 80px;padding: 40px 0;background: #fff;
+   }
+   .box1 {width: 600px;}
+   .box2 {width: 50%;}
+   .box3 {width: 32vw;}
+   .box4 {width: 20rem;}
+  </style>
+</head>
+<body>
+  <div class="ex1">
+    <h1>고정값 px</h1>
+    <p>기본값(Block) => 가로 : 부모 크기 기준, 세로 : 자손 크기 기준</p>
+    <p>Block 요소이면서 예외되는 상황 : flex-item, position:absolute/fixed, ...</p>
+
+    <strong>
+      * 반응형 웹에서 박스들의 가로 크기는 고정값을 사용하지 않음
+    </strong>
+    <strong>
+      * 특히, 가로 정렬된 박스들의 사이 여백(gutter)값은 px 사용하기도 함,(세로도 마찬가지)
+    </strong>
+  </div>
+  <div class="ex2">
+    <h1>가변값 %</h1>
+    <strong>※ 직접부모 크기 기준</strong>
+    <div class="ancestor">
+      <div class="parent">
+        <p>
+          Element P
+          <em>.ancestor > .parent > p > em</em>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="ex3">
+    <h1>viewport 기준값 vw, vh</h1>
+    <div class="ancestor">
+      <div class="parent">
+        <p>
+          Element P
+          <em>.ancestor > .parent > p > em</em>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="swiper">
+    <div class="wrapper">
+      <div class="item">Item 1</div>
+      <div class="item">Item 2</div>
+      <div class="item">Item 3</div>
+      <div class="item">Item 4</div>
+      <div class="item">Item 5</div>
+    </div>
+  </div>
+  <div class="ex4">
+    <h1>em 단위 : 부모 글자 크기 기준</h1>
+    <p>부모 .ex4 글자 크기 20px, p 는 부모 2배 2em</p>
+    <section>
+      section의 글자크기 1.5em
+      <strong>.ex4는 20px, section은 1.5em(30px), strong은 3em(60px)</strong>
+    </section>
+  </div>
+   <div class="ex5">
+         <h1>rem 단위 : html태그(Root) 글자 크기 기준</h1>
+         * Root 글자 크기 : 10px
+         <em>ex5의 글자 크기 30px, em태그 3em(90px)</em>
+         <p>p : 3rem</p>
+         <section>
+            section : 2rem
+            <strong>strong : 4rem</strong>
+         </section>
+         <article class="box1">article box1 - width: 600px</article>
+         <article class="box2">article box2 - width: 50%</article>
+         <article class="box3">article box3 - width: 32vw</article>
+         <article class="box4">article box4 - width: 20rem (root 30px)</article>
+         <article class="box5">article box5 - width: auto</article>
+   </div>
+</body>
+</html>

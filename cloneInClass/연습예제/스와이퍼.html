@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스와이퍼 연습</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <style>
+    body {margin-bottom: 500px;}
+    #swp1 {height: 500px;width: 80%;}
+    #swp1 .swiper-slide {
+      display: flex;font-size: 100px;
+      justify-content: center;align-items: center;
+    }
+    #swp1 .swiper-slide1 {background: pink;}
+    #swp1 .swiper-slide2 {background: orange;}
+    #swp1 .swiper-slide3 {background: yellowgreen;}
+    #swp1 .swiper-slide4 {background: slateblue;}
+    #swp1 .swiper-pagination span {
+      background: red;width: 30px;height: 30px;
+    }
+    .swiper-button-next {color: red}
+
+    /* swiper2 */
+    #swp2 {height: 500px;width: 80%;margin-top: 100px;}
+    #swp2 .swiper-slide {
+      display: flex;font-size: 100px;
+      justify-content: center;align-items: center;
+    }
+   #swp2 .swiper-slide1 {background: powderblue;}
+   #swp2 .swiper-slide2 {background: lightblue;}
+   #swp2 .swiper-slide3 {background: lightsteelblue;}
+   #swp2 .swiper-slide4 {background: lightskyblue;}
+    .my_nav_btn {
+      position: absolute;left: 20px;top:20px;z-index: 100;
+    }
+    .my_nav_btn button {
+      background: none;border: none;
+      font-size: 30px;cursor: pointer;
+    }
+    h2 {text-align: center;font-size: 30px;font-weight: bold;margin: 50px;}
+    #swp3 {
+      overflow: hidden;width: 1000px;height: 2.5em;
+      margin: auto;font-size: 30px;
+      position: relative;
+    }
+    #swp3 ul {width: calc(100% - 43px);}
+    #swp3 li {
+      line-height: 2.5em;text-indent: 1.5em;
+      border: 1px solid red;
+    }
+    #swp3 .ex1_btn {
+      display: flex;flex-direction: column;
+      justify-content: space-between;
+      position: absolute;right: 0;top: 0;bottom: 0;
+      padding: 0 6px;background: #dedede;
+    }
+    #swp3 .ex1_btn button {line-height: 1em;cursor: pointer;}
+  </style>
+</head>
+<body>
+  <h1>Swiper 연습</h1>
+  <div class="swiper" id="swp1">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide swiper-slide1">Slide 1</div>
+      <div class="swiper-slide swiper-slide2">Slide 2</div>
+      <div class="swiper-slide swiper-slide3">Slide 3</div>
+      <div class="swiper-slide swiper-slide4">Slide 4</div>
+    </div>
+
+    <!-- If we need pagination(슬라이드 갯수) -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+  <div class="swiper" id="swp2">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide swiper-slide1">Slide 1</div>
+      <div class="swiper-slide swiper-slide2">Slide 2</div>
+      <div class="swiper-slide swiper-slide3">Slide 3</div>
+      <div class="swiper-slide swiper-slide4">Slide 4</div>
+    </div>
+
+    <div class="my_nav_btn">
+      <button class="my_prev">◀</button>
+      <button class="my_next">▶</button>
+    </div>
+  </div>
+
+  <h2>네이버 연합뉴스</h2>
+  <div id="swp3">
+    <ul class="swiper-wrapper">
+      <li class="swiper-slide">'24조 잭팟' 프랑스 꺾은 팀코리아…신고가 속출</li>
+      <li class="swiper-slide">SK 이혼소송서 드러난 노태우 비자금···국세청장 후보 "과세할 수 있다"</li>
+      <li class="swiper-slide">테일러 스위프트, 英 물가까지 올렸다고?</li>
+      <li class="swiper-slide">"가격 너무 낮지 않아?"..단톡방 만들어 집값 담합 유도</li>
+      <li class="swiper-slide">강한 장맛비 계속…낮 최고기온 30도</li>
+    </ul>
+    <div class="ex1_btn">
+      <button class="ex1_prev">▲</button>
+      <button class="ex1_next">▼</button>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper1 = new Swiper('#swp1', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+      autoplay: true,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      // And if we need scrollbar
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    });
+
+    const swiper2 = new Swiper('#swp2', {
+      autoplay: true,
+      // effect: 'fade',
+      navigation: {
+        nextEl: '.my_next',
+        prevEl: '.my_prev',
+      },
+      loop: true,
+    })
+
+    const swiper3 = new Swiper('#swp3', {
+      direction: 'vertical',
+      autoplay: true,
+      navigation: {
+        prevEl: '.ex1_prev',
+        nextEl: '.ex1_next',
+      },
+    })
+  </script>
+</body>
+</html>

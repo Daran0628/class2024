@@ -1,0 +1,19 @@
+
+/* Query > 질의하다 */
+/* pc 가로 */
+@media screen and (min-width: 1280px) {
+   body {background: pink;}
+   header .inner {display: flex;flex-direction: row;}
+}
+
+@media screen and (min-width: 760px) and (max-width: 1279px) {
+   body {background: lightgreen;}
+}
+
+/* 중간 사이즈 => default */
+
+/* mob 세로 */
+@media screen and (max-width: 550px) {
+   body {background: lightskyblue;}
+   header .inner {display: flex;flex-direction: column;}
+}
